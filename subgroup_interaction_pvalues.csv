@@ -1,0 +1,752 @@
+title,table_number,domain,endpoint_short,category,subgroup_values,interaction_p
+Table 301.1.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Age Group 1,"<=65 years, >65 years",0.9663
+Table 301.1.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Age Group 2,"<=75 years, >75 years",0.166
+Table 301.1.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Sex,"Male, Female",0.7817
+Table 301.1.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Race,"White, Asian",0.055
+Table 301.1.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Tobacco History,"Current, Former, Never",0.6629
+Table 301.1.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Region,"Asia, Non-Asia",0.5099
+Table 301.1.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Number of Organs with Metastatic Sites,"0-2, >=3",0.5739
+Table 301.1.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Prior Gastrectomy (total or partial),"Yes, No",0.1607
+Table 301.1.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Histology (Tumor Type),"Diffuse, Intestinal, Mixed/Other",0.2257
+Table 301.1.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Tumor Location 1,"Gastric, GEJ",0.0766
+Table 301.1.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Tumor Location 2,"Gastric Proximal, Gastric Distal",0.7157
+Table 301.1.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Tumor Location 3,"GEJ Proximal, GEJ Distal",0.0841
+Table 301.1.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Age Group 1,"<=65 years, >65 years",0.6914
+Table 301.1.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Age Group 2,"<=75 years, >75 years",0.7321
+Table 301.1.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Sex,"Male, Female",0.6583
+Table 301.1.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Race,"White, Asian",0.0351
+Table 301.1.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Tobacco History,"Current, Former, Never",0.7503
+Table 301.1.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Region,"Asia, Non-Asia",0.1064
+Table 301.1.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Number of Organs with Metastatic Sites,"0-2, >=3",0.6418
+Table 301.1.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Prior Gastrectomy (total or partial),"Yes, No",0.2535
+Table 301.1.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Histology (Tumor Type),"Diffuse, Intestinal, Mixed/Other",0.1756
+Table 301.1.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Tumor Location 1,"Gastric, GEJ",0.1478
+Table 301.1.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Tumor Location 2,"Gastric Proximal, Gastric Distal",0.2419
+Table 301.1.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Tumor Location 3,"GEJ Proximal, GEJ Distal",0.0145
+Table 301.1.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Age Group 1,"<=65 years, >65 years",0.2246
+Table 301.1.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Age Group 2,"<=75 years, >75 years",0.7667
+Table 301.1.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Sex,"Male, Female",0.994
+Table 301.1.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Race,"White, Asian",0.0076
+Table 301.1.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Tobacco History,"Current, Former, Never",0.9311
+Table 301.1.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Region,"Asia, Non-Asia",0.0631
+Table 301.1.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Number of Organs with Metastatic Sites,"0-2, >=3",0.5801
+Table 301.1.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Prior Gastrectomy (total or partial),"Yes, No",0.2521
+Table 301.1.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Histology (Tumor Type),"Diffuse, Intestinal, Mixed/Other",0.1594
+Table 301.1.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Tumor Location 1,"Gastric, GEJ",0.5492
+Table 301.1.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Tumor Location 2,"Gastric Proximal, Gastric Distal",0.4207
+Table 301.1.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Tumor Location 3,"GEJ Proximal, GEJ Distal",0.023
+Table 301.1.3004.5.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Global Health Status by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: GHS,Age Group 1,"<=65 years, >65 years",0.1765
+Table 301.1.3004.5.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Global Health Status by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: GHS,Sex,"Male, Female",0.5319
+Table 301.1.3004.5.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Global Health Status by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: GHS,Region,"Asia, Non-Asia",0.6909
+Table 301.1.3004.5.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Global Health Status by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: GHS,Number of Organs with Metastatic Sites,"0-2, >=3",0.9878
+Table 301.1.3004.6.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Physical Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Physical Funct.,Age Group 1,"<=65 years, >65 years",0.4491
+Table 301.1.3004.6.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Physical Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Physical Funct.,Sex,"Male, Female",0.6944
+Table 301.1.3004.6.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Physical Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Physical Funct.,Region,"Asia, Non-Asia",0.9816
+Table 301.1.3004.6.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Physical Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Physical Funct.,Number of Organs with Metastatic Sites,"0-2, >=3",0.436
+Table 301.1.3004.7.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Role Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Role Funct.,Age Group 1,"<=65 years, >65 years",0.6711
+Table 301.1.3004.7.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Role Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Role Funct.,Sex,"Male, Female",0.2311
+Table 301.1.3004.7.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Role Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Role Funct.,Region,"Asia, Non-Asia",0.9528
+Table 301.1.3004.7.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Role Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Role Funct.,Number of Organs with Metastatic Sites,"0-2, >=3",0.347
+Table 301.1.3004.8.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Emotional Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Emotional Funct.,Age Group 1,"<=65 years, >65 years",0.6163
+Table 301.1.3004.8.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Emotional Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Emotional Funct.,Sex,"Male, Female",0.406
+Table 301.1.3004.8.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Emotional Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Emotional Funct.,Region,"Asia, Non-Asia",0.1594
+Table 301.1.3004.8.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Emotional Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Emotional Funct.,Number of Organs with Metastatic Sites,"0-2, >=3",0.7954
+Table 301.1.3004.9.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Cognitive Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Cognitive Funct.,Age Group 1,"<=65 years, >65 years",0.5756
+Table 301.1.3004.9.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Cognitive Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Cognitive Funct.,Sex,"Male, Female",0.3352
+Table 301.1.3004.9.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Cognitive Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Cognitive Funct.,Region,"Asia, Non-Asia",0.936
+Table 301.1.3004.9.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Cognitive Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Cognitive Funct.,Number of Organs with Metastatic Sites,"0-2, >=3",0.7312
+Table 301.1.3004.10.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Social Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Social Funct.,Age Group 1,"<=65 years, >65 years",0.2725
+Table 301.1.3004.10.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Social Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Social Funct.,Sex,"Male, Female",0.4933
+Table 301.1.3004.10.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Social Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Social Funct.,Region,"Asia, Non-Asia",0.8704
+Table 301.1.3004.10.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Social Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Social Funct.,Number of Organs with Metastatic Sites,"0-2, >=3",0.6385
+Table 301.1.3004.11.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Fatigue by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Fatigue,Age Group 1,"<=65 years, >65 years",0.7527
+Table 301.1.3004.11.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Fatigue by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Fatigue,Sex,"Male, Female",0.0384
+Table 301.1.3004.11.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Fatigue by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Fatigue,Region,"Asia, Non-Asia",0.4185
+Table 301.1.3004.11.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Fatigue by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Fatigue,Number of Organs with Metastatic Sites,"0-2, >=3",0.8067
+Table 301.1.3004.12.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Nausea and Vomiting by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Nausea & Vomiting,Age Group 1,"<=65 years, >65 years",0.1851
+Table 301.1.3004.12.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Nausea and Vomiting by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Nausea & Vomiting,Sex,"Male, Female",0.4733
+Table 301.1.3004.12.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Nausea and Vomiting by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Nausea & Vomiting,Region,"Asia, Non-Asia",0.4009
+Table 301.1.3004.12.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Nausea and Vomiting by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Nausea & Vomiting,Number of Organs with Metastatic Sites,"0-2, >=3",0.1781
+Table 301.1.3004.13.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Pain by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Pain,Age Group 1,"<=65 years, >65 years",0.8012
+Table 301.1.3004.13.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Pain by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Pain,Sex,"Male, Female",0.2345
+Table 301.1.3004.13.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Pain by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Pain,Region,"Asia, Non-Asia",0.0136
+Table 301.1.3004.13.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Pain by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Pain,Number of Organs with Metastatic Sites,"0-2, >=3",0.9499
+Table 301.1.3004.14.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Dyspnoea by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dyspnoea,Age Group 1,"<=65 years, >65 years",0.277
+Table 301.1.3004.14.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Dyspnoea by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dyspnoea,Sex,"Male, Female",0.0718
+Table 301.1.3004.14.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Dyspnoea by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dyspnoea,Region,"Asia, Non-Asia",0.8191
+Table 301.1.3004.14.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Dyspnoea by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dyspnoea,Number of Organs with Metastatic Sites,"0-2, >=3",0.752
+Table 301.1.3004.15.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Insomnia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Insomnia,Age Group 1,"<=65 years, >65 years",0.3072
+Table 301.1.3004.15.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Insomnia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Insomnia,Sex,"Male, Female",0.8978
+Table 301.1.3004.15.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Insomnia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Insomnia,Region,"Asia, Non-Asia",0.5543
+Table 301.1.3004.15.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Insomnia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Insomnia,Number of Organs with Metastatic Sites,"0-2, >=3",0.4404
+Table 301.1.3004.16.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Appetite Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Appetite Loss,Age Group 1,"<=65 years, >65 years",0.5407
+Table 301.1.3004.16.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Appetite Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Appetite Loss,Sex,"Male, Female",0.6345
+Table 301.1.3004.16.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Appetite Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Appetite Loss,Region,"Asia, Non-Asia",0.3028
+Table 301.1.3004.16.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Appetite Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Appetite Loss,Number of Organs with Metastatic Sites,"0-2, >=3",0.1002
+Table 301.1.3004.17.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Constipation by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Constipation,Age Group 1,"<=65 years, >65 years",0.5761
+Table 301.1.3004.17.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Constipation by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Constipation,Sex,"Male, Female",0.8709
+Table 301.1.3004.17.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Constipation by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Constipation,Region,"Asia, Non-Asia",0.8611
+Table 301.1.3004.17.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Constipation by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Constipation,Number of Organs with Metastatic Sites,"0-2, >=3",0.5674
+Table 301.1.3004.18.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Diarrhoea by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Diarrhoea,Age Group 1,"<=65 years, >65 years",0.0192
+Table 301.1.3004.18.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Diarrhoea by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Diarrhoea,Sex,"Male, Female",0.278
+Table 301.1.3004.18.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Diarrhoea by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Diarrhoea,Region,"Asia, Non-Asia",0.9767
+Table 301.1.3004.18.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Diarrhoea by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Diarrhoea,Number of Organs with Metastatic Sites,"0-2, >=3",0.0669
+Table 301.1.3004.19.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Financial Difficulties by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Financial Diff.,Age Group 1,"<=65 years, >65 years",0.4538
+Table 301.1.3004.19.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Financial Difficulties by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Financial Diff.,Sex,"Male, Female",0.6902
+Table 301.1.3004.19.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Financial Difficulties by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Financial Diff.,Region,"Asia, Non-Asia",0.4061
+Table 301.1.3004.19.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Financial Difficulties by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Financial Diff.,Number of Organs with Metastatic Sites,"0-2, >=3",0.7049
+Table 301.1.3004.20.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Dysphagia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dysphagia,Age Group 1,"<=65 years, >65 years",0.2061
+Table 301.1.3004.20.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Dysphagia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dysphagia,Sex,"Male, Female",0.0028
+Table 301.1.3004.20.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Dysphagia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dysphagia,Region,"Asia, Non-Asia",0.3083
+Table 301.1.3004.20.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Dysphagia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dysphagia,Number of Organs with Metastatic Sites,"0-2, >=3",0.3151
+Table 301.1.3004.21.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Eating Restrictions by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Eating Restrictions,Age Group 1,"<=65 years, >65 years",0.6392
+Table 301.1.3004.21.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Eating Restrictions by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Eating Restrictions,Sex,"Male, Female",0.199
+Table 301.1.3004.21.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Eating Restrictions by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Eating Restrictions,Region,"Asia, Non-Asia",0.7394
+Table 301.1.3004.21.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Eating Restrictions by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Eating Restrictions,Number of Organs with Metastatic Sites,"0-2, >=3",0.7621
+Table 301.1.3004.22.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Reflux by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Reflux,Age Group 1,"<=65 years, >65 years",0.251
+Table 301.1.3004.22.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Reflux by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Reflux,Sex,"Male, Female",0.0355
+Table 301.1.3004.22.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Reflux by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Reflux,Region,"Asia, Non-Asia",0.3376
+Table 301.1.3004.22.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Reflux by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Reflux,Number of Organs with Metastatic Sites,"0-2, >=3",0.6323
+Table 301.1.3004.23.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Odynophagia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Odynophagia,Age Group 1,"<=65 years, >65 years",0.7039
+Table 301.1.3004.23.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Odynophagia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Odynophagia,Sex,"Male, Female",0.1452
+Table 301.1.3004.23.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Odynophagia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Odynophagia,Region,"Asia, Non-Asia",0.1553
+Table 301.1.3004.23.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Odynophagia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Odynophagia,Number of Organs with Metastatic Sites,"0-2, >=3",0.3516
+Table 301.1.3004.24.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Pain and Discomfort by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Pain & Discomfort,Age Group 1,"<=65 years, >65 years",0.9765
+Table 301.1.3004.24.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Pain and Discomfort by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Pain & Discomfort,Sex,"Male, Female",0.4433
+Table 301.1.3004.24.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Pain and Discomfort by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Pain & Discomfort,Region,"Asia, Non-Asia",0.8311
+Table 301.1.3004.24.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Pain and Discomfort by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Pain & Discomfort,Number of Organs with Metastatic Sites,"0-2, >=3",0.4707
+Table 301.1.3004.25.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Anxiety by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Anxiety,Age Group 1,"<=65 years, >65 years",0.0726
+Table 301.1.3004.25.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Anxiety by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Anxiety,Sex,"Male, Female",0.0179
+Table 301.1.3004.25.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Anxiety by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Anxiety,Region,"Asia, Non-Asia",0.5472
+Table 301.1.3004.25.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Anxiety by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Anxiety,Number of Organs with Metastatic Sites,"0-2, >=3",0.147
+Table 301.1.3004.26.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Eating in Front of Others by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Eating w/ Others,Age Group 1,"<=65 years, >65 years",0.2793
+Table 301.1.3004.26.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Eating in Front of Others by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Eating w/ Others,Sex,"Male, Female",0.4627
+Table 301.1.3004.26.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Eating in Front of Others by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Eating w/ Others,Region,"Asia, Non-Asia",0.9105
+Table 301.1.3004.26.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Eating in Front of Others by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Eating w/ Others,Number of Organs with Metastatic Sites,"0-2, >=3",0.674
+Table 301.1.3004.27.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Dry Mouth Score by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dry Mouth,Age Group 1,"<=65 years, >65 years",0.2577
+Table 301.1.3004.27.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Dry Mouth Score by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dry Mouth,Sex,"Male, Female",0.8004
+Table 301.1.3004.27.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Dry Mouth Score by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dry Mouth,Region,"Asia, Non-Asia",0.6023
+Table 301.1.3004.27.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Dry Mouth Score by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dry Mouth,Number of Organs with Metastatic Sites,"0-2, >=3",0.7331
+Table 301.1.3004.28.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble with Taste by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Taste,Age Group 1,"<=65 years, >65 years",0.222
+Table 301.1.3004.28.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble with Taste by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Taste,Sex,"Male, Female",0.4266
+Table 301.1.3004.28.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble with Taste by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Taste,Region,"Asia, Non-Asia",0.4458
+Table 301.1.3004.28.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble with Taste by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Taste,Number of Organs with Metastatic Sites,"0-2, >=3",0.0608
+Table 301.1.3004.29.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Body Image by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Body Image,Age Group 1,"<=65 years, >65 years",0.0146
+Table 301.1.3004.29.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Body Image by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Body Image,Sex,"Male, Female",0.2243
+Table 301.1.3004.29.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Body Image by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Body Image,Region,"Asia, Non-Asia",0.9558
+Table 301.1.3004.29.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Body Image by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Body Image,Number of Organs with Metastatic Sites,"0-2, >=3",0.2701
+Table 301.1.3004.30.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble Swallowing Saliva by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Swallowing Saliva,Age Group 1,"<=65 years, >65 years",0.0076
+Table 301.1.3004.30.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble Swallowing Saliva by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Swallowing Saliva,Sex,"Male, Female",0.5744
+Table 301.1.3004.30.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble Swallowing Saliva by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Swallowing Saliva,Region,"Asia, Non-Asia",0.6673
+Table 301.1.3004.30.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble Swallowing Saliva by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Swallowing Saliva,Number of Organs with Metastatic Sites,"0-2, >=3",0.3565
+Table 301.1.3004.31.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Choked When Swallowing Score by Subgroups (MID=10) - Full,3004,PRO,TTFD: Choking,Age Group 1,"<=65 years, >65 years",0.0116
+Table 301.1.3004.31.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Choked When Swallowing Score by Subgroups (MID=10) - Full,3004,PRO,TTFD: Choking,Sex,"Male, Female",0.575
+Table 301.1.3004.31.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Choked When Swallowing Score by Subgroups (MID=10) - Full,3004,PRO,TTFD: Choking,Region,"Asia, Non-Asia",0.7357
+Table 301.1.3004.31.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Choked When Swallowing Score by Subgroups (MID=10) - Full,3004,PRO,TTFD: Choking,Number of Organs with Metastatic Sites,"0-2, >=3",0.0995
+Table 301.1.3004.32.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble with Coughing by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Coughing,Age Group 1,"<=65 years, >65 years",0.1398
+Table 301.1.3004.32.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble with Coughing by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Coughing,Sex,"Male, Female",0.6948
+Table 301.1.3004.32.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble with Coughing by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Coughing,Region,"Asia, Non-Asia",0.7798
+Table 301.1.3004.32.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble with Coughing by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Coughing,Number of Organs with Metastatic Sites,"0-2, >=3",0.255
+Table 301.1.3004.33.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble Talking by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Trouble Talking,Age Group 1,"<=65 years, >65 years",0.009
+Table 301.1.3004.33.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble Talking by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Trouble Talking,Sex,"Male, Female",0.8368
+Table 301.1.3004.33.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble Talking by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Trouble Talking,Region,"Asia, Non-Asia",0.9481
+Table 301.1.3004.33.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble Talking by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Trouble Talking,Number of Organs with Metastatic Sites,"0-2, >=3",0.363
+Table 301.1.3004.34.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Weight Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Weight Loss,Age Group 1,"<=65 years, >65 years",0.4575
+Table 301.1.3004.34.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Weight Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Weight Loss,Sex,"Male, Female",0.3407
+Table 301.1.3004.34.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Weight Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Weight Loss,Region,"Asia, Non-Asia",0.9629
+Table 301.1.3004.34.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Weight Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Weight Loss,Number of Organs with Metastatic Sites,"0-2, >=3",0.1838
+Table 301.1.3004.35.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Hair Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Hair Loss,Age Group 1,"<=65 years, >65 years",0.6307
+Table 301.1.3004.35.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Hair Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Hair Loss,Sex,"Male, Female",0.1384
+Table 301.1.3004.35.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Hair Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Hair Loss,Region,"Asia, Non-Asia",0.813
+Table 301.1.3004.35.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Hair Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Hair Loss,Number of Organs with Metastatic Sites,"0-2, >=3",0.3152
+Table 301.1.3004.4.2: Global Pain - Summary of Time to First Deterioration of PI01 - Pain Intensity by Subgroups (MID=2) - Full Analysis Set,3004,PRO,TTFD: Pain Intensity,Age Group 1,"<=65 years, >65 years",0.2544
+Table 301.1.3004.4.2: Global Pain - Summary of Time to First Deterioration of PI01 - Pain Intensity by Subgroups (MID=2) - Full Analysis Set,3004,PRO,TTFD: Pain Intensity,Sex,"Male, Female",0.7895
+Table 301.1.3004.4.2: Global Pain - Summary of Time to First Deterioration of PI01 - Pain Intensity by Subgroups (MID=2) - Full Analysis Set,3004,PRO,TTFD: Pain Intensity,Region,"Asia, Non-Asia",0.5904
+Table 301.1.3004.4.2: Global Pain - Summary of Time to First Deterioration of PI01 - Pain Intensity by Subgroups (MID=2) - Full Analysis Set,3004,PRO,TTFD: Pain Intensity,Number of Organs with Metastatic Sites,"0-2, >=3",0.4571
+Table 301.1.3004.3.2: EQ-5D-5L - Summary of Time to First Deterioration of Visual Analog Scale by Subgroups (MID=15) - Full Analysis Set,3004,PRO,TTFD: EQ-5D VAS,Age Group 1,"<=65 years, >65 years",0.9725
+Table 301.1.3004.3.2: EQ-5D-5L - Summary of Time to First Deterioration of Visual Analog Scale by Subgroups (MID=15) - Full Analysis Set,3004,PRO,TTFD: EQ-5D VAS,Sex,"Male, Female",0.9065
+Table 301.1.3004.3.2: EQ-5D-5L - Summary of Time to First Deterioration of Visual Analog Scale by Subgroups (MID=15) - Full Analysis Set,3004,PRO,TTFD: EQ-5D VAS,Region,"Asia, Non-Asia",0.6235
+Table 301.1.3004.3.2: EQ-5D-5L - Summary of Time to First Deterioration of Visual Analog Scale by Subgroups (MID=15) - Full Analysis Set,3004,PRO,TTFD: EQ-5D VAS,Number of Organs with Metastatic Sites,"0-2, >=3",0.4272
+Table 301.1.2001.1.2: Summary and Results of TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Age Group 1,"<=65 years, >65 years",0.4905
+Table 301.1.2001.1.2: Summary and Results of TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Sex,"Male, Female",0.3405
+Table 301.1.2001.1.2: Summary and Results of TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Region,"Asia, Non-Asia",0.1628
+Table 301.1.2001.1.2: Summary and Results of TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Number of Organs with Metastatic Sites,"0-2, >=3",0.1164
+Table 301.1.2001.3.2: Summary and Results of Severe TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Age Group 1,"<=65 years, >65 years",0.8946
+Table 301.1.2001.3.2: Summary and Results of Severe TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Sex,"Male, Female",0.6182
+Table 301.1.2001.3.2: Summary and Results of Severe TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Region,"Asia, Non-Asia",0.1096
+Table 301.1.2001.3.2: Summary and Results of Severe TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Number of Organs with Metastatic Sites,"0-2, >=3",0.6923
+Table 301.1.2001.4.2: Summary and Results of TESAEs by Subgroups - Safety Analysis Set,2001,Safety,TESAE (overall),Age Group 1,"<=65 years, >65 years",0.863
+Table 301.1.2001.4.2: Summary and Results of TESAEs by Subgroups - Safety Analysis Set,2001,Safety,TESAE (overall),Sex,"Male, Female",0.6326
+Table 301.1.2001.4.2: Summary and Results of TESAEs by Subgroups - Safety Analysis Set,2001,Safety,TESAE (overall),Region,"Asia, Non-Asia",0.5316
+Table 301.1.2001.4.2: Summary and Results of TESAEs by Subgroups - Safety Analysis Set,2001,Safety,TESAE (overall),Number of Organs with Metastatic Sites,"0-2, >=3",0.8781
+Table 301.1.2001.5.2: Summary and Results of Permanent Treatment Discontinuation due to TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Age Group 1,"<=65 years, >65 years",0.8095
+Table 301.1.2001.5.2: Summary and Results of Permanent Treatment Discontinuation due to TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Sex,"Male, Female",0.3808
+Table 301.1.2001.5.2: Summary and Results of Permanent Treatment Discontinuation due to TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Region,"Asia, Non-Asia",0.3109
+Table 301.1.2001.5.2: Summary and Results of Permanent Treatment Discontinuation due to TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Number of Organs with Metastatic Sites,"0-2, >=3",0.5572
+Table 301.1.2001.10.2: Summary and Results of TEAEs by Subgroups - Thrombocytopenia (PT),2001,Safety,TEAE – Thrombocytopenia,Age Group 1,"<=65 years, >65 years",0.6932
+Table 301.1.2001.10.2: Summary and Results of TEAEs by Subgroups - Thrombocytopenia (PT),2001,Safety,TEAE – Thrombocytopenia,Sex,"Male, Female",0.7831
+Table 301.1.2001.10.2: Summary and Results of TEAEs by Subgroups - Thrombocytopenia (PT),2001,Safety,TEAE – Thrombocytopenia,Region,"Asia, Non-Asia",0.9812
+Table 301.1.2001.10.2: Summary and Results of TEAEs by Subgroups - Thrombocytopenia (PT),2001,Safety,TEAE – Thrombocytopenia,Number of Organs with Metastatic Sites,"0-2, >=3",0.143
+Table 301.1.2001.13.2: Summary and Results of TEAEs by Subgroups - Tachycardia (PT),2001,Safety,TEAE – Tachycardia,Region,"Asia, Non-Asia",0.9939
+Table 301.1.2001.19.2: Summary and Results of TEAEs by Subgroups - Gastrointestinal Disorders (SOC),2001,Safety,TEAE – GI Disorders,Age Group 1,"<=65 years, >65 years",0.9855
+Table 301.1.2001.19.2: Summary and Results of TEAEs by Subgroups - Gastrointestinal Disorders (SOC),2001,Safety,TEAE – GI Disorders,Sex,"Male, Female",0.2164
+Table 301.1.2001.19.2: Summary and Results of TEAEs by Subgroups - Gastrointestinal Disorders (SOC),2001,Safety,TEAE – GI Disorders,Region,"Asia, Non-Asia",0.1603
+Table 301.1.2001.19.2: Summary and Results of TEAEs by Subgroups - Gastrointestinal Disorders (SOC),2001,Safety,TEAE – GI Disorders,Number of Organs with Metastatic Sites,"0-2, >=3",0.3109
+Table 301.1.2001.33.2: Summary and Results of TEAEs by Subgroups - Nausea (PT),2001,Safety,TEAE – Nausea (PT),Age Group 1,"<=65 years, >65 years",0.107
+Table 301.1.2001.33.2: Summary and Results of TEAEs by Subgroups - Nausea (PT),2001,Safety,TEAE – Nausea (PT),Sex,"Male, Female",0.0975
+Table 301.1.2001.33.2: Summary and Results of TEAEs by Subgroups - Nausea (PT),2001,Safety,TEAE – Nausea (PT),Region,"Asia, Non-Asia",0.4532
+Table 301.1.2001.33.2: Summary and Results of TEAEs by Subgroups - Nausea (PT),2001,Safety,TEAE – Nausea (PT),Number of Organs with Metastatic Sites,"0-2, >=3",0.4221
+Table 301.1.2001.34.2: Summary and Results of TEAEs by Subgroups - Salivary Hypersecretion (PT),2001,Safety,TEAE – Salivary Hypersecr.,Region,"Asia, Non-Asia",0.9936
+Table 301.1.2001.34.2: Summary and Results of TEAEs by Subgroups - Salivary Hypersecretion (PT),2001,Safety,TEAE – Salivary Hypersecr.,Number of Organs with Metastatic Sites,"0-2, >=3",0.994
+Table 301.1.2001.37.2: Summary and Results of TEAEs by Subgroups - Vomiting (PT),2001,Safety,TEAE – Vomiting (PT),Age Group 1,"<=65 years, >65 years",0.4949
+Table 301.1.2001.37.2: Summary and Results of TEAEs by Subgroups - Vomiting (PT),2001,Safety,TEAE – Vomiting (PT),Sex,"Male, Female",0.6872
+Table 301.1.2001.37.2: Summary and Results of TEAEs by Subgroups - Vomiting (PT),2001,Safety,TEAE – Vomiting (PT),Region,"Asia, Non-Asia",0.7147
+Table 301.1.2001.37.2: Summary and Results of TEAEs by Subgroups - Vomiting (PT),2001,Safety,TEAE – Vomiting (PT),Number of Organs with Metastatic Sites,"0-2, >=3",0.2338
+Table 301.1.2001.45.2: Summary and Results of TEAEs by Subgroups - Malaise (PT),2001,Safety,TEAE – Malaise,Age Group 1,"<=65 years, >65 years",0.912
+Table 301.1.2001.45.2: Summary and Results of TEAEs by Subgroups - Malaise (PT),2001,Safety,TEAE – Malaise,Sex,"Male, Female",0.9265
+Table 301.1.2001.45.2: Summary and Results of TEAEs by Subgroups - Malaise (PT),2001,Safety,TEAE – Malaise,Region,"Asia, Non-Asia",0.435
+Table 301.1.2001.45.2: Summary and Results of TEAEs by Subgroups - Malaise (PT),2001,Safety,TEAE – Malaise,Number of Organs with Metastatic Sites,"0-2, >=3",0.1176
+Table 301.1.2001.48.2: Summary and Results of TEAEs by Subgroups - Oedema Peripheral (PT),2001,Safety,TEAE – Oedema Periph.,Age Group 1,"<=65 years, >65 years",0.0484
+Table 301.1.2001.48.2: Summary and Results of TEAEs by Subgroups - Oedema Peripheral (PT),2001,Safety,TEAE – Oedema Periph.,Sex,"Male, Female",0.247
+Table 301.1.2001.48.2: Summary and Results of TEAEs by Subgroups - Oedema Peripheral (PT),2001,Safety,TEAE – Oedema Periph.,Region,"Asia, Non-Asia",0.1262
+Table 301.1.2001.48.2: Summary and Results of TEAEs by Subgroups - Oedema Peripheral (PT),2001,Safety,TEAE – Oedema Periph.,Number of Organs with Metastatic Sites,"0-2, >=3",0.5573
+Table 301.1.2001.58.2: Summary and Results of TEAEs by Subgroups - Oral Candidiasis (PT),2001,Safety,TEAE – Oral Candidiasis,Age Group 1,"<=65 years, >65 years",0.2342
+Table 301.1.2001.58.2: Summary and Results of TEAEs by Subgroups - Oral Candidiasis (PT),2001,Safety,TEAE – Oral Candidiasis,Sex,"Male, Female",0.8481
+Table 301.1.2001.58.2: Summary and Results of TEAEs by Subgroups - Oral Candidiasis (PT),2001,Safety,TEAE – Oral Candidiasis,Region,"Asia, Non-Asia",0.4893
+Table 301.1.2001.58.2: Summary and Results of TEAEs by Subgroups - Oral Candidiasis (PT),2001,Safety,TEAE – Oral Candidiasis,Number of Organs with Metastatic Sites,"0-2, >=3",0.9917
+Table 301.1.2001.77.2: Summary and Results of TEAEs by Subgroups - Metabolism And Nutrition Disorders (SOC),2001,Safety,TEAE – Metabolism,Age Group 1,"<=65 years, >65 years",0.9078
+Table 301.1.2001.77.2: Summary and Results of TEAEs by Subgroups - Metabolism And Nutrition Disorders (SOC),2001,Safety,TEAE – Metabolism,Sex,"Male, Female",0.5132
+Table 301.1.2001.77.2: Summary and Results of TEAEs by Subgroups - Metabolism And Nutrition Disorders (SOC),2001,Safety,TEAE – Metabolism,Region,"Asia, Non-Asia",0.8203
+Table 301.1.2001.77.2: Summary and Results of TEAEs by Subgroups - Metabolism And Nutrition Disorders (SOC),2001,Safety,TEAE – Metabolism,Number of Organs with Metastatic Sites,"0-2, >=3",0.725
+Table 301.1.2001.78.2: Summary and Results of TEAEs by Subgroups - Decreased Appetite (PT),2001,Safety,TEAE – Dec. Appetite,Age Group 1,"<=65 years, >65 years",0.6442
+Table 301.1.2001.78.2: Summary and Results of TEAEs by Subgroups - Decreased Appetite (PT),2001,Safety,TEAE – Dec. Appetite,Sex,"Male, Female",0.3057
+Table 301.1.2001.78.2: Summary and Results of TEAEs by Subgroups - Decreased Appetite (PT),2001,Safety,TEAE – Dec. Appetite,Region,"Asia, Non-Asia",0.9901
+Table 301.1.2001.78.2: Summary and Results of TEAEs by Subgroups - Decreased Appetite (PT),2001,Safety,TEAE – Dec. Appetite,Number of Organs with Metastatic Sites,"0-2, >=3",0.4489
+Table 301.1.2001.81.2: Summary and Results of TEAEs by Subgroups - Hypoalbuminaemia (PT),2001,Safety,TEAE – Hypoalb.,Age Group 1,"<=65 years, >65 years",0.7398
+Table 301.1.2001.81.2: Summary and Results of TEAEs by Subgroups - Hypoalbuminaemia (PT),2001,Safety,TEAE – Hypoalb.,Sex,"Male, Female",0.0242
+Table 301.1.2001.81.2: Summary and Results of TEAEs by Subgroups - Hypoalbuminaemia (PT),2001,Safety,TEAE – Hypoalb.,Region,"Asia, Non-Asia",0.9236
+Table 301.1.2001.81.2: Summary and Results of TEAEs by Subgroups - Hypoalbuminaemia (PT),2001,Safety,TEAE – Hypoalb.,Number of Organs with Metastatic Sites,"0-2, >=3",0.3201
+Table 301.1.2001.82.2: Summary and Results of TEAEs by Subgroups - Hypocalcaemia (PT),2001,Safety,TEAE – Hypocalc.,Age Group 1,"<=65 years, >65 years",0.2729
+Table 301.1.2001.82.2: Summary and Results of TEAEs by Subgroups - Hypocalcaemia (PT),2001,Safety,TEAE – Hypocalc.,Sex,"Male, Female",0.6978
+Table 301.1.2001.82.2: Summary and Results of TEAEs by Subgroups - Hypocalcaemia (PT),2001,Safety,TEAE – Hypocalc.,Region,"Asia, Non-Asia",0.2791
+Table 301.1.2001.82.2: Summary and Results of TEAEs by Subgroups - Hypocalcaemia (PT),2001,Safety,TEAE – Hypocalc.,Number of Organs with Metastatic Sites,"0-2, >=3",0.8999
+Table 301.1.2001.90.2: Summary and Results of TEAEs by Subgroups - Flank Pain (PT),2001,Safety,TEAE – Flank Pain,Number of Organs with Metastatic Sites,"0-2, >=3",0.9996
+Table 301.1.2001.114.2: Summary and Results of TEAEs by Subgroups - Dysuria (PT),2001,Safety,TEAE – Dysuria,Age Group 1,"<=65 years, >65 years",0.99
+Table 301.1.2001.114.2: Summary and Results of TEAEs by Subgroups - Dysuria (PT),2001,Safety,TEAE – Dysuria,Sex,"Male, Female",0.7533
+Table 301.1.2001.114.2: Summary and Results of TEAEs by Subgroups - Dysuria (PT),2001,Safety,TEAE – Dysuria,Region,"Asia, Non-Asia",0.811
+Table 301.1.2001.114.2: Summary and Results of TEAEs by Subgroups - Dysuria (PT),2001,Safety,TEAE – Dysuria,Number of Organs with Metastatic Sites,"0-2, >=3",0.9932
+Table 301.1.2001.123.2: Summary and Results of TEAEs by Subgroups - Oropharyngeal Pain (PT),2001,Safety,TEAE – Oropharyngeal Pain,Age Group 1,"<=65 years, >65 years",0.7113
+Table 301.1.2001.123.2: Summary and Results of TEAEs by Subgroups - Oropharyngeal Pain (PT),2001,Safety,TEAE – Oropharyngeal Pain,Sex,"Male, Female",0.9899
+Table 301.1.2001.123.2: Summary and Results of TEAEs by Subgroups - Oropharyngeal Pain (PT),2001,Safety,TEAE – Oropharyngeal Pain,Region,"Asia, Non-Asia",0.7829
+Table 301.1.2001.123.2: Summary and Results of TEAEs by Subgroups - Oropharyngeal Pain (PT),2001,Safety,TEAE – Oropharyngeal Pain,Number of Organs with Metastatic Sites,"0-2, >=3",0.4707
+Table 301.1.2001.171.2: Summary and Results of Severe TEAEs by Subgroups - Gastrointestinal Disorders (SOC),2001,Safety,Severe – GI Disorders,Age Group 1,"<=65 years, >65 years",0.4473
+Table 301.1.2001.171.2: Summary and Results of Severe TEAEs by Subgroups - Gastrointestinal Disorders (SOC),2001,Safety,Severe – GI Disorders,Sex,"Male, Female",0.3011
+Table 301.1.2001.171.2: Summary and Results of Severe TEAEs by Subgroups - Gastrointestinal Disorders (SOC),2001,Safety,Severe – GI Disorders,Region,"Asia, Non-Asia",0.1209
+Table 301.1.2001.171.2: Summary and Results of Severe TEAEs by Subgroups - Gastrointestinal Disorders (SOC),2001,Safety,Severe – GI Disorders,Number of Organs with Metastatic Sites,"0-2, >=3",0.9472
+Table 301.1.2001.176.2: Summary and Results of Severe TEAEs by Subgroups - Nausea (PT),2001,Safety,Severe – Nausea (PT),Age Group 1,"<=65 years, >65 years",0.3353
+Table 301.1.2001.176.2: Summary and Results of Severe TEAEs by Subgroups - Nausea (PT),2001,Safety,Severe – Nausea (PT),Sex,"Male, Female",0.7141
+Table 301.1.2001.176.2: Summary and Results of Severe TEAEs by Subgroups - Nausea (PT),2001,Safety,Severe – Nausea (PT),Region,"Asia, Non-Asia",0.2087
+Table 301.1.2001.176.2: Summary and Results of Severe TEAEs by Subgroups - Nausea (PT),2001,Safety,Severe – Nausea (PT),Number of Organs with Metastatic Sites,"0-2, >=3",0.2395
+Table 301.1.2001.178.2: Summary and Results of Severe TEAEs by Subgroups - Vomiting (PT),2001,Safety,Severe – Vomiting (PT),Age Group 1,"<=65 years, >65 years",0.2916
+Table 301.1.2001.178.2: Summary and Results of Severe TEAEs by Subgroups - Vomiting (PT),2001,Safety,Severe – Vomiting (PT),Sex,"Male, Female",0.4647
+Table 301.1.2001.178.2: Summary and Results of Severe TEAEs by Subgroups - Vomiting (PT),2001,Safety,Severe – Vomiting (PT),Region,"Asia, Non-Asia",0.5905
+Table 301.1.2001.178.2: Summary and Results of Severe TEAEs by Subgroups - Vomiting (PT),2001,Safety,Severe – Vomiting (PT),Number of Organs with Metastatic Sites,"0-2, >=3",0.2223
+Table 301.1.2001.180.2: Summary and Results of Severe TEAEs by Subgroups - Asthenia (PT),2001,Safety,Severe – Asthenia,Age Group 1,"<=65 years, >65 years",0.3089
+Table 301.1.2001.180.2: Summary and Results of Severe TEAEs by Subgroups - Asthenia (PT),2001,Safety,Severe – Asthenia,Sex,"Male, Female",0.1398
+Table 301.1.2001.180.2: Summary and Results of Severe TEAEs by Subgroups - Asthenia (PT),2001,Safety,Severe – Asthenia,Region,"Asia, Non-Asia",0.3057
+Table 301.1.2001.180.2: Summary and Results of Severe TEAEs by Subgroups - Asthenia (PT),2001,Safety,Severe – Asthenia,Number of Organs with Metastatic Sites,"0-2, >=3",0.564
+Table 301.1.2001.190.2: Summary and Results of Severe TEAEs by Subgroups - Metabolism And Nutrition Disorders (SOC),2001,Safety,Severe – Metabolism,Age Group 1,"<=65 years, >65 years",0.7363
+Table 301.1.2001.190.2: Summary and Results of Severe TEAEs by Subgroups - Metabolism And Nutrition Disorders (SOC),2001,Safety,Severe – Metabolism,Sex,"Male, Female",0.6678
+Table 301.1.2001.190.2: Summary and Results of Severe TEAEs by Subgroups - Metabolism And Nutrition Disorders (SOC),2001,Safety,Severe – Metabolism,Region,"Asia, Non-Asia",0.0461
+Table 301.1.2001.190.2: Summary and Results of Severe TEAEs by Subgroups - Metabolism And Nutrition Disorders (SOC),2001,Safety,Severe – Metabolism,Number of Organs with Metastatic Sites,"0-2, >=3",0.7686
+Table 301.1.2001.192.2: Summary and Results of Severe TEAEs by Subgroups - Hypoalbuminaemia (PT),2001,Safety,Severe – Hypoalb.,Age Group 1,"<=65 years, >65 years",0.9918
+Table 301.1.2001.192.2: Summary and Results of Severe TEAEs by Subgroups - Hypoalbuminaemia (PT),2001,Safety,Severe – Hypoalb.,Region,"Asia, Non-Asia",0.9994
+Table 301.1.2001.192.2: Summary and Results of Severe TEAEs by Subgroups - Hypoalbuminaemia (PT),2001,Safety,Severe – Hypoalb.,Number of Organs with Metastatic Sites,"0-2, >=3",0.9932
+Table 301.1.2001.205.2: Summary and Results of TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,TEAE – Abd. Pain (AESI),Age Group 1,"<=65 years, >65 years",0.3453
+Table 301.1.2001.205.2: Summary and Results of TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,TEAE – Abd. Pain (AESI),Sex,"Male, Female",0.5906
+Table 301.1.2001.205.2: Summary and Results of TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,TEAE – Abd. Pain (AESI),Region,"Asia, Non-Asia",0.7864
+Table 301.1.2001.205.2: Summary and Results of TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,TEAE – Abd. Pain (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.4838
+Table 301.1.2001.206.2: Summary and Results of TEAEs by Subgroups - Anemia (AESI),2001,Safety,TEAE – Anemia (AESI),Age Group 1,"<=65 years, >65 years",0.4248
+Table 301.1.2001.206.2: Summary and Results of TEAEs by Subgroups - Anemia (AESI),2001,Safety,TEAE – Anemia (AESI),Sex,"Male, Female",0.3443
+Table 301.1.2001.206.2: Summary and Results of TEAEs by Subgroups - Anemia (AESI),2001,Safety,TEAE – Anemia (AESI),Region,"Asia, Non-Asia",0.6218
+Table 301.1.2001.206.2: Summary and Results of TEAEs by Subgroups - Anemia (AESI),2001,Safety,TEAE – Anemia (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.311
+Table 301.1.2001.207.2: Summary and Results of TEAEs by Subgroups - Hypersensitivity Reactions (AESI),2001,Safety,TEAE – Hypersens. (AESI),Age Group 1,"<=65 years, >65 years",0.8625
+Table 301.1.2001.207.2: Summary and Results of TEAEs by Subgroups - Hypersensitivity Reactions (AESI),2001,Safety,TEAE – Hypersens. (AESI),Sex,"Male, Female",0.0944
+Table 301.1.2001.207.2: Summary and Results of TEAEs by Subgroups - Hypersensitivity Reactions (AESI),2001,Safety,TEAE – Hypersens. (AESI),Region,"Asia, Non-Asia",0.8752
+Table 301.1.2001.207.2: Summary and Results of TEAEs by Subgroups - Hypersensitivity Reactions (AESI),2001,Safety,TEAE – Hypersens. (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.1193
+Table 301.1.2001.208.2: Summary and Results of TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,TEAE – IRR (AESI),Age Group 1,"<=65 years, >65 years",0.0168
+Table 301.1.2001.208.2: Summary and Results of TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,TEAE – IRR (AESI),Sex,"Male, Female",0.6868
+Table 301.1.2001.208.2: Summary and Results of TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,TEAE – IRR (AESI),Region,"Asia, Non-Asia",0.0158
+Table 301.1.2001.208.2: Summary and Results of TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,TEAE – IRR (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.08
+Table 301.1.2001.209.2: Summary and Results of TEAEs by Subgroups - Nausea (AESI),2001,Safety,TEAE – Nausea (AESI),Age Group 1,"<=65 years, >65 years",0.107
+Table 301.1.2001.209.2: Summary and Results of TEAEs by Subgroups - Nausea (AESI),2001,Safety,TEAE – Nausea (AESI),Sex,"Male, Female",0.0975
+Table 301.1.2001.209.2: Summary and Results of TEAEs by Subgroups - Nausea (AESI),2001,Safety,TEAE – Nausea (AESI),Region,"Asia, Non-Asia",0.4532
+Table 301.1.2001.209.2: Summary and Results of TEAEs by Subgroups - Nausea (AESI),2001,Safety,TEAE – Nausea (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.4221
+Table 301.1.2001.210.2: Summary and Results of TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,TEAE – Neutropenia (AESI),Age Group 1,"<=65 years, >65 years",0.8113
+Table 301.1.2001.210.2: Summary and Results of TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,TEAE – Neutropenia (AESI),Sex,"Male, Female",0.6727
+Table 301.1.2001.210.2: Summary and Results of TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,TEAE – Neutropenia (AESI),Region,"Asia, Non-Asia",0.4967
+Table 301.1.2001.210.2: Summary and Results of TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,TEAE – Neutropenia (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.0251
+Table 301.1.2001.211.2: Summary and Results of TEAEs by Subgroups - Vomiting (AESI),2001,Safety,TEAE – Vomiting (AESI),Age Group 1,"<=65 years, >65 years",0.4309
+Table 301.1.2001.211.2: Summary and Results of TEAEs by Subgroups - Vomiting (AESI),2001,Safety,TEAE – Vomiting (AESI),Sex,"Male, Female",0.669
+Table 301.1.2001.211.2: Summary and Results of TEAEs by Subgroups - Vomiting (AESI),2001,Safety,TEAE – Vomiting (AESI),Region,"Asia, Non-Asia",0.7839
+Table 301.1.2001.211.2: Summary and Results of TEAEs by Subgroups - Vomiting (AESI),2001,Safety,TEAE – Vomiting (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.2695
+Table 301.1.2001.212.2: Summary and Results of Non-Severe TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,Severe – Abd. Pain (AESI),Age Group 1,"<=65 years, >65 years",0.3463
+Table 301.1.2001.212.2: Summary and Results of Non-Severe TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,Severe – Abd. Pain (AESI),Sex,"Male, Female",0.4489
+Table 301.1.2001.212.2: Summary and Results of Non-Severe TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,Severe – Abd. Pain (AESI),Region,"Asia, Non-Asia",0.9407
+Table 301.1.2001.212.2: Summary and Results of Non-Severe TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,Severe – Abd. Pain (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.5904
+Table 301.1.2001.213.2: Summary and Results of Non-Severe TEAEs by Subgroups - Anemia (AESI),2001,Safety,Severe – Anemia (AESI),Age Group 1,"<=65 years, >65 years",0.3493
+Table 301.1.2001.213.2: Summary and Results of Non-Severe TEAEs by Subgroups - Anemia (AESI),2001,Safety,Severe – Anemia (AESI),Sex,"Male, Female",0.4032
+Table 301.1.2001.213.2: Summary and Results of Non-Severe TEAEs by Subgroups - Anemia (AESI),2001,Safety,Severe – Anemia (AESI),Region,"Asia, Non-Asia",0.6196
+Table 301.1.2001.213.2: Summary and Results of Non-Severe TEAEs by Subgroups - Anemia (AESI),2001,Safety,Severe – Anemia (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.2663
+Table 301.1.2001.214.2: Summary and Results of Non-Severe TEAEs by Subgroups - Hypersensitivity Reactions (AESI),2001,Safety,Severe – Hypersens. (AESI),Age Group 1,"<=65 years, >65 years",0.8456
+Table 301.1.2001.214.2: Summary and Results of Non-Severe TEAEs by Subgroups - Hypersensitivity Reactions (AESI),2001,Safety,Severe – Hypersens. (AESI),Sex,"Male, Female",0.0846
+Table 301.1.2001.214.2: Summary and Results of Non-Severe TEAEs by Subgroups - Hypersensitivity Reactions (AESI),2001,Safety,Severe – Hypersens. (AESI),Region,"Asia, Non-Asia",0.8962
+Table 301.1.2001.214.2: Summary and Results of Non-Severe TEAEs by Subgroups - Hypersensitivity Reactions (AESI),2001,Safety,Severe – Hypersens. (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.0777
+Table 301.1.2001.215.2: Summary and Results of Non-Severe TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,Severe – IRR (AESI),Age Group 1,"<=65 years, >65 years",0.0062
+Table 301.1.2001.215.2: Summary and Results of Non-Severe TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,Severe – IRR (AESI),Sex,"Male, Female",0.722
+Table 301.1.2001.215.2: Summary and Results of Non-Severe TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,Severe – IRR (AESI),Region,"Asia, Non-Asia",0.0581
+Table 301.1.2001.215.2: Summary and Results of Non-Severe TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,Severe – IRR (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.0876
+Table 301.1.2001.216.2: Summary and Results of Non-Severe TEAEs by Subgroups - Nausea (AESI),2001,Safety,Severe – Nausea (AESI),Age Group 1,"<=65 years, >65 years",0.0417
+Table 301.1.2001.216.2: Summary and Results of Non-Severe TEAEs by Subgroups - Nausea (AESI),2001,Safety,Severe – Nausea (AESI),Sex,"Male, Female",0.329
+Table 301.1.2001.216.2: Summary and Results of Non-Severe TEAEs by Subgroups - Nausea (AESI),2001,Safety,Severe – Nausea (AESI),Region,"Asia, Non-Asia",0.9671
+Table 301.1.2001.216.2: Summary and Results of Non-Severe TEAEs by Subgroups - Nausea (AESI),2001,Safety,Severe – Nausea (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.383
+Table 301.1.2001.217.2: Summary and Results of Non-Severe TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,Severe – Neutropenia (AESI),Age Group 1,"<=65 years, >65 years",0.7631
+Table 301.1.2001.217.2: Summary and Results of Non-Severe TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,Severe – Neutropenia (AESI),Sex,"Male, Female",0.2308
+Table 301.1.2001.217.2: Summary and Results of Non-Severe TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,Severe – Neutropenia (AESI),Region,"Asia, Non-Asia",0.756
+Table 301.1.2001.217.2: Summary and Results of Non-Severe TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,Severe – Neutropenia (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.0756
+Table 301.1.2001.218.2: Summary and Results of Non-Severe TEAEs by Subgroups - Vomiting (AESI),2001,Safety,Severe – Vomiting (AESI),Age Group 1,"<=65 years, >65 years",0.2794
+Table 301.1.2001.218.2: Summary and Results of Non-Severe TEAEs by Subgroups - Vomiting (AESI),2001,Safety,Severe – Vomiting (AESI),Sex,"Male, Female",0.629
+Table 301.1.2001.218.2: Summary and Results of Non-Severe TEAEs by Subgroups - Vomiting (AESI),2001,Safety,Severe – Vomiting (AESI),Region,"Asia, Non-Asia",0.8858
+Table 301.1.2001.218.2: Summary and Results of Non-Severe TEAEs by Subgroups - Vomiting (AESI),2001,Safety,Severe – Vomiting (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.4583
+Table 301.1.2001.219.2: Summary and Results of Severe TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,Severe – Abd. Pain (AESI),Age Group 1,"<=65 years, >65 years",0.9891
+Table 301.1.2001.219.2: Summary and Results of Severe TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,Severe – Abd. Pain (AESI),Sex,"Male, Female",0.6416
+Table 301.1.2001.219.2: Summary and Results of Severe TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,Severe – Abd. Pain (AESI),Region,"Asia, Non-Asia",0.9893
+Table 301.1.2001.219.2: Summary and Results of Severe TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,Severe – Abd. Pain (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.1641
+Table 301.1.2001.220.2: Summary and Results of Severe TEAEs by Subgroups - Anemia (AESI),2001,Safety,Severe – Anemia (AESI),Age Group 1,"<=65 years, >65 years",0.7303
+Table 301.1.2001.220.2: Summary and Results of Severe TEAEs by Subgroups - Anemia (AESI),2001,Safety,Severe – Anemia (AESI),Sex,"Male, Female",0.1989
+Table 301.1.2001.220.2: Summary and Results of Severe TEAEs by Subgroups - Anemia (AESI),2001,Safety,Severe – Anemia (AESI),Region,"Asia, Non-Asia",0.4503
+Table 301.1.2001.220.2: Summary and Results of Severe TEAEs by Subgroups - Anemia (AESI),2001,Safety,Severe – Anemia (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.1626
+Table 301.1.2001.222.2: Summary and Results of Severe TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,Severe – IRR (AESI),Age Group 1,"<=65 years, >65 years",0.9907
+Table 301.1.2001.222.2: Summary and Results of Severe TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,Severe – IRR (AESI),Sex,"Male, Female",0.9893
+Table 301.1.2001.222.2: Summary and Results of Severe TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,Severe – IRR (AESI),Region,"Asia, Non-Asia",0.1598
+Table 301.1.2001.222.2: Summary and Results of Severe TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,Severe – IRR (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.3485
+Table 301.1.2001.223.2: Summary and Results of Severe TEAEs by Subgroups - Nausea (AESI),2001,Safety,Severe – Nausea (AESI),Age Group 1,"<=65 years, >65 years",0.3353
+Table 301.1.2001.223.2: Summary and Results of Severe TEAEs by Subgroups - Nausea (AESI),2001,Safety,Severe – Nausea (AESI),Sex,"Male, Female",0.7141
+Table 301.1.2001.223.2: Summary and Results of Severe TEAEs by Subgroups - Nausea (AESI),2001,Safety,Severe – Nausea (AESI),Region,"Asia, Non-Asia",0.2087
+Table 301.1.2001.223.2: Summary and Results of Severe TEAEs by Subgroups - Nausea (AESI),2001,Safety,Severe – Nausea (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.2395
+Table 301.1.2001.224.2: Summary and Results of Severe TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,Severe – Neutropenia (AESI),Age Group 1,"<=65 years, >65 years",0.7456
+Table 301.1.2001.224.2: Summary and Results of Severe TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,Severe – Neutropenia (AESI),Sex,"Male, Female",0.9377
+Table 301.1.2001.224.2: Summary and Results of Severe TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,Severe – Neutropenia (AESI),Region,"Asia, Non-Asia",0.7082
+Table 301.1.2001.224.2: Summary and Results of Severe TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,Severe – Neutropenia (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.046
+Table 301.1.2001.225.2: Summary and Results of Severe TEAEs by Subgroups - Vomiting (AESI),2001,Safety,Severe – Vomiting (AESI),Age Group 1,"<=65 years, >65 years",0.291
+Table 301.1.2001.225.2: Summary and Results of Severe TEAEs by Subgroups - Vomiting (AESI),2001,Safety,Severe – Vomiting (AESI),Sex,"Male, Female",0.4647
+Table 301.1.2001.225.2: Summary and Results of Severe TEAEs by Subgroups - Vomiting (AESI),2001,Safety,Severe – Vomiting (AESI),Region,"Asia, Non-Asia",0.5907
+Table 301.1.2001.225.2: Summary and Results of Severe TEAEs by Subgroups - Vomiting (AESI),2001,Safety,Severe – Vomiting (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.2224
+Table 301.1.2001.226.2: Summary and Results of TESAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,TESAE – Abd. Pain (AESI),Age Group 1,"<=65 years, >65 years",0.4409
+Table 301.1.2001.226.2: Summary and Results of TESAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,TESAE – Abd. Pain (AESI),Region,"Asia, Non-Asia",0.9904
+Table 301.1.2001.226.2: Summary and Results of TESAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,TESAE – Abd. Pain (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.6892
+Table 301.1.2001.230.2: Summary and Results of TESAEs by Subgroups - Nausea (AESI),2001,Safety,TESAE – Nausea (AESI),Age Group 1,"<=65 years, >65 years",0.7623
+Table 301.1.2001.230.2: Summary and Results of TESAEs by Subgroups - Nausea (AESI),2001,Safety,TESAE – Nausea (AESI),Sex,"Male, Female",0.9165
+Table 301.1.2001.230.2: Summary and Results of TESAEs by Subgroups - Nausea (AESI),2001,Safety,TESAE – Nausea (AESI),Region,"Asia, Non-Asia",0.6181
+Table 301.1.2001.230.2: Summary and Results of TESAEs by Subgroups - Nausea (AESI),2001,Safety,TESAE – Nausea (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.6478
+Table 301.1.2001.231.2: Summary and Results of TESAEs by Subgroups - Neutropenia (AESI),2001,Safety,TESAE – Neutropenia (AESI),Age Group 1,"<=65 years, >65 years",0.7735
+Table 301.1.2001.231.2: Summary and Results of TESAEs by Subgroups - Neutropenia (AESI),2001,Safety,TESAE – Neutropenia (AESI),Sex,"Male, Female",0.5639
+Table 301.1.2001.231.2: Summary and Results of TESAEs by Subgroups - Neutropenia (AESI),2001,Safety,TESAE – Neutropenia (AESI),Region,"Asia, Non-Asia",0.6823
+Table 301.1.2001.231.2: Summary and Results of TESAEs by Subgroups - Neutropenia (AESI),2001,Safety,TESAE – Neutropenia (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.9903
+Table 301.1.2001.232.2: Summary and Results of TESAEs by Subgroups - Vomiting (AESI),2001,Safety,TESAE – Vomiting (AESI),Age Group 1,"<=65 years, >65 years",0.5614
+Table 301.1.2001.232.2: Summary and Results of TESAEs by Subgroups - Vomiting (AESI),2001,Safety,TESAE – Vomiting (AESI),Sex,"Male, Female",0.486
+Table 301.1.2001.232.2: Summary and Results of TESAEs by Subgroups - Vomiting (AESI),2001,Safety,TESAE – Vomiting (AESI),Region,"Asia, Non-Asia",0.1229
+Table 301.1.2001.232.2: Summary and Results of TESAEs by Subgroups - Vomiting (AESI),2001,Safety,TESAE – Vomiting (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.9427
+Table 301.1.2001.235.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Hypersensitivity Reactions (AESI),2001,Safety,DC – Hypersens. (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.8629
+Table 301.1.2001.236.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Infusion Related Reaction (AESI),2001,Safety,DC – IRR (AESI),Age Group 1,"<=65 years, >65 years",0.8074
+Table 301.1.2001.236.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Infusion Related Reaction (AESI),2001,Safety,DC – IRR (AESI),Sex,"Male, Female",0.1784
+Table 301.1.2001.236.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Infusion Related Reaction (AESI),2001,Safety,DC – IRR (AESI),Region,"Asia, Non-Asia",0.0455
+Table 301.1.2001.236.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Infusion Related Reaction (AESI),2001,Safety,DC – IRR (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.1337
+Table 301.1.2001.237.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Nausea (AESI),2001,Safety,DC – Nausea (AESI),Age Group 1,"<=65 years, >65 years",0.8707
+Table 301.1.2001.237.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Nausea (AESI),2001,Safety,DC – Nausea (AESI),Sex,"Male, Female",0.7115
+Table 301.1.2001.237.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Nausea (AESI),2001,Safety,DC – Nausea (AESI),Region,"Asia, Non-Asia",0.0724
+Table 301.1.2001.237.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Nausea (AESI),2001,Safety,DC – Nausea (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.9916
+Table 301.1.2001.238.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Neutropenia (AESI),2001,Safety,DC – Neutropenia (AESI),Age Group 1,"<=65 years, >65 years",0.6445
+Table 301.1.2001.238.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Neutropenia (AESI),2001,Safety,DC – Neutropenia (AESI),Sex,"Male, Female",0.54
+Table 301.1.2001.238.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Neutropenia (AESI),2001,Safety,DC – Neutropenia (AESI),Region,"Asia, Non-Asia",0.8994
+Table 301.1.2001.238.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Neutropenia (AESI),2001,Safety,DC – Neutropenia (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.0495
+Table 301.1.2001.239.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Vomiting (AESI),2001,Safety,DC – Vomiting (AESI),Age Group 1,"<=65 years, >65 years",0.9905
+Table 301.1.2001.239.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Vomiting (AESI),2001,Safety,DC – Vomiting (AESI),Sex,"Male, Female",0.9911
+Table 301.1.2001.239.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Vomiting (AESI),2001,Safety,DC – Vomiting (AESI),Region,"Asia, Non-Asia",0.9931
+Table 301.1.2001.239.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Vomiting (AESI),2001,Safety,DC – Vomiting (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.9889
+Table 301.3.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Age Group 1,"<=65 years, >65 years",0.3969
+Table 301.3.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Age Group2,"<=75 years, >75 years",0.3486
+Table 301.3.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Sex,"Male, Female",0.746
+Table 301.3.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Race,"White, Asian",0.0819
+Table 301.3.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Tobacco History,"Current, Former, Never",0.5503
+Table 301.3.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Region,"Asia, Non-Asia",0.4859
+Table 301.3.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Number of Organs with Metastatic Sites,"0-2, >=3",0.4453
+Table 301.3.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Prior Gastrectomy (total or partial),"Yes, No",0.041
+Table 301.3.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Histology (Tumor Type),"Diffuse, Intestinal, Mixed/Other",0.1282
+Table 301.3.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Tumor Location 1,"Gastric, GEJ",0.1169
+Table 301.3.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Tumor Location 2,"Gastric Proximal, Gastric Distal",0.5992
+Table 301.3.1002.1.3: Summary of Overall Survival by Subgroups - Full Analysis Set,1002,Efficacy,OS,Tumor Location 3,"GEJ Proximal, GEJ Distal",0.1708
+Table 301.3.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Age Group 1,"<=65 years, >65 years",0.5671
+Table 301.3.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Age Group2,"<=75 years, >75 years",0.8029
+Table 301.3.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Sex,"Male, Female",0.7924
+Table 301.3.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Race,"White, Asian",0.0518
+Table 301.3.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Tobacco History,"Current, Former, Never",0.8906
+Table 301.3.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Region,"Asia, Non-Asia",0.1226
+Table 301.3.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Number of Organs with Metastatic Sites,"0-2, >=3",0.7285
+Table 301.3.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Prior Gastrectomy (total or partial),"Yes, No",0.1196
+Table 301.3.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Histology (Tumor Type),"Diffuse, Intestinal, Mixed/Other",0.293
+Table 301.3.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Tumor Location 1,"Gastric, GEJ",0.0659
+Table 301.3.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Tumor Location 2,"Gastric Proximal, Gastric Distal",0.3227
+Table 301.3.1002.2.3: Summary of Progression-Free Survival (IRC) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – IRC,Tumor Location 3,"GEJ Proximal, GEJ Distal",0.1277
+Table 301.3.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Age Group 1,"<=65 years, >65 years",0.2553
+Table 301.3.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Age Group2,"<=75 years, >75 years",0.9782
+Table 301.3.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Sex,"Male, Female",0.5116
+Table 301.3.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Race,"White, Asian",0.0251
+Table 301.3.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Tobacco History,"Current, Former, Never",0.8878
+Table 301.3.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Region,"Asia, Non-Asia",0.0867
+Table 301.3.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Number of Organs with Metastatic Sites,"0-2, >=3",0.7348
+Table 301.3.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Prior Gastrectomy (total or partial),"Yes, No",0.0739
+Table 301.3.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Histology (Tumor Type),"Diffuse, Intestinal, Mixed/Other",0.199
+Table 301.3.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Tumor Location 1,"Gastric, GEJ",0.4649
+Table 301.3.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Tumor Location 2,"Gastric Proximal, Gastric Distal",0.3341
+Table 301.3.1002.3.3: Summary of Progression-Free Survival (INV) by Subgroups - Full Analysis Set,1002,Efficacy,PFS – INV,Tumor Location 3,"GEJ Proximal, GEJ Distal",0.0843
+Table 301.3.3004.5.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Global Health Status by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: GHS,Age Group 1,"<=65 years, >65 years",0.3548
+Table 301.3.3004.5.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Global Health Status by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: GHS,Sex,"Male, Female",0.4072
+Table 301.3.3004.5.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Global Health Status by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: GHS,Region,"Asia, Non-Asia",0.6526
+Table 301.3.3004.5.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Global Health Status by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: GHS,Number of Organs with Metastatic Sites,"0-2, >=3",0.8792
+Table 301.3.3004.6.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Physical Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Physical Funct.,Age Group 1,"<=65 years, >65 years",0.3975
+Table 301.3.3004.6.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Physical Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Physical Funct.,Sex,"Male, Female",0.7767
+Table 301.3.3004.6.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Physical Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Physical Funct.,Region,"Asia, Non-Asia",0.8615
+Table 301.3.3004.6.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Physical Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Physical Funct.,Number of Organs with Metastatic Sites,"0-2, >=3",0.5186
+Table 301.3.3004.7.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Role Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Role Funct.,Age Group 1,"<=65 years, >65 years",0.6526
+Table 301.3.3004.7.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Role Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Role Funct.,Sex,"Male, Female",0.2373
+Table 301.3.3004.7.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Role Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Role Funct.,Region,"Asia, Non-Asia",0.9279
+Table 301.3.3004.7.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Role Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Role Funct.,Number of Organs with Metastatic Sites,"0-2, >=3",0.4266
+Table 301.3.3004.8.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Emotional Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Emotional Funct.,Age Group 1,"<=65 years, >65 years",0.5358
+Table 301.3.3004.8.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Emotional Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Emotional Funct.,Sex,"Male, Female",0.4682
+Table 301.3.3004.8.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Emotional Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Emotional Funct.,Region,"Asia, Non-Asia",0.1992
+Table 301.3.3004.8.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Emotional Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Emotional Funct.,Number of Organs with Metastatic Sites,"0-2, >=3",0.7995
+Table 301.3.3004.9.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Cognitive Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Cognitive Funct.,Age Group 1,"<=65 years, >65 years",0.552
+Table 301.3.3004.9.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Cognitive Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Cognitive Funct.,Sex,"Male, Female",0.3985
+Table 301.3.3004.9.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Cognitive Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Cognitive Funct.,Region,"Asia, Non-Asia",0.9515
+Table 301.3.3004.9.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Cognitive Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Cognitive Funct.,Number of Organs with Metastatic Sites,"0-2, >=3",0.829
+Table 301.3.3004.10.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Social Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Social Funct.,Age Group 1,"<=65 years, >65 years",0.2071
+Table 301.3.3004.10.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Social Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Social Funct.,Sex,"Male, Female",0.4961
+Table 301.3.3004.10.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Social Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Social Funct.,Region,"Asia, Non-Asia",0.9256
+Table 301.3.3004.10.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Social Functioning by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Social Funct.,Number of Organs with Metastatic Sites,"0-2, >=3",0.5984
+Table 301.3.3004.11.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Fatigue by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Fatigue,Age Group 1,"<=65 years, >65 years",0.7248
+Table 301.3.3004.11.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Fatigue by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Fatigue,Sex,"Male, Female",0.0362
+Table 301.3.3004.11.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Fatigue by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Fatigue,Region,"Asia, Non-Asia",0.4368
+Table 301.3.3004.11.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Fatigue by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Fatigue,Number of Organs with Metastatic Sites,"0-2, >=3",0.6358
+Table 301.3.3004.12.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Nausea and Vomiting by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Nausea & Vomiting,Age Group 1,"<=65 years, >65 years",0.1316
+Table 301.3.3004.12.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Nausea and Vomiting by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Nausea & Vomiting,Sex,"Male, Female",0.4455
+Table 301.3.3004.12.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Nausea and Vomiting by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Nausea & Vomiting,Region,"Asia, Non-Asia",0.3848
+Table 301.3.3004.12.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Nausea and Vomiting by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Nausea & Vomiting,Number of Organs with Metastatic Sites,"0-2, >=3",0.1518
+Table 301.3.3004.13.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Pain by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Pain,Age Group 1,"<=65 years, >65 years",0.62
+Table 301.3.3004.13.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Pain by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Pain,Sex,"Male, Female",0.2302
+Table 301.3.3004.13.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Pain by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Pain,Region,"Asia, Non-Asia",0.0173
+Table 301.3.3004.13.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Pain by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Pain,Number of Organs with Metastatic Sites,"0-2, >=3",0.9019
+Table 301.3.3004.14.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Dyspnoea by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dyspnoea,Age Group 1,"<=65 years, >65 years",0.3646
+Table 301.3.3004.14.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Dyspnoea by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dyspnoea,Sex,"Male, Female",0.0971
+Table 301.3.3004.14.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Dyspnoea by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dyspnoea,Region,"Asia, Non-Asia",0.7086
+Table 301.3.3004.14.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Dyspnoea by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dyspnoea,Number of Organs with Metastatic Sites,"0-2, >=3",0.8223
+Table 301.3.3004.15.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Insomnia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Insomnia,Age Group 1,"<=65 years, >65 years",0.2446
+Table 301.3.3004.15.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Insomnia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Insomnia,Sex,"Male, Female",0.8595
+Table 301.3.3004.15.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Insomnia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Insomnia,Region,"Asia, Non-Asia",0.5721
+Table 301.3.3004.15.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Insomnia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Insomnia,Number of Organs with Metastatic Sites,"0-2, >=3",0.4715
+Table 301.3.3004.16.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Appetite Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Appetite Loss,Age Group 1,"<=65 years, >65 years",0.6258
+Table 301.3.3004.16.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Appetite Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Appetite Loss,Sex,"Male, Female",0.7342
+Table 301.3.3004.16.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Appetite Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Appetite Loss,Region,"Asia, Non-Asia",0.3653
+Table 301.3.3004.16.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Appetite Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Appetite Loss,Number of Organs with Metastatic Sites,"0-2, >=3",0.0839
+Table 301.3.3004.17.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Constipation by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Constipation,Age Group 1,"<=65 years, >65 years",0.6416
+Table 301.3.3004.17.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Constipation by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Constipation,Sex,"Male, Female",0.7518
+Table 301.3.3004.17.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Constipation by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Constipation,Region,"Asia, Non-Asia",0.8216
+Table 301.3.3004.17.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Constipation by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Constipation,Number of Organs with Metastatic Sites,"0-2, >=3",0.4698
+Table 301.3.3004.18.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Diarrhoea by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Diarrhoea,Age Group 1,"<=65 years, >65 years",0.0151
+Table 301.3.3004.18.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Diarrhoea by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Diarrhoea,Sex,"Male, Female",0.3184
+Table 301.3.3004.18.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Diarrhoea by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Diarrhoea,Region,"Asia, Non-Asia",0.8475
+Table 301.3.3004.18.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Diarrhoea by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Diarrhoea,Number of Organs with Metastatic Sites,"0-2, >=3",0.0873
+Table 301.3.3004.19.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Financial Difficulties by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Financial Diff.,Age Group 1,"<=65 years, >65 years",0.4247
+Table 301.3.3004.19.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Financial Difficulties by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Financial Diff.,Sex,"Male, Female",0.884
+Table 301.3.3004.19.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Financial Difficulties by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Financial Diff.,Region,"Asia, Non-Asia",0.4426
+Table 301.3.3004.19.2: EORTC QLQ-C30 - Summary of Time to First Deterioration of Financial Difficulties by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Financial Diff.,Number of Organs with Metastatic Sites,"0-2, >=3",0.6747
+Table 301.3.3004.20.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Dysphagia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dysphagia,Age Group 1,"<=65 years, >65 years",0.188
+Table 301.3.3004.20.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Dysphagia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dysphagia,Sex,"Male, Female",0.0027
+Table 301.3.3004.20.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Dysphagia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dysphagia,Region,"Asia, Non-Asia",0.3821
+Table 301.3.3004.20.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Dysphagia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dysphagia,Number of Organs with Metastatic Sites,"0-2, >=3",0.3167
+Table 301.3.3004.21.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Eating Restrictions by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Eating Restrictions,Age Group 1,"<=65 years, >65 years",0.5786
+Table 301.3.3004.21.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Eating Restrictions by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Eating Restrictions,Sex,"Male, Female",0.2049
+Table 301.3.3004.21.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Eating Restrictions by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Eating Restrictions,Region,"Asia, Non-Asia",0.6904
+Table 301.3.3004.21.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Eating Restrictions by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Eating Restrictions,Number of Organs with Metastatic Sites,"0-2, >=3",0.7551
+Table 301.3.3004.22.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Reflux by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Reflux,Age Group 1,"<=65 years, >65 years",0.4582
+Table 301.3.3004.22.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Reflux by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Reflux,Sex,"Male, Female",0.0302
+Table 301.3.3004.22.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Reflux by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Reflux,Region,"Asia, Non-Asia",0.2995
+Table 301.3.3004.22.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Reflux by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Reflux,Number of Organs with Metastatic Sites,"0-2, >=3",0.7576
+Table 301.3.3004.23.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Odynophagia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Odynophagia,Age Group 1,"<=65 years, >65 years",0.8477
+Table 301.3.3004.23.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Odynophagia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Odynophagia,Sex,"Male, Female",0.131
+Table 301.3.3004.23.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Odynophagia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Odynophagia,Region,"Asia, Non-Asia",0.1684
+Table 301.3.3004.23.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Odynophagia by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Odynophagia,Number of Organs with Metastatic Sites,"0-2, >=3",0.3901
+Table 301.3.3004.24.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Pain and Discomfort by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Pain & Discomfort,Age Group 1,"<=65 years, >65 years",0.9772
+Table 301.3.3004.24.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Pain and Discomfort by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Pain & Discomfort,Sex,"Male, Female",0.3591
+Table 301.3.3004.24.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Pain and Discomfort by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Pain & Discomfort,Region,"Asia, Non-Asia",0.8269
+Table 301.3.3004.24.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Pain and Discomfort by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Pain & Discomfort,Number of Organs with Metastatic Sites,"0-2, >=3",0.4533
+Table 301.3.3004.25.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Anxiety by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Anxiety,Age Group 1,"<=65 years, >65 years",0.0834
+Table 301.3.3004.25.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Anxiety by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Anxiety,Sex,"Male, Female",0.0226
+Table 301.3.3004.25.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Anxiety by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Anxiety,Region,"Asia, Non-Asia",0.5676
+Table 301.3.3004.25.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Anxiety by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Anxiety,Number of Organs with Metastatic Sites,"0-2, >=3",0.1275
+Table 301.3.3004.26.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Eating in Front of Others by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Eating w/ Others,Age Group 1,"<=65 years, >65 years",0.6011
+Table 301.3.3004.26.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Eating in Front of Others by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Eating w/ Others,Sex,"Male, Female",0.4996
+Table 301.3.3004.26.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Eating in Front of Others by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Eating w/ Others,Region,"Asia, Non-Asia",0.9407
+Table 301.3.3004.26.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Eating in Front of Others by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Eating w/ Others,Number of Organs with Metastatic Sites,"0-2, >=3",0.6855
+Table 301.3.3004.27.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Dry Mouth Score by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dry Mouth,Age Group 1,"<=65 years, >65 years",0.2389
+Table 301.3.3004.27.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Dry Mouth Score by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dry Mouth,Sex,"Male, Female",0.8903
+Table 301.3.3004.27.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Dry Mouth Score by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dry Mouth,Region,"Asia, Non-Asia",0.4645
+Table 301.3.3004.27.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Dry Mouth Score by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Dry Mouth,Number of Organs with Metastatic Sites,"0-2, >=3",0.7316
+Table 301.3.3004.28.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble with Taste by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Taste,Age Group 1,"<=65 years, >65 years",0.2667
+Table 301.3.3004.28.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble with Taste by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Taste,Sex,"Male, Female",0.3562
+Table 301.3.3004.28.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble with Taste by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Taste,Region,"Asia, Non-Asia",0.3578
+Table 301.3.3004.28.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble with Taste by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Taste,Number of Organs with Metastatic Sites,"0-2, >=3",0.0606
+Table 301.3.3004.29.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Body Image by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Body Image,Age Group 1,"<=65 years, >65 years",0.0081
+Table 301.3.3004.29.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Body Image by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Body Image,Sex,"Male, Female",0.3312
+Table 301.3.3004.29.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Body Image by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Body Image,Region,"Asia, Non-Asia",0.8124
+Table 301.3.3004.29.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Body Image by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Body Image,Number of Organs with Metastatic Sites,"0-2, >=3",0.2598
+Table 301.3.3004.30.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble Swallowing Saliva by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Swallowing Saliva,Age Group 1,"<=65 years, >65 years",0.0096
+Table 301.3.3004.30.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble Swallowing Saliva by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Swallowing Saliva,Sex,"Male, Female",0.6631
+Table 301.3.3004.30.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble Swallowing Saliva by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Swallowing Saliva,Region,"Asia, Non-Asia",0.8318
+Table 301.3.3004.30.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble Swallowing Saliva by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Swallowing Saliva,Number of Organs with Metastatic Sites,"0-2, >=3",0.2854
+Table 301.3.3004.31.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Choked When Swallowing Score by Subgroups (MID=10) - Full,3004,PRO,TTFD: Choking,Age Group 1,"<=65 years, >65 years",0.0156
+Table 301.3.3004.31.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Choked When Swallowing Score by Subgroups (MID=10) - Full,3004,PRO,TTFD: Choking,Sex,"Male, Female",0.5674
+Table 301.3.3004.31.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Choked When Swallowing Score by Subgroups (MID=10) - Full,3004,PRO,TTFD: Choking,Region,"Asia, Non-Asia",0.8614
+Table 301.3.3004.31.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Choked When Swallowing Score by Subgroups (MID=10) - Full,3004,PRO,TTFD: Choking,Number of Organs with Metastatic Sites,"0-2, >=3",0.079
+Table 301.3.3004.32.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble with Coughing by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Coughing,Age Group 1,"<=65 years, >65 years",0.1356
+Table 301.3.3004.32.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble with Coughing by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Coughing,Sex,"Male, Female",0.8382
+Table 301.3.3004.32.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble with Coughing by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Coughing,Region,"Asia, Non-Asia",0.7622
+Table 301.3.3004.32.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble with Coughing by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Coughing,Number of Organs with Metastatic Sites,"0-2, >=3",0.293
+Table 301.3.3004.33.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble Talking by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Trouble Talking,Age Group 1,"<=65 years, >65 years",0.0168
+Table 301.3.3004.33.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble Talking by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Trouble Talking,Sex,"Male, Female",0.992
+Table 301.3.3004.33.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble Talking by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Trouble Talking,Region,"Asia, Non-Asia",0.936
+Table 301.3.3004.33.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Trouble Talking by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Trouble Talking,Number of Organs with Metastatic Sites,"0-2, >=3",0.3883
+Table 301.3.3004.34.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Weight Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Weight Loss,Age Group 1,"<=65 years, >65 years",0.4241
+Table 301.3.3004.34.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Weight Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Weight Loss,Sex,"Male, Female",0.4255
+Table 301.3.3004.34.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Weight Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Weight Loss,Region,"Asia, Non-Asia",0.9011
+Table 301.3.3004.34.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Weight Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Weight Loss,Number of Organs with Metastatic Sites,"0-2, >=3",0.1696
+Table 301.3.3004.35.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Hair Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Hair Loss,Age Group 1,"<=65 years, >65 years",0.8927
+Table 301.3.3004.35.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Hair Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Hair Loss,Sex,"Male, Female",0.1179
+Table 301.3.3004.35.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Hair Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Hair Loss,Region,"Asia, Non-Asia",0.8905
+Table 301.3.3004.35.2: EORTC QLQ-OG25 - Summary of Time to First Deterioration of Hair Loss by Subgroups (MID=10) - Full Analysis Set,3004,PRO,TTFD: Hair Loss,Number of Organs with Metastatic Sites,"0-2, >=3",0.3139
+Table 301.3.3004.4.2: Global Pain - Summary of Time to First Deterioration of PI01 - Pain Intensity by Subgroups (MID=2) - Full Analysis Set,3004,PRO,TTFD: Pain Intensity,Age Group 1,"<=65 years, >65 years",0.2271
+Table 301.3.3004.4.2: Global Pain - Summary of Time to First Deterioration of PI01 - Pain Intensity by Subgroups (MID=2) - Full Analysis Set,3004,PRO,TTFD: Pain Intensity,Sex,"Male, Female",0.6794
+Table 301.3.3004.4.2: Global Pain - Summary of Time to First Deterioration of PI01 - Pain Intensity by Subgroups (MID=2) - Full Analysis Set,3004,PRO,TTFD: Pain Intensity,Region,"Asia, Non-Asia",0.7515
+Table 301.3.3004.4.2: Global Pain - Summary of Time to First Deterioration of PI01 - Pain Intensity by Subgroups (MID=2) - Full Analysis Set,3004,PRO,TTFD: Pain Intensity,Number of Organs with Metastatic Sites,"0-2, >=3",0.4561
+Table 301.3.3004.3.2: EQ-5D-5L - Summary of Time to First Deterioration of Visual Analog Scale by Subgroups (MID=15) - Full Analysis Set,3004,PRO,TTFD: EQ-5D VAS,Age Group 1,"<=65 years, >65 years",0.939
+Table 301.3.3004.3.2: EQ-5D-5L - Summary of Time to First Deterioration of Visual Analog Scale by Subgroups (MID=15) - Full Analysis Set,3004,PRO,TTFD: EQ-5D VAS,Sex,"Male, Female",0.6756
+Table 301.3.3004.3.2: EQ-5D-5L - Summary of Time to First Deterioration of Visual Analog Scale by Subgroups (MID=15) - Full Analysis Set,3004,PRO,TTFD: EQ-5D VAS,Region,"Asia, Non-Asia",0.6749
+Table 301.3.3004.3.2: EQ-5D-5L - Summary of Time to First Deterioration of Visual Analog Scale by Subgroups (MID=15) - Full Analysis Set,3004,PRO,TTFD: EQ-5D VAS,Number of Organs with Metastatic Sites,"0-2, >=3",0.4577
+Table 301.3.2001.1.2: Summary and Results of TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Age Group 1,"<=65 years, >65 years",0.4905
+Table 301.3.2001.1.2: Summary and Results of TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Sex,"Male, Female",0.3405
+Table 301.3.2001.1.2: Summary and Results of TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Region,"Asia, Non-Asia",0.1628
+Table 301.3.2001.1.2: Summary and Results of TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Number of Organs with Metastatic Sites,"0-2, >=3",0.1164
+Table 301.3.2001.3.2: Summary and Results of Severe TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Age Group 1,"<=65 years, >65 years",0.9913
+Table 301.3.2001.3.2: Summary and Results of Severe TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Sex,"Male, Female",0.5595
+Table 301.3.2001.3.2: Summary and Results of Severe TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Region,"Asia, Non-Asia",0.0975
+Table 301.3.2001.3.2: Summary and Results of Severe TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Number of Organs with Metastatic Sites,"0-2, >=3",0.6416
+Table 301.3.2001.4.2: Summary and Results of TESAEs by Subgroups - Safety Analysis Set,2001,Safety,TESAE (overall),Age Group 1,"<=65 years, >65 years",0.6883
+Table 301.3.2001.4.2: Summary and Results of TESAEs by Subgroups - Safety Analysis Set,2001,Safety,TESAE (overall),Sex,"Male, Female",0.5483
+Table 301.3.2001.4.2: Summary and Results of TESAEs by Subgroups - Safety Analysis Set,2001,Safety,TESAE (overall),Region,"Asia, Non-Asia",0.5221
+Table 301.3.2001.4.2: Summary and Results of TESAEs by Subgroups - Safety Analysis Set,2001,Safety,TESAE (overall),Number of Organs with Metastatic Sites,"0-2, >=3",0.817
+Table 301.3.2001.5.2: Summary and Results of Permanent Treatment Discontinuation due to TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Age Group 1,"<=65 years, >65 years",0.7187
+Table 301.3.2001.5.2: Summary and Results of Permanent Treatment Discontinuation due to TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Sex,"Male, Female",0.3807
+Table 301.3.2001.5.2: Summary and Results of Permanent Treatment Discontinuation due to TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Region,"Asia, Non-Asia",0.2968
+Table 301.3.2001.5.2: Summary and Results of Permanent Treatment Discontinuation due to TEAEs by Subgroups - Safety Analysis Set,2001,Safety,Any TEAE,Number of Organs with Metastatic Sites,"0-2, >=3",0.6969
+Table 301.3.2001.14.2: Summary and Results of TEAEs by Subgroups - Tachycardia (PT),2001,Safety,TEAE – Tachycardia,Region,"Asia, Non-Asia",0.9938
+Table 301.3.2001.21.2: Summary and Results of TEAEs by Subgroups - Gastrointestinal Disorders (SOC),2001,Safety,TEAE – GI Disorders,Age Group 1,"<=65 years, >65 years",0.986
+Table 301.3.2001.21.2: Summary and Results of TEAEs by Subgroups - Gastrointestinal Disorders (SOC),2001,Safety,TEAE – GI Disorders,Sex,"Male, Female",0.2112
+Table 301.3.2001.21.2: Summary and Results of TEAEs by Subgroups - Gastrointestinal Disorders (SOC),2001,Safety,TEAE – GI Disorders,Region,"Asia, Non-Asia",0.1394
+Table 301.3.2001.21.2: Summary and Results of TEAEs by Subgroups - Gastrointestinal Disorders (SOC),2001,Safety,TEAE – GI Disorders,Number of Organs with Metastatic Sites,"0-2, >=3",0.2949
+Table 301.3.2001.36.2: Summary and Results of TEAEs by Subgroups - Nausea (PT),2001,Safety,TEAE – Nausea (PT),Age Group 1,"<=65 years, >65 years",0.0868
+Table 301.3.2001.36.2: Summary and Results of TEAEs by Subgroups - Nausea (PT),2001,Safety,TEAE – Nausea (PT),Sex,"Male, Female",0.1032
+Table 301.3.2001.36.2: Summary and Results of TEAEs by Subgroups - Nausea (PT),2001,Safety,TEAE – Nausea (PT),Region,"Asia, Non-Asia",0.5163
+Table 301.3.2001.36.2: Summary and Results of TEAEs by Subgroups - Nausea (PT),2001,Safety,TEAE – Nausea (PT),Number of Organs with Metastatic Sites,"0-2, >=3",0.4459
+Table 301.3.2001.38.2: Summary and Results of TEAEs by Subgroups - Salivary Hypersecretion (PT),2001,Safety,TEAE – Salivary Hypersecr.,Region,"Asia, Non-Asia",0.9936
+Table 301.3.2001.38.2: Summary and Results of TEAEs by Subgroups - Salivary Hypersecretion (PT),2001,Safety,TEAE – Salivary Hypersecr.,Number of Organs with Metastatic Sites,"0-2, >=3",0.994
+Table 301.3.2001.41.2: Summary and Results of TEAEs by Subgroups - Vomiting (PT),2001,Safety,TEAE – Vomiting (PT),Age Group 1,"<=65 years, >65 years",0.5421
+Table 301.3.2001.41.2: Summary and Results of TEAEs by Subgroups - Vomiting (PT),2001,Safety,TEAE – Vomiting (PT),Sex,"Male, Female",0.7974
+Table 301.3.2001.41.2: Summary and Results of TEAEs by Subgroups - Vomiting (PT),2001,Safety,TEAE – Vomiting (PT),Region,"Asia, Non-Asia",0.6828
+Table 301.3.2001.41.2: Summary and Results of TEAEs by Subgroups - Vomiting (PT),2001,Safety,TEAE – Vomiting (PT),Number of Organs with Metastatic Sites,"0-2, >=3",0.2746
+Table 301.3.2001.50.2: Summary and Results of TEAEs by Subgroups - Malaise (PT),2001,Safety,TEAE – Malaise,Age Group 1,"<=65 years, >65 years",0.9157
+Table 301.3.2001.50.2: Summary and Results of TEAEs by Subgroups - Malaise (PT),2001,Safety,TEAE – Malaise,Sex,"Male, Female",0.9281
+Table 301.3.2001.50.2: Summary and Results of TEAEs by Subgroups - Malaise (PT),2001,Safety,TEAE – Malaise,Region,"Asia, Non-Asia",0.4392
+Table 301.3.2001.50.2: Summary and Results of TEAEs by Subgroups - Malaise (PT),2001,Safety,TEAE – Malaise,Number of Organs with Metastatic Sites,"0-2, >=3",0.117
+Table 301.3.2001.54.2: Summary and Results of TEAEs by Subgroups - Oedema Peripheral (PT),2001,Safety,TEAE – Oedema Periph.,Age Group 1,"<=65 years, >65 years",0.0632
+Table 301.3.2001.54.2: Summary and Results of TEAEs by Subgroups - Oedema Peripheral (PT),2001,Safety,TEAE – Oedema Periph.,Sex,"Male, Female",0.3828
+Table 301.3.2001.54.2: Summary and Results of TEAEs by Subgroups - Oedema Peripheral (PT),2001,Safety,TEAE – Oedema Periph.,Region,"Asia, Non-Asia",0.1248
+Table 301.3.2001.54.2: Summary and Results of TEAEs by Subgroups - Oedema Peripheral (PT),2001,Safety,TEAE – Oedema Periph.,Number of Organs with Metastatic Sites,"0-2, >=3",0.5087
+Table 301.3.2001.64.2: Summary and Results of TEAEs by Subgroups - Oral Candidiasis (PT),2001,Safety,TEAE – Oral Candidiasis,Age Group 1,"<=65 years, >65 years",0.2311
+Table 301.3.2001.64.2: Summary and Results of TEAEs by Subgroups - Oral Candidiasis (PT),2001,Safety,TEAE – Oral Candidiasis,Sex,"Male, Female",0.8437
+Table 301.3.2001.64.2: Summary and Results of TEAEs by Subgroups - Oral Candidiasis (PT),2001,Safety,TEAE – Oral Candidiasis,Region,"Asia, Non-Asia",0.4813
+Table 301.3.2001.64.2: Summary and Results of TEAEs by Subgroups - Oral Candidiasis (PT),2001,Safety,TEAE – Oral Candidiasis,Number of Organs with Metastatic Sites,"0-2, >=3",0.9917
+Table 301.3.2001.75.2: Summary and Results of TEAEs by Subgroups - Blood Bilirubin Increased (PT),2001,Safety,TEAE – Bili. Increased,Age Group 1,"<=65 years, >65 years",0.9917
+Table 301.3.2001.75.2: Summary and Results of TEAEs by Subgroups - Blood Bilirubin Increased (PT),2001,Safety,TEAE – Bili. Increased,Sex,"Male, Female",0.3638
+Table 301.3.2001.75.2: Summary and Results of TEAEs by Subgroups - Blood Bilirubin Increased (PT),2001,Safety,TEAE – Bili. Increased,Region,"Asia, Non-Asia",0.7525
+Table 301.3.2001.75.2: Summary and Results of TEAEs by Subgroups - Blood Bilirubin Increased (PT),2001,Safety,TEAE – Bili. Increased,Number of Organs with Metastatic Sites,"0-2, >=3",0.3584
+Table 301.3.2001.85.2: Summary and Results of TEAEs by Subgroups - Metabolism And Nutrition Disorders (SOC),2001,Safety,TEAE – Metabolism,Age Group 1,"<=65 years, >65 years",0.7971
+Table 301.3.2001.85.2: Summary and Results of TEAEs by Subgroups - Metabolism And Nutrition Disorders (SOC),2001,Safety,TEAE – Metabolism,Sex,"Male, Female",0.6456
+Table 301.3.2001.85.2: Summary and Results of TEAEs by Subgroups - Metabolism And Nutrition Disorders (SOC),2001,Safety,TEAE – Metabolism,Region,"Asia, Non-Asia",0.9752
+Table 301.3.2001.85.2: Summary and Results of TEAEs by Subgroups - Metabolism And Nutrition Disorders (SOC),2001,Safety,TEAE – Metabolism,Number of Organs with Metastatic Sites,"0-2, >=3",0.6763
+Table 301.3.2001.86.2: Summary and Results of TEAEs by Subgroups - Decreased Appetite (PT),2001,Safety,TEAE – Dec. Appetite,Age Group 1,"<=65 years, >65 years",0.6648
+Table 301.3.2001.86.2: Summary and Results of TEAEs by Subgroups - Decreased Appetite (PT),2001,Safety,TEAE – Dec. Appetite,Sex,"Male, Female",0.3129
+Table 301.3.2001.86.2: Summary and Results of TEAEs by Subgroups - Decreased Appetite (PT),2001,Safety,TEAE – Dec. Appetite,Region,"Asia, Non-Asia",0.9133
+Table 301.3.2001.86.2: Summary and Results of TEAEs by Subgroups - Decreased Appetite (PT),2001,Safety,TEAE – Dec. Appetite,Number of Organs with Metastatic Sites,"0-2, >=3",0.5392
+Table 301.3.2001.90.2: Summary and Results of TEAEs by Subgroups - Hypoalbuminaemia (PT),2001,Safety,TEAE – Hypoalb.,Age Group 1,"<=65 years, >65 years",0.5308
+Table 301.3.2001.90.2: Summary and Results of TEAEs by Subgroups - Hypoalbuminaemia (PT),2001,Safety,TEAE – Hypoalb.,Sex,"Male, Female",0.0224
+Table 301.3.2001.90.2: Summary and Results of TEAEs by Subgroups - Hypoalbuminaemia (PT),2001,Safety,TEAE – Hypoalb.,Region,"Asia, Non-Asia",0.9954
+Table 301.3.2001.90.2: Summary and Results of TEAEs by Subgroups - Hypoalbuminaemia (PT),2001,Safety,TEAE – Hypoalb.,Number of Organs with Metastatic Sites,"0-2, >=3",0.3347
+Table 301.3.2001.91.2: Summary and Results of TEAEs by Subgroups - Hypocalcaemia (PT),2001,Safety,TEAE – Hypocalc.,Age Group 1,"<=65 years, >65 years",0.3193
+Table 301.3.2001.91.2: Summary and Results of TEAEs by Subgroups - Hypocalcaemia (PT),2001,Safety,TEAE – Hypocalc.,Sex,"Male, Female",0.7554
+Table 301.3.2001.91.2: Summary and Results of TEAEs by Subgroups - Hypocalcaemia (PT),2001,Safety,TEAE – Hypocalc.,Region,"Asia, Non-Asia",0.2966
+Table 301.3.2001.91.2: Summary and Results of TEAEs by Subgroups - Hypocalcaemia (PT),2001,Safety,TEAE – Hypocalc.,Number of Organs with Metastatic Sites,"0-2, >=3",0.9599
+Table 301.3.2001.100.2: Summary and Results of TEAEs by Subgroups - Flank Pain (PT),2001,Safety,TEAE – Flank Pain,Number of Organs with Metastatic Sites,"0-2, >=3",0.9944
+Table 301.3.2001.125.2: Summary and Results of TEAEs by Subgroups - Dysuria (PT),2001,Safety,TEAE – Dysuria,Age Group 1,"<=65 years, >65 years",0.9895
+Table 301.3.2001.125.2: Summary and Results of TEAEs by Subgroups - Dysuria (PT),2001,Safety,TEAE – Dysuria,Sex,"Male, Female",0.7929
+Table 301.3.2001.125.2: Summary and Results of TEAEs by Subgroups - Dysuria (PT),2001,Safety,TEAE – Dysuria,Region,"Asia, Non-Asia",0.6617
+Table 301.3.2001.125.2: Summary and Results of TEAEs by Subgroups - Dysuria (PT),2001,Safety,TEAE – Dysuria,Number of Organs with Metastatic Sites,"0-2, >=3",0.8017
+Table 301.3.2001.134.2: Summary and Results of TEAEs by Subgroups - Oropharyngeal Pain (PT),2001,Safety,TEAE – Oropharyngeal Pain,Age Group 1,"<=65 years, >65 years",0.6708
+Table 301.3.2001.134.2: Summary and Results of TEAEs by Subgroups - Oropharyngeal Pain (PT),2001,Safety,TEAE – Oropharyngeal Pain,Sex,"Male, Female",0.9896
+Table 301.3.2001.134.2: Summary and Results of TEAEs by Subgroups - Oropharyngeal Pain (PT),2001,Safety,TEAE – Oropharyngeal Pain,Region,"Asia, Non-Asia",0.8227
+Table 301.3.2001.134.2: Summary and Results of TEAEs by Subgroups - Oropharyngeal Pain (PT),2001,Safety,TEAE – Oropharyngeal Pain,Number of Organs with Metastatic Sites,"0-2, >=3",0.4317
+Table 301.3.2001.182.2: Summary and Results of Severe TEAEs by Subgroups - Gastrointestinal Disorders (SOC),2001,Safety,Severe – GI Disorders,Age Group 1,"<=65 years, >65 years",0.4916
+Table 301.3.2001.182.2: Summary and Results of Severe TEAEs by Subgroups - Gastrointestinal Disorders (SOC),2001,Safety,Severe – GI Disorders,Sex,"Male, Female",0.354
+Table 301.3.2001.182.2: Summary and Results of Severe TEAEs by Subgroups - Gastrointestinal Disorders (SOC),2001,Safety,Severe – GI Disorders,Region,"Asia, Non-Asia",0.107
+Table 301.3.2001.182.2: Summary and Results of Severe TEAEs by Subgroups - Gastrointestinal Disorders (SOC),2001,Safety,Severe – GI Disorders,Number of Organs with Metastatic Sites,"0-2, >=3",0.8952
+Table 301.3.2001.187.2: Summary and Results of Severe TEAEs by Subgroups - Nausea (PT),2001,Safety,Severe – Nausea (PT),Age Group 1,"<=65 years, >65 years",0.2807
+Table 301.3.2001.187.2: Summary and Results of Severe TEAEs by Subgroups - Nausea (PT),2001,Safety,Severe – Nausea (PT),Sex,"Male, Female",0.8748
+Table 301.3.2001.187.2: Summary and Results of Severe TEAEs by Subgroups - Nausea (PT),2001,Safety,Severe – Nausea (PT),Region,"Asia, Non-Asia",0.2576
+Table 301.3.2001.187.2: Summary and Results of Severe TEAEs by Subgroups - Nausea (PT),2001,Safety,Severe – Nausea (PT),Number of Organs with Metastatic Sites,"0-2, >=3",0.2934
+Table 301.3.2001.189.2: Summary and Results of Severe TEAEs by Subgroups - Vomiting (PT),2001,Safety,Severe – Vomiting (PT),Age Group 1,"<=65 years, >65 years",0.2439
+Table 301.3.2001.189.2: Summary and Results of Severe TEAEs by Subgroups - Vomiting (PT),2001,Safety,Severe – Vomiting (PT),Sex,"Male, Female",0.6072
+Table 301.3.2001.189.2: Summary and Results of Severe TEAEs by Subgroups - Vomiting (PT),2001,Safety,Severe – Vomiting (PT),Region,"Asia, Non-Asia",0.6727
+Table 301.3.2001.189.2: Summary and Results of Severe TEAEs by Subgroups - Vomiting (PT),2001,Safety,Severe – Vomiting (PT),Number of Organs with Metastatic Sites,"0-2, >=3",0.2735
+Table 301.3.2001.191.2: Summary and Results of Severe TEAEs by Subgroups - Asthenia (PT),2001,Safety,Severe – Asthenia,Age Group 1,"<=65 years, >65 years",0.2848
+Table 301.3.2001.191.2: Summary and Results of Severe TEAEs by Subgroups - Asthenia (PT),2001,Safety,Severe – Asthenia,Sex,"Male, Female",0.1046
+Table 301.3.2001.191.2: Summary and Results of Severe TEAEs by Subgroups - Asthenia (PT),2001,Safety,Severe – Asthenia,Region,"Asia, Non-Asia",0.2786
+Table 301.3.2001.191.2: Summary and Results of Severe TEAEs by Subgroups - Asthenia (PT),2001,Safety,Severe – Asthenia,Number of Organs with Metastatic Sites,"0-2, >=3",0.6779
+Table 301.3.2001.198.2: Summary and Results of Severe TEAEs by Subgroups - Alanine Aminotransferase Increased (PT),2001,Safety,Severe TEAE,Number of Organs with Metastatic Sites,"0-2, >=3",0.9939
+Table 301.3.2001.202.2: Summary and Results of Severe TEAEs by Subgroups - Metabolism And Nutrition Disorders (SOC),2001,Safety,Severe – Metabolism,Age Group 1,"<=65 years, >65 years",0.7171
+Table 301.3.2001.202.2: Summary and Results of Severe TEAEs by Subgroups - Metabolism And Nutrition Disorders (SOC),2001,Safety,Severe – Metabolism,Sex,"Male, Female",0.6349
+Table 301.3.2001.202.2: Summary and Results of Severe TEAEs by Subgroups - Metabolism And Nutrition Disorders (SOC),2001,Safety,Severe – Metabolism,Region,"Asia, Non-Asia",0.0201
+Table 301.3.2001.202.2: Summary and Results of Severe TEAEs by Subgroups - Metabolism And Nutrition Disorders (SOC),2001,Safety,Severe – Metabolism,Number of Organs with Metastatic Sites,"0-2, >=3",0.7198
+Table 301.3.2001.204.2: Summary and Results of Severe TEAEs by Subgroups - Hypoalbuminaemia (PT),2001,Safety,Severe – Hypoalb.,Age Group 1,"<=65 years, >65 years",0.9912
+Table 301.3.2001.204.2: Summary and Results of Severe TEAEs by Subgroups - Hypoalbuminaemia (PT),2001,Safety,Severe – Hypoalb.,Region,"Asia, Non-Asia",0.9994
+Table 301.3.2001.204.2: Summary and Results of Severe TEAEs by Subgroups - Hypoalbuminaemia (PT),2001,Safety,Severe – Hypoalb.,Number of Organs with Metastatic Sites,"0-2, >=3",0.9932
+Table 301.3.2001.217.2: Summary and Results of TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,TEAE – Abd. Pain (AESI),Age Group 1,"<=65 years, >65 years",0.3385
+Table 301.3.2001.217.2: Summary and Results of TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,TEAE – Abd. Pain (AESI),Sex,"Male, Female",0.3955
+Table 301.3.2001.217.2: Summary and Results of TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,TEAE – Abd. Pain (AESI),Region,"Asia, Non-Asia",0.7025
+Table 301.3.2001.217.2: Summary and Results of TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,TEAE – Abd. Pain (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.4521
+Table 301.3.2001.218.2: Summary and Results of TEAEs by Subgroups - Anemia (AESI),2001,Safety,TEAE – Anemia (AESI),Age Group 1,"<=65 years, >65 years",0.2806
+Table 301.3.2001.218.2: Summary and Results of TEAEs by Subgroups - Anemia (AESI),2001,Safety,TEAE – Anemia (AESI),Sex,"Male, Female",0.5037
+Table 301.3.2001.218.2: Summary and Results of TEAEs by Subgroups - Anemia (AESI),2001,Safety,TEAE – Anemia (AESI),Region,"Asia, Non-Asia",0.789
+Table 301.3.2001.218.2: Summary and Results of TEAEs by Subgroups - Anemia (AESI),2001,Safety,TEAE – Anemia (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.2031
+Table 301.3.2001.219.2: Summary and Results of TEAEs by Subgroups - Hypersensitivity Reactions (AESI),2001,Safety,TEAE – Hypersens. (AESI),Age Group 1,"<=65 years, >65 years",0.8015
+Table 301.3.2001.219.2: Summary and Results of TEAEs by Subgroups - Hypersensitivity Reactions (AESI),2001,Safety,TEAE – Hypersens. (AESI),Sex,"Male, Female",0.1109
+Table 301.3.2001.219.2: Summary and Results of TEAEs by Subgroups - Hypersensitivity Reactions (AESI),2001,Safety,TEAE – Hypersens. (AESI),Region,"Asia, Non-Asia",0.9107
+Table 301.3.2001.219.2: Summary and Results of TEAEs by Subgroups - Hypersensitivity Reactions (AESI),2001,Safety,TEAE – Hypersens. (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.1093
+Table 301.3.2001.220.2: Summary and Results of TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,TEAE – IRR (AESI),Age Group 1,"<=65 years, >65 years",0.0187
+Table 301.3.2001.220.2: Summary and Results of TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,TEAE – IRR (AESI),Sex,"Male, Female",0.7202
+Table 301.3.2001.220.2: Summary and Results of TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,TEAE – IRR (AESI),Region,"Asia, Non-Asia",0.0147
+Table 301.3.2001.220.2: Summary and Results of TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,TEAE – IRR (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.0851
+Table 301.3.2001.221.2: Summary and Results of TEAEs by Subgroups - Nausea (AESI),2001,Safety,TEAE – Nausea (AESI),Age Group 1,"<=65 years, >65 years",0.0868
+Table 301.3.2001.221.2: Summary and Results of TEAEs by Subgroups - Nausea (AESI),2001,Safety,TEAE – Nausea (AESI),Sex,"Male, Female",0.1032
+Table 301.3.2001.221.2: Summary and Results of TEAEs by Subgroups - Nausea (AESI),2001,Safety,TEAE – Nausea (AESI),Region,"Asia, Non-Asia",0.5163
+Table 301.3.2001.221.2: Summary and Results of TEAEs by Subgroups - Nausea (AESI),2001,Safety,TEAE – Nausea (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.4459
+Table 301.3.2001.222.2: Summary and Results of TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,TEAE – Neutropenia (AESI),Age Group 1,"<=65 years, >65 years",0.8145
+Table 301.3.2001.222.2: Summary and Results of TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,TEAE – Neutropenia (AESI),Sex,"Male, Female",0.6703
+Table 301.3.2001.222.2: Summary and Results of TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,TEAE – Neutropenia (AESI),Region,"Asia, Non-Asia",0.4951
+Table 301.3.2001.222.2: Summary and Results of TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,TEAE – Neutropenia (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.025
+Table 301.3.2001.223.2: Summary and Results of TEAEs by Subgroups - Vomiting (AESI),2001,Safety,TEAE – Vomiting (AESI),Age Group 1,"<=65 years, >65 years",0.4726
+Table 301.3.2001.223.2: Summary and Results of TEAEs by Subgroups - Vomiting (AESI),2001,Safety,TEAE – Vomiting (AESI),Sex,"Male, Female",0.7776
+Table 301.3.2001.223.2: Summary and Results of TEAEs by Subgroups - Vomiting (AESI),2001,Safety,TEAE – Vomiting (AESI),Region,"Asia, Non-Asia",0.7541
+Table 301.3.2001.223.2: Summary and Results of TEAEs by Subgroups - Vomiting (AESI),2001,Safety,TEAE – Vomiting (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.3146
+Table 301.3.2001.224.2: Summary and Results of Non-Severe TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,Severe – Abd. Pain (AESI),Age Group 1,"<=65 years, >65 years",0.3368
+Table 301.3.2001.224.2: Summary and Results of Non-Severe TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,Severe – Abd. Pain (AESI),Sex,"Male, Female",0.2861
+Table 301.3.2001.224.2: Summary and Results of Non-Severe TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,Severe – Abd. Pain (AESI),Region,"Asia, Non-Asia",0.8506
+Table 301.3.2001.224.2: Summary and Results of Non-Severe TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,Severe – Abd. Pain (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.5509
+Table 301.3.2001.225.2: Summary and Results of Non-Severe TEAEs by Subgroups - Anemia (AESI),2001,Safety,Severe – Anemia (AESI),Age Group 1,"<=65 years, >65 years",0.2229
+Table 301.3.2001.225.2: Summary and Results of Non-Severe TEAEs by Subgroups - Anemia (AESI),2001,Safety,Severe – Anemia (AESI),Sex,"Male, Female",0.5768
+Table 301.3.2001.225.2: Summary and Results of Non-Severe TEAEs by Subgroups - Anemia (AESI),2001,Safety,Severe – Anemia (AESI),Region,"Asia, Non-Asia",0.7921
+Table 301.3.2001.225.2: Summary and Results of Non-Severe TEAEs by Subgroups - Anemia (AESI),2001,Safety,Severe – Anemia (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.1674
+Table 301.3.2001.226.2: Summary and Results of Non-Severe TEAEs by Subgroups - Hypersensitivity Reactions (AESI),2001,Safety,Severe – Hypersens. (AESI),Age Group 1,"<=65 years, >65 years",0.7806
+Table 301.3.2001.226.2: Summary and Results of Non-Severe TEAEs by Subgroups - Hypersensitivity Reactions (AESI),2001,Safety,Severe – Hypersens. (AESI),Sex,"Male, Female",0.1049
+Table 301.3.2001.226.2: Summary and Results of Non-Severe TEAEs by Subgroups - Hypersensitivity Reactions (AESI),2001,Safety,Severe – Hypersens. (AESI),Region,"Asia, Non-Asia",0.8554
+Table 301.3.2001.226.2: Summary and Results of Non-Severe TEAEs by Subgroups - Hypersensitivity Reactions (AESI),2001,Safety,Severe – Hypersens. (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.0703
+Table 301.3.2001.227.2: Summary and Results of Non-Severe TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,Severe – IRR (AESI),Age Group 1,"<=65 years, >65 years",0.0069
+Table 301.3.2001.227.2: Summary and Results of Non-Severe TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,Severe – IRR (AESI),Sex,"Male, Female",0.7588
+Table 301.3.2001.227.2: Summary and Results of Non-Severe TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,Severe – IRR (AESI),Region,"Asia, Non-Asia",0.0549
+Table 301.3.2001.227.2: Summary and Results of Non-Severe TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,Severe – IRR (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.0937
+Table 301.3.2001.228.2: Summary and Results of Non-Severe TEAEs by Subgroups - Nausea (AESI),2001,Safety,Severe – Nausea (AESI),Age Group 1,"<=65 years, >65 years",0.0369
+Table 301.3.2001.228.2: Summary and Results of Non-Severe TEAEs by Subgroups - Nausea (AESI),2001,Safety,Severe – Nausea (AESI),Sex,"Male, Female",0.306
+Table 301.3.2001.228.2: Summary and Results of Non-Severe TEAEs by Subgroups - Nausea (AESI),2001,Safety,Severe – Nausea (AESI),Region,"Asia, Non-Asia",0.9819
+Table 301.3.2001.228.2: Summary and Results of Non-Severe TEAEs by Subgroups - Nausea (AESI),2001,Safety,Severe – Nausea (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.3866
+Table 301.3.2001.229.2: Summary and Results of Non-Severe TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,Severe – Neutropenia (AESI),Age Group 1,"<=65 years, >65 years",0.8675
+Table 301.3.2001.229.2: Summary and Results of Non-Severe TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,Severe – Neutropenia (AESI),Sex,"Male, Female",0.2396
+Table 301.3.2001.229.2: Summary and Results of Non-Severe TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,Severe – Neutropenia (AESI),Region,"Asia, Non-Asia",0.7709
+Table 301.3.2001.229.2: Summary and Results of Non-Severe TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,Severe – Neutropenia (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.0847
+Table 301.3.2001.230.2: Summary and Results of Non-Severe TEAEs by Subgroups - Vomiting (AESI),2001,Safety,Severe – Vomiting (AESI),Age Group 1,"<=65 years, >65 years",0.3094
+Table 301.3.2001.230.2: Summary and Results of Non-Severe TEAEs by Subgroups - Vomiting (AESI),2001,Safety,Severe – Vomiting (AESI),Sex,"Male, Female",0.735
+Table 301.3.2001.230.2: Summary and Results of Non-Severe TEAEs by Subgroups - Vomiting (AESI),2001,Safety,Severe – Vomiting (AESI),Region,"Asia, Non-Asia",0.8486
+Table 301.3.2001.230.2: Summary and Results of Non-Severe TEAEs by Subgroups - Vomiting (AESI),2001,Safety,Severe – Vomiting (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.5223
+Table 301.3.2001.231.2: Summary and Results of Severe TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,Severe – Abd. Pain (AESI),Age Group 1,"<=65 years, >65 years",0.9885
+Table 301.3.2001.231.2: Summary and Results of Severe TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,Severe – Abd. Pain (AESI),Sex,"Male, Female",0.4525
+Table 301.3.2001.231.2: Summary and Results of Severe TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,Severe – Abd. Pain (AESI),Region,"Asia, Non-Asia",0.9886
+Table 301.3.2001.231.2: Summary and Results of Severe TEAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,Severe – Abd. Pain (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.1844
+Table 301.3.2001.232.2: Summary and Results of Severe TEAEs by Subgroups - Anemia (AESI),2001,Safety,Severe – Anemia (AESI),Age Group 1,"<=65 years, >65 years",0.7635
+Table 301.3.2001.232.2: Summary and Results of Severe TEAEs by Subgroups - Anemia (AESI),2001,Safety,Severe – Anemia (AESI),Sex,"Male, Female",0.2073
+Table 301.3.2001.232.2: Summary and Results of Severe TEAEs by Subgroups - Anemia (AESI),2001,Safety,Severe – Anemia (AESI),Region,"Asia, Non-Asia",0.4306
+Table 301.3.2001.232.2: Summary and Results of Severe TEAEs by Subgroups - Anemia (AESI),2001,Safety,Severe – Anemia (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.1681
+Table 301.3.2001.234.2: Summary and Results of Severe TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,Severe – IRR (AESI),Age Group 1,"<=65 years, >65 years",0.9907
+Table 301.3.2001.234.2: Summary and Results of Severe TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,Severe – IRR (AESI),Sex,"Male, Female",0.9893
+Table 301.3.2001.234.2: Summary and Results of Severe TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,Severe – IRR (AESI),Region,"Asia, Non-Asia",0.1598
+Table 301.3.2001.234.2: Summary and Results of Severe TEAEs by Subgroups - Infusion Related Reaction (AESI),2001,Safety,Severe – IRR (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.3485
+Table 301.3.2001.235.2: Summary and Results of Severe TEAEs by Subgroups - Nausea (AESI),2001,Safety,Severe – Nausea (AESI),Age Group 1,"<=65 years, >65 years",0.2807
+Table 301.3.2001.235.2: Summary and Results of Severe TEAEs by Subgroups - Nausea (AESI),2001,Safety,Severe – Nausea (AESI),Sex,"Male, Female",0.8748
+Table 301.3.2001.235.2: Summary and Results of Severe TEAEs by Subgroups - Nausea (AESI),2001,Safety,Severe – Nausea (AESI),Region,"Asia, Non-Asia",0.2576
+Table 301.3.2001.235.2: Summary and Results of Severe TEAEs by Subgroups - Nausea (AESI),2001,Safety,Severe – Nausea (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.2934
+Table 301.3.2001.236.2: Summary and Results of Severe TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,Severe – Neutropenia (AESI),Age Group 1,"<=65 years, >65 years",0.7582
+Table 301.3.2001.236.2: Summary and Results of Severe TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,Severe – Neutropenia (AESI),Sex,"Male, Female",0.9096
+Table 301.3.2001.236.2: Summary and Results of Severe TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,Severe – Neutropenia (AESI),Region,"Asia, Non-Asia",0.6953
+Table 301.3.2001.236.2: Summary and Results of Severe TEAEs by Subgroups - Neutropenia (AESI),2001,Safety,Severe – Neutropenia (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.0464
+Table 301.3.2001.237.2: Summary and Results of Severe TEAEs by Subgroups - Vomiting (AESI),2001,Safety,Severe – Vomiting (AESI),Age Group 1,"<=65 years, >65 years",0.2434
+Table 301.3.2001.237.2: Summary and Results of Severe TEAEs by Subgroups - Vomiting (AESI),2001,Safety,Severe – Vomiting (AESI),Sex,"Male, Female",0.6073
+Table 301.3.2001.237.2: Summary and Results of Severe TEAEs by Subgroups - Vomiting (AESI),2001,Safety,Severe – Vomiting (AESI),Region,"Asia, Non-Asia",0.6729
+Table 301.3.2001.237.2: Summary and Results of Severe TEAEs by Subgroups - Vomiting (AESI),2001,Safety,Severe – Vomiting (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.2736
+Table 301.3.2001.238.2: Summary and Results of TESAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,TESAE – Abd. Pain (AESI),Age Group 1,"<=65 years, >65 years",0.4368
+Table 301.3.2001.238.2: Summary and Results of TESAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,TESAE – Abd. Pain (AESI),Region,"Asia, Non-Asia",0.9905
+Table 301.3.2001.238.2: Summary and Results of TESAEs by Subgroups - Abdominal Pain (AESI),2001,Safety,TESAE – Abd. Pain (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.696
+Table 301.3.2001.242.2: Summary and Results of TESAEs by Subgroups - Nausea (AESI),2001,Safety,TESAE – Nausea (AESI),Age Group 1,"<=65 years, >65 years",0.8888
+Table 301.3.2001.242.2: Summary and Results of TESAEs by Subgroups - Nausea (AESI),2001,Safety,TESAE – Nausea (AESI),Sex,"Male, Female",0.7566
+Table 301.3.2001.242.2: Summary and Results of TESAEs by Subgroups - Nausea (AESI),2001,Safety,TESAE – Nausea (AESI),Region,"Asia, Non-Asia",0.7229
+Table 301.3.2001.242.2: Summary and Results of TESAEs by Subgroups - Nausea (AESI),2001,Safety,TESAE – Nausea (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.7778
+Table 301.3.2001.243.2: Summary and Results of TESAEs by Subgroups - Neutropenia (AESI),2001,Safety,TESAE – Neutropenia (AESI),Age Group 1,"<=65 years, >65 years",0.7735
+Table 301.3.2001.243.2: Summary and Results of TESAEs by Subgroups - Neutropenia (AESI),2001,Safety,TESAE – Neutropenia (AESI),Sex,"Male, Female",0.5639
+Table 301.3.2001.243.2: Summary and Results of TESAEs by Subgroups - Neutropenia (AESI),2001,Safety,TESAE – Neutropenia (AESI),Region,"Asia, Non-Asia",0.6823
+Table 301.3.2001.243.2: Summary and Results of TESAEs by Subgroups - Neutropenia (AESI),2001,Safety,TESAE – Neutropenia (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.9903
+Table 301.3.2001.244.2: Summary and Results of TESAEs by Subgroups - Vomiting (AESI),2001,Safety,TESAE – Vomiting (AESI),Age Group 1,"<=65 years, >65 years",0.5359
+Table 301.3.2001.244.2: Summary and Results of TESAEs by Subgroups - Vomiting (AESI),2001,Safety,TESAE – Vomiting (AESI),Sex,"Male, Female",0.7159
+Table 301.3.2001.244.2: Summary and Results of TESAEs by Subgroups - Vomiting (AESI),2001,Safety,TESAE – Vomiting (AESI),Region,"Asia, Non-Asia",0.1262
+Table 301.3.2001.244.2: Summary and Results of TESAEs by Subgroups - Vomiting (AESI),2001,Safety,TESAE – Vomiting (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.9882
+Table 301.3.2001.247.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Hypersensitivity Reactions (AESI),2001,Safety,DC – Hypersens. (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.8629
+Table 301.3.2001.248.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Infusion Related Reaction (AESI),2001,Safety,DC – IRR (AESI),Age Group 1,"<=65 years, >65 years",0.8074
+Table 301.3.2001.248.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Infusion Related Reaction (AESI),2001,Safety,DC – IRR (AESI),Sex,"Male, Female",0.1784
+Table 301.3.2001.248.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Infusion Related Reaction (AESI),2001,Safety,DC – IRR (AESI),Region,"Asia, Non-Asia",0.0455
+Table 301.3.2001.248.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Infusion Related Reaction (AESI),2001,Safety,DC – IRR (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.1337
+Table 301.3.2001.249.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Nausea (AESI),2001,Safety,DC – Nausea (AESI),Age Group 1,"<=65 years, >65 years",0.8755
+Table 301.3.2001.249.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Nausea (AESI),2001,Safety,DC – Nausea (AESI),Sex,"Male, Female",0.7188
+Table 301.3.2001.249.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Nausea (AESI),2001,Safety,DC – Nausea (AESI),Region,"Asia, Non-Asia",0.0751
+Table 301.3.2001.249.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Nausea (AESI),2001,Safety,DC – Nausea (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.9916
+Table 301.3.2001.250.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Neutropenia (AESI),2001,Safety,DC – Neutropenia (AESI),Age Group 1,"<=65 years, >65 years",0.7245
+Table 301.3.2001.250.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Neutropenia (AESI),2001,Safety,DC – Neutropenia (AESI),Sex,"Male, Female",0.4722
+Table 301.3.2001.250.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Neutropenia (AESI),2001,Safety,DC – Neutropenia (AESI),Region,"Asia, Non-Asia",0.9987
+Table 301.3.2001.250.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Neutropenia (AESI),2001,Safety,DC – Neutropenia (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.0553
+Table 301.3.2001.251.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Vomiting (AESI),2001,Safety,DC – Vomiting (AESI),Age Group 1,"<=65 years, >65 years",0.9905
+Table 301.3.2001.251.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Vomiting (AESI),2001,Safety,DC – Vomiting (AESI),Sex,"Male, Female",0.9911
+Table 301.3.2001.251.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Vomiting (AESI),2001,Safety,DC – Vomiting (AESI),Region,"Asia, Non-Asia",0.9931
+Table 301.3.2001.251.2: Summary and Results of TEAEs leading to Permanent Treatment Discontinuation by Subgroups - Vomiting (AESI),2001,Safety,DC – Vomiting (AESI),Number of Organs with Metastatic Sites,"0-2, >=3",0.9889
