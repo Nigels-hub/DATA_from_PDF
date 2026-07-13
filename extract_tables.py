@@ -21,6 +21,7 @@ Defaults:
 
 import sys
 import re
+import csv
 from pathlib import Path
 from dataclasses import dataclass, field
 from typing import List, Optional, Tuple
@@ -77,12 +78,17 @@ def split_rows(raw_rows: List[List]) -> Tuple[List[List[str]], List[str]]:
 
     The separator row has its first cell filled with underscores.
     Footnote rows typically have content only in the first cell.
+
+    Leading whitespace (indentation) in the first column is preserved for
+    data rows so that hierarchical row labels keep their visual depth.
     """
     data_rows: List[List[str]] = []
     footnote_lines: List[str] = []
     past_separator = False
 
     for row in raw_rows:
+        # Fully-stripped version of every cell – used for separator
+        # detection and for footnote text (all columns).
         cleaned = [clean_cell(c) for c in row]
         first_cell = cleaned[0] if cleaned else ""
 
@@ -126,6 +132,121 @@ def extract_title(page, table_top: float) -> Optional[str]:
         return None
     matches = TITLE_RE.findall(text)
     return matches[-1].strip() if matches else None
+
+
+# ---------------------------------------------------------------------------
+# Indentation detection from cell x-positions
+# ---------------------------------------------------------------------------
+
+def _compute_indent_unit(page, tobj) -> float:
+    """
+    Scan every first-column cell in *tobj* and collect the x-offset of the
+    first word from the cell's left edge.  The smallest positive offset
+    found is returned as the width of one indent level (PDF points).
+    Falls back to 10 pt when no indented rows are present.
+    """
+    positive: List[float] = []
+    for row_obj in tobj.rows:
+        cells = getattr(row_obj, "cells", None) or []
+        if not cells or cells[0] is None:
+            continue
+        bbox = cells[0]
+        try:
+            words = page.within_bbox(bbox, relative=False).extract_words(
+                x_tolerance=3, y_tolerance=3
+            )
+        except Exception:
+            continue
+        if not words:
+            continue
+        offset = float(words[0]["x0"]) - float(bbox[0])
+        if offset > 2.0:          # ignore floating-point noise near zero
+            positive.append(offset)
+    return min(positive) if positive else 10.0
+
+
+def _get_indent_str(page, cell_bbox, indent_unit: float, tolerance: float) -> str:
+    """
+    Return a string of leading spaces for the row label in *cell_bbox*.
+
+    Indentation is inferred from how far the first word sits from the
+    cell's left edge, expressed as a multiple of *indent_unit*.  Only
+    "clean" multiples (within *tolerance* of an exact multiple) are
+    accepted; off-grid offsets – typical of centred column-header text –
+    are silently treated as zero indentation.
+    """
+    if cell_bbox is None:
+        return ""
+    try:
+        words = page.within_bbox(cell_bbox, relative=False).extract_words(
+            x_tolerance=3, y_tolerance=3
+        )
+    except Exception:
+        return ""
+    if not words:
+        return ""
+    offset = max(0.0, float(words[0]["x0"]) - float(cell_bbox[0]))
+    if offset < 2.0:              # essentially zero
+        return ""
+    level = round(offset / indent_unit)
+    if level == 0:
+        return ""
+    # Reject if the offset does not sit close to a clean multiple of
+    # indent_unit – this filters out centred headers whose x-position
+    # accidentally resembles an indent level.
+    if abs(offset - level * indent_unit) > tolerance:
+        return ""
+    return "  " * level            # 2 spaces per indent level
+
+
+def extract_rows_with_indent(
+    tobj,
+    page,
+) -> Tuple[List[List[str]], List[str]]:
+    """
+    Extract table text rows and footnotes from *tobj*, attaching
+    first-column indentation measured from word x-positions in the cell
+    bounding boxes.
+
+    This replaces the plain ``split_rows(tobj.extract())`` call so that
+    hierarchical row labels keep their visual indent depth.
+    """
+    raw_rows = tobj.extract()
+    if not raw_rows:
+        return [], []
+
+    # Per-table indent calibration
+    indent_unit = _compute_indent_unit(page, tobj)
+    tolerance   = 0.25 * indent_unit   # tight – rejects off-grid header text
+
+    # First-column cell bboxes, parallel to raw_rows / tobj.rows
+    first_col_bboxes: List[Optional[Tuple]] = []
+    for row_obj in tobj.rows:
+        cells = getattr(row_obj, "cells", None) or []
+        first_col_bboxes.append(cells[0] if cells else None)
+
+    data_rows:      List[List[str]] = []
+    footnote_lines: List[str]       = []
+    past_separator = False
+
+    for idx, raw_row in enumerate(raw_rows):
+        cleaned    = [clean_cell(c) for c in raw_row]
+        first_cell = cleaned[0] if cleaned else ""
+
+        if not past_separator and SEPARATOR_CELL_RE.match(first_cell):
+            past_separator = True
+            continue
+
+        if past_separator:
+            text = " ".join(c for c in cleaned if c)
+            if text:
+                footnote_lines.append(text)
+        else:
+            bbox   = first_col_bboxes[idx] if idx < len(first_col_bboxes) else None
+            indent = _get_indent_str(page, bbox, indent_unit, tolerance)
+            data_rows.append([indent + cleaned[0]] + cleaned[1:])
+
+    return data_rows, footnote_lines
 
 
 def sanitize_filename(title: str, max_len: int = 160) -> str:
@@ -186,10 +307,29 @@ def write_excel(record: TableRecord, path: Path) -> None:
 
     # ---- Footnotes ----
     if record.footnotes:
+        row += 1  # blank row between data and footnote area
+
+        # Separator row – underscores spanning the full table width.
+        # Written to the output so that downstream readers can reliably
+        # detect the boundary between data rows and footnotes.
+        sep_cell = ws.cell(row=row, column=1, value="_" * 40)
+        sep_cell.font      = Font(size=8, color="888888")
+        sep_cell.alignment = Alignment(horizontal="left")
+        if span > 1:
+            ws.merge_cells(start_row=row, start_column=1,
+                           end_row=row, end_column=span)
         row += 1
+
+        # "Notes / Abbreviations:" label – merged across full table width
         lbl = ws.cell(row=row, column=1, value="Notes / Abbreviations:")
-        lbl.font = fn_label
+        lbl.font      = fn_label
+        lbl.alignment = Alignment(wrap_text=True)
+        if span > 1:
+            ws.merge_cells(start_row=row, start_column=1,
+                           end_row=row, end_column=span)
         row += 1
+
+        # Each footnote line – merged across the full table width
         for line in record.footnotes:
             cell = ws.cell(row=row, column=1, value=line)
             cell.font      = fn_font
@@ -238,11 +378,7 @@ def extract_tables(pdf_path: Path, output_dir: Path) -> None:
                 continue
 
             for tobj in table_objects:
-                raw = tobj.extract()
-                if not raw:
-                    continue
-
-                data_rows, footnotes = split_rows(raw)
+                data_rows, footnotes = extract_rows_with_indent(tobj, page)
                 if not data_rows:
                     continue
 
@@ -301,6 +437,19 @@ def extract_tables(pdf_path: Path, output_dir: Path) -> None:
             )
         except Exception as exc:
             print(f"  ERROR [{idx}] {filename}: {exc}")
+
+    # ---- Page index (enables PDF vs RTF comparison in rtf_tables_app.R) ----
+    index_path = output_dir / "page_index.csv"
+    try:
+        with open(index_path, "w", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerow(["nr", "page_start", "page_end", "filename"])
+            for idx, rec in enumerate(records, start=1):
+                filename = f"{idx:04d}_{sanitize_filename(rec.title)}.xlsx"
+                writer.writerow([idx, rec.page_start, rec.page_end, filename])
+        print(f"Page index:  {index_path.resolve()}")
+    except Exception as exc:
+        print(f"  Warning: could not write page index: {exc}")
 
     print(f"\nDone. Output: {output_dir.resolve()}/")
 

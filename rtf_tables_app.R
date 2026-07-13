@@ -13,6 +13,12 @@
 if (!requireNamespace("pacman", quietly = TRUE)) install.packages("pacman")
 pacman::p_load(shiny, readxl, flextable, officer, dplyr, stringr, DT, tools, htmltools, zip)
 
+# Optional: PDF page rendering for the PDF vs RTF comparison view.
+# Requires the 'poppler' system library:  brew install poppler
+# Then install R packages:               install.packages(c('pdftools', 'png'))
+HAS_PDFTOOLS <- requireNamespace("pdftools", quietly = TRUE) &&
+                requireNamespace("png",      quietly = TRUE)
+
 EXCEL_DIR  <- "extracted_tables"
 TRANS_FILE <- "translations_custom.csv"
 
@@ -167,7 +173,8 @@ translate_df <- function(df, tmap) {
 
 read_excel_table <- function(path) {
   raw <- suppressMessages(
-    readxl::read_excel(path, col_names = FALSE, .name_repair = "minimal")
+    readxl::read_excel(path, col_names = FALSE, .name_repair = "minimal",
+                       trim_ws = FALSE)
   )
 
   if (nrow(raw) == 0 || ncol(raw) == 0)
@@ -394,6 +401,31 @@ build_flextable <- function(tbl, style_id, lang = "EN", tmap = NULL) {
   # ── Apply non-border style ───────────────────────────────────────────────
   ft <- .style_props(ft, style_id)
 
+  # ── Apply indentation to first column based on leading spaces ─────────────
+  # Detects "  Label" (2 spaces per indent level) and applies left padding
+  # plus removes the leading spaces from the display text
+  if (nrow(df) > 0L) {
+    first_col <- df[[1L]]
+    for (i in seq_len(nrow(df))) {
+      txt <- first_col[i]
+      if (nzchar(txt)) {
+        n_spaces <- nchar(txt) - nchar(sub("^ +", "", txt))
+        if (n_spaces > 0L) {
+          indent_level <- as.integer(n_spaces / 2L)
+          # Strip leading spaces from the cell
+          cleaned_txt <- trimws(txt)
+          # Apply left padding: add 3pt per indent level
+          pad_left <- indent_level * 6L + 3L
+          ft <- padding(ft, i = i, j = 1L, padding.left = pad_left, part = "body")
+          # Update the cell value to show cleaned text
+          ft <- compose(ft, i = i, j = 1L,
+                        value = as_paragraph(cleaned_txt),
+                        part = "body")
+        }
+      }
+    }
+  }
+
   # ── Prepend title row ────────────────────────────────────────────────────
   ft <- add_header_lines(ft, values = tbl$title)
   # i = 1 is now the title row → white background, black text, bold
@@ -461,6 +493,11 @@ ui <- fluidPage(
                     font-size:11px; color:#555; line-height:1.6; }
     table.dataTable { font-size:12px; }
     .tab-content  { padding-top:10px; }
+    /* PDF vs RTF comparison modal */
+    .modal-xl .modal-dialog { max-width:1380px; width:95vw; }
+    .cmp-panel  { overflow-y:auto; max-height:74vh; }
+    .cmp-no-pdf { color:#c0392b; font-size:12px; padding:20px;
+                  text-align:center; background:#fff5f5; border-radius:4px; }
   "))),
 
   titlePanel(
@@ -494,6 +531,13 @@ ui <- fluidPage(
       tags$br(),
       helpText(style = "font-size:11px; color:#888; margin-top:4px;",
                "Für Batch-Export → Tab \"Batch-Export\""),
+
+      actionButton("btn_compare", "PDF vs RTF",
+                   icon  = icon("table-columns"),
+                   class = "btn-info dl-btn",
+                   style = "margin-top:6px;"),
+      helpText(style = "font-size:11px; color:#888; margin-top:4px;",
+               "Original-PDF ↔ RTF-Vorschau nebeneinander"),
 
       hr(),
 
@@ -821,6 +865,144 @@ server <- function(input, output, session) {
         )
     }
   )
+
+  # ══════════════════════════════════════════════════════════════════════════
+  # PDF vs RTF comparison
+  # ══════════════════════════════════════════════════════════════════════════
+
+  compare_state <- reactiveValues(page_num = NA_integer_)
+
+  # Page index written by extract_tables.py alongside the Excel files
+  page_index_rv <- reactive({
+    idx_path <- file.path(EXCEL_DIR, "page_index.csv")
+    if (!file.exists(idx_path)) return(NULL)
+    tryCatch(read.csv(idx_path, stringsAsFactors = FALSE), error = function(e) NULL)
+  })
+
+  # Auto-detect the PDF in the working directory (largest file = main PDF)
+  get_pdf_path <- function() {
+    pdfs <- list.files(".", pattern = "\\.pdf$", full.names = TRUE)
+    if (length(pdfs) == 0L) return(NULL)
+    pdfs[which.max(file.info(pdfs)$size)]
+  }
+
+  observeEvent(input$btn_compare, {
+    fp <- selected_path()
+    if (is.null(fp)) {
+      showNotification("Bitte zuerst eine Tabelle auswählen.",
+                       type = "warning", duration = 3)
+      return()
+    }
+    if (!HAS_PDFTOOLS) {
+      showNotification(
+        paste0("pdftools nicht verfügbar. Aktivieren mit: ",
+               "brew install poppler && ",
+               "Rscript -e \"install.packages(c('pdftools','png'))\""),
+        type = "error", duration = 12)
+      return()
+    }
+
+    pidx    <- isolate(page_index_rv())
+    fname   <- basename(fp)
+    has_idx <- !is.null(pidx) && fname %in% pidx$filename
+    page_num <- if (has_idx)
+                  as.integer(pidx$page_start[pidx$filename == fname][1L])
+                else NA_integer_
+
+    compare_state$page_num <- if (!is.na(page_num)) page_num else 1L
+
+    showModal(modalDialog(
+      title = tagList(
+        icon("table-columns"), "\u2002PDF vs RTF\u2002\u2014\u2002",
+        tags$span(style = "font-size:12px; font-weight:400; color:#999;", fname)
+      ),
+      size      = "xl",
+      easyClose = TRUE,
+      footer    = modalButton("Schlie\u00dfen"),
+
+      fluidRow(
+        column(6,
+          div(class = "section-lbl", "Original PDF"),
+          if (has_idx) {
+            div(style = "font-size:11px; color:#777; margin-bottom:6px;",
+                sprintf("Seite\u00a0%d", page_num))
+          } else {
+            div(style = "display:flex; align-items:center; gap:6px; margin-bottom:8px;",
+              div(class = "alert alert-info",
+                  style = "font-size:11px; padding:5px 10px; margin:0; flex:1;",
+                  icon("circle-info"),
+                  " Kein Seitenindex \u2014 bitte Seite manuell eingeben:"),
+              numericInput("cmp_page_in", NULL, value = 1L,
+                           min = 1L, step = 1L, width = "80px"),
+              actionButton("cmp_go", "Zeigen",
+                           class = "btn-sm btn-primary",
+                           style = "white-space:nowrap;")
+            )
+          },
+          div(class = "cmp-panel",
+              imageOutput("cmp_pdf_img", height = "auto", width = "100%"))
+        ),
+        column(6,
+          div(class = "section-lbl", "RTF-Vorschau"),
+          div(class = "preview-box cmp-panel",
+              uiOutput("cmp_rtf_preview"))
+        )
+      )
+    ))
+  })
+
+  observeEvent(input$cmp_go, {
+    req(input$cmp_page_in)
+    compare_state$page_num <- as.integer(input$cmp_page_in)
+  })
+
+  output$cmp_rtf_preview <- renderUI({
+    fp <- selected_path()
+    if (is.null(fp)) return(NULL)
+    tbl <- current_tbl()
+    ft  <- tryCatch(
+      build_flextable(tbl, input$style_id, input$language, tmap_rv()),
+      error = function(e) NULL
+    )
+    if (is.null(ft))
+      return(div(class = "alert alert-danger", "Fehler beim Aufbau der Tabelle."))
+    htmltools_value(ft)
+  })
+
+  output$cmp_pdf_img <- renderImage({
+    pn <- compare_state$page_num
+    req(!is.na(pn) && pn >= 1L)
+
+    tmp    <- tempfile(fileext = ".png")
+    pdf_fp <- get_pdf_path()
+
+    if (is.null(pdf_fp)) {
+      grDevices::png(tmp, width = 500, height = 200, bg = "#fff5f5")
+      par(mar = rep(0, 4)); plot.new()
+      text(0.5, 0.5, "PDF-Datei nicht gefunden.",
+           col = "#c0392b", cex = 1.3, font = 2)
+      grDevices::dev.off()
+    } else {
+      img <- tryCatch(
+        pdftools::pdf_render_page(pdf_fp, page = pn, dpi = 130L),
+        error = function(e) NULL
+      )
+      if (!is.null(img)) {
+        png::writePNG(img, target = tmp)
+      } else {
+        grDevices::png(tmp, width = 500, height = 200, bg = "#fff5f5")
+        par(mar = rep(0, 4)); plot.new()
+        text(0.5, 0.5, sprintf("Seite\u00a0%d nicht renderbar.", pn),
+             col = "#c0392b", cex = 1.3, font = 2)
+        grDevices::dev.off()
+      }
+    }
+
+    list(src         = tmp,
+         contentType = "image/png",
+         alt         = paste("PDF-Seite", pn),
+         style       = "max-width:100%; height:auto; border:1px solid #ddd;")
+  }, deleteFile = TRUE)
 }
 
 # ══════════════════════════════════════════════════════════════════════════════
