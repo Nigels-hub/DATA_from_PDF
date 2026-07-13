@@ -112,7 +112,7 @@ ui <- fluidPage(
         tags$b("Solid / coloured"), " points: p \u2264 threshold.", tags$br(),
         tags$b("Grey"),             " points: p > threshold.",      tags$br(), tags$br(),
         "Hover for details.", tags$br(),
-        "Double-click a point to add its table to the details panel."
+        "Click a point to add its table to the details panel."
       )
     ),
 
@@ -148,7 +148,7 @@ ui <- fluidPage(
           tags$b("Show all significant:"),
           " all rows from every table that contains at least one p \u2264 threshold.", tags$br(),
           tags$b("Show selected:"),
-          " double-click any point on the plot to load its full source table."
+          " click any point on the plot to load its full source table."
         ),
         DT::dataTableOutput("detail_table")
       )
@@ -206,30 +206,45 @@ server <- function(input, output, session) {
       )
   })
 
-  # ── Track table selections from double-clicks ─────────────────────────────
+  # ── Track table selections from point clicks ────────────────────────────
 
   selected_tables <- reactiveVal(character(0))
+  trace_order     <- reactiveVal(character(0))   # ep_order kept in sync with plot
 
   observeEvent(input$clear_sel, {
     selected_tables(character(0))
   })
 
-  # Reset selection when switching back to "all" mode
-  observeEvent(input$detail_mode, {
-    if (input$detail_mode == "all") selected_tables(character(0))
-  })
+  observeEvent(event_data("plotly_click", source = "forest"), {
+    evt <- event_data("plotly_click", source = "forest")
+    if (is.null(evt)) return()
 
-  observeEvent(event_data("plotly_doubleclick", source = "forest"), {
-    evt <- event_data("plotly_doubleclick", source = "forest")
-    if (is.null(evt) || is.null(evt$customdata)) return()
-    key     <- as.character(evt$customdata)
+    ep_names  <- trace_order()
+    curve_idx <- evt$curveNumber + 1L   # plotly is 0-based, R is 1-based
+
+    # curveNumber beyond ep list = threshold line was clicked, ignore
+    if (curve_idx > length(ep_names)) return()
+
+    ep_name <- ep_names[[curve_idx]]
+    p_val   <- evt$x
+
+    # Look up the matching row in the current filtered data
+    d       <- fdata()
+    matched <- dplyr::filter(d,
+      endpoint_short == ep_name,
+      abs(interaction_p - p_val) < 1e-6
+    )
+    if (nrow(matched) == 0L) return()
+
+    key     <- as.character(matched$table_number[[1L]])
     current <- selected_tables()
-    # Toggle: double-clicking again removes it
     if (key %in% current) {
       selected_tables(setdiff(current, key))
     } else {
       selected_tables(c(current, key))
     }
+    # Auto-switch to "Show selected" so the panel immediately scopes to this table
+    updateRadioButtons(session, "detail_mode", selected = "selected")
   })
 
   # ── Plot ──────────────────────────────────────────────────────────────────
@@ -252,6 +267,7 @@ server <- function(input, output, session) {
 
     ep_order <- sort(unique(d$endpoint_short))
     n_ep     <- length(ep_order)
+    trace_order(ep_order)   # keep reactive in sync for click handler
 
     # Cycle through a qualitative colour palette
     base_colours <- c(
@@ -291,7 +307,7 @@ server <- function(input, output, session) {
           ""
         ),
         "<br><i style='font-size:10px;color:#999;'>", dd$title, "</i>",
-        "<br><span style='font-size:10px;color:#aaa;'>Double-click to load table in details panel</span>"
+        "<br><span style='font-size:10px;color:#aaa;'>Click to load table in details panel</span>"
       )
 
       fig <- add_trace(fig,
@@ -301,8 +317,6 @@ server <- function(input, output, session) {
         mode        = "markers",
         name        = ep,
         legendgroup = ep,
-        # pass table_number as customdata for double-click identification
-        customdata  = as.character(dd$table_number),
         marker      = list(
           size   = 12,
           color  = pt_color,
@@ -326,6 +340,8 @@ server <- function(input, output, session) {
       hoverinfo   = "skip"
     )
 
+    fig <- event_register(fig, "plotly_click")
+
     layout(fig,
       title  = list(
         text = "Interaction P-Values by Subgroup",
@@ -347,19 +363,11 @@ server <- function(input, output, session) {
         tickfont   = list(size = 11),
         gridcolor  = "#ececec"
       ),
-      # Legend placed vertically on the right – no longer overlaps X axis label
-      legend = list(
-        orientation = "v",
-        x           = 1.02,
-        y           = 1,
-        xanchor     = "left",
-        yanchor     = "top",
-        font        = list(size = 11)
-      ),
+      showlegend    = FALSE,
       hovermode     = "closest",
       plot_bgcolor  = "white",
       paper_bgcolor = "white",
-      margin        = list(l = 260, r = 200, t = 60, b = 80)
+      margin        = list(l = 260, r = 30, t = 60, b = 80)
     )
   })
 
