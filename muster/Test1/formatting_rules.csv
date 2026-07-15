@@ -1,0 +1,3 @@
+"name","pattern","replacement","description","enabled"
+"Decimal separator (. to ,)","\.",",","Converts English decimal separator (.) to German (,)",TRUE
+"Percentage spacing (add space before %)","(\d)\s*(%)","\1 \2","Adds fixed space between number and % symbol",TRUE

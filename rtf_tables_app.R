@@ -21,10 +21,45 @@ HAS_PDFTOOLS <- requireNamespace("pdftools", quietly = TRUE) &&
 
 EXCEL_DIR  <- "extracted_tables"
 TRANS_FILE <- "translations_custom.csv"
+FMT_RULES_FILE <- "formatting_rules_de.csv"
+PATTERNS_DIR <- "muster"  # Directory for saving pattern templates
 
 # ══════════════════════════════════════════════════════════════════════════════
 # 1 · TRANSLATION SYSTEM
 # ══════════════════════════════════════════════════════════════════════════════
+
+# ── Formatting Rules for German (DE) ──────────────────────────────────────────
+# Each rule applies a regex pattern substitution to numeric and percentage values
+# when translating to German. Format: list(pattern = "regex_pattern", replacement = "replacement_string")
+#
+# Examples:
+#   Decimal separator: pattern = "\\.", replacement = ","
+#   Percentage spacing: pattern = "(%)(\\s*)", replacement = " %"
+#
+FORMATTING_RULES_DE <- list(
+  list(
+    name = "Decimal separator (. to ,)",
+    pattern = "\\.",
+    replacement = ",",
+    description = "Converts English decimal separator (.) to German (,)",
+    enabled = TRUE
+  ),
+  list(
+    name = "Percentage spacing (add space before %)",
+    pattern = "(\\d)\\s*(%)",
+    replacement = "\\1 \\2",
+    description = "Adds fixed space between number and % symbol",
+    enabled = TRUE
+  )
+  # Add more rules here as needed, e.g.:
+  # list(
+  #   name = "Custom rule name",
+  #   pattern = "your_regex_pattern",
+  #   replacement = "your_replacement",
+  #   description = "Description of what this rule does",
+  #   enabled = TRUE
+  # )
+)
 
 DEFAULT_TRANS <- data.frame(
   english = c(
@@ -131,6 +166,160 @@ save_trans <- function(df) {
   write.csv(df[, c("english", "german")], TRANS_FILE, row.names = FALSE)
 }
 
+# ── Formatting rules (list ↔ dataframe conversion) ──────────────────────────
+rules_to_df <- function(rules) {
+  if (is.null(rules) || length(rules) == 0L) {
+    return(data.frame(
+      name = character(0),
+      pattern = character(0),
+      replacement = character(0),
+      description = character(0),
+      enabled = logical(0),
+      stringsAsFactors = FALSE
+    ))
+  }
+  df_list <- list(
+    name = character(length(rules)),
+    pattern = character(length(rules)),
+    replacement = character(length(rules)),
+    description = character(length(rules)),
+    enabled = logical(length(rules))
+  )
+  for (i in seq_along(rules)) {
+    df_list$name[i] <- if (is.null(rules[[i]]$name)) "" else rules[[i]]$name
+    df_list$pattern[i] <- if (is.null(rules[[i]]$pattern)) "" else rules[[i]]$pattern
+    df_list$replacement[i] <- if (is.null(rules[[i]]$replacement)) "" else rules[[i]]$replacement
+    df_list$description[i] <- if (is.null(rules[[i]]$description)) "" else rules[[i]]$description
+    df_list$enabled[i] <- isTRUE(rules[[i]]$enabled)
+  }
+  data.frame(df_list, stringsAsFactors = FALSE)
+}
+
+df_to_rules <- function(df) {
+  if (nrow(df) == 0L) return(list())
+  rules <- list()
+  for (i in seq_len(nrow(df))) {
+    rules[[i]] <- list(
+      name = df$name[i],
+      pattern = df$pattern[i],
+      replacement = df$replacement[i],
+      description = df$description[i],
+      enabled = isTRUE(df$enabled[i])
+    )
+  }
+  rules
+}
+
+load_fmt_rules <- function() {
+  if (file.exists(FMT_RULES_FILE)) {
+    tryCatch({
+      df <- read.csv(FMT_RULES_FILE, stringsAsFactors = FALSE)
+      if (all(c("name", "pattern", "replacement", "description", "enabled") %in% names(df))) {
+        df$enabled <- as.logical(df$enabled)
+        df_to_rules(df)
+      } else {
+        FORMATTING_RULES_DE
+      }
+    }, error = function(e) FORMATTING_RULES_DE)
+  } else {
+    FORMATTING_RULES_DE
+  }
+}
+
+save_fmt_rules <- function(df) {
+  write.csv(df[, c("name", "pattern", "replacement", "description", "enabled")],
+            FMT_RULES_FILE, row.names = FALSE)
+}
+
+# ── Pattern (Muster) Management ──────────────────────────────────────────────
+# Save/load complete pattern templates including translations, rules, and style
+init_patterns_dir <- function() {
+  if (!dir.exists(PATTERNS_DIR)) {
+    dir.create(PATTERNS_DIR, recursive = TRUE)
+  }
+}
+
+save_pattern <- function(pattern_name, trans_df, fmt_rules_df, style_id) {
+  init_patterns_dir()
+  pattern_path <- file.path(PATTERNS_DIR, pattern_name)
+  
+  if (!dir.exists(pattern_path)) {
+    dir.create(pattern_path, recursive = TRUE)
+  }
+  
+  # Save metadata (style)
+  write.csv(data.frame(style = style_id, created = format(Sys.time())),
+            file.path(pattern_path, "pattern_info.csv"), row.names = FALSE)
+  
+  # Save translations
+  write.csv(trans_df[, c("english", "german")],
+            file.path(pattern_path, "translations.csv"), row.names = FALSE)
+  
+  # Save formatting rules
+  write.csv(fmt_rules_df[, c("name", "pattern", "replacement", "description", "enabled")],
+            file.path(pattern_path, "formatting_rules.csv"), row.names = FALSE)
+}
+
+load_pattern <- function(pattern_name) {
+  pattern_path <- file.path(PATTERNS_DIR, pattern_name)
+  
+  if (!dir.exists(pattern_path)) {
+    return(NULL)
+  }
+  
+  pattern_data <- list()
+  
+  # Load metadata
+  tryCatch({
+    info <- read.csv(file.path(pattern_path, "pattern_info.csv"), stringsAsFactors = FALSE)
+    pattern_data$style <- if (nrow(info) > 0) info$style[1] else "clinical"
+  }, error = function(e) {
+    pattern_data$style <<- "clinical"
+  })
+  
+  # Load translations
+  tryCatch({
+    trans <- read.csv(file.path(pattern_path, "translations.csv"), stringsAsFactors = FALSE)
+    if (all(c("english", "german") %in% names(trans))) {
+      pattern_data$translations <- trans
+    } else {
+      pattern_data$translations <- NULL
+    }
+  }, error = function(e) {
+    pattern_data$translations <<- NULL
+  })
+  
+  # Load formatting rules
+  tryCatch({
+    fmt <- read.csv(file.path(pattern_path, "formatting_rules.csv"), stringsAsFactors = FALSE)
+    if (all(c("name", "pattern", "replacement", "description", "enabled") %in% names(fmt))) {
+      fmt$enabled <- as.logical(fmt$enabled)
+      pattern_data$fmt_rules <- fmt
+    } else {
+      pattern_data$fmt_rules <- NULL
+    }
+  }, error = function(e) {
+    pattern_data$fmt_rules <<- NULL
+  })
+  
+  pattern_data
+}
+
+delete_pattern <- function(pattern_name) {
+  pattern_path <- file.path(PATTERNS_DIR, pattern_name)
+  if (dir.exists(pattern_path)) {
+    unlink(pattern_path, recursive = TRUE)
+    return(TRUE)
+  }
+  FALSE
+}
+
+list_patterns <- function() {
+  init_patterns_dir()
+  patterns <- list.dirs(PATTERNS_DIR, full.names = FALSE, recursive = FALSE)
+  patterns[patterns != ""]  # Remove empty strings
+}
+
 make_trans_map <- function(df) setNames(df$german, df$english)
 
 translate_text <- function(text, tmap) {
@@ -160,6 +349,36 @@ translate_df <- function(df, tmap) {
   result <- lapply(seq_len(ncol(df)), function(j) {
     vapply(df[[j]], function(v) {
       if (!nzchar(v) || is_numeric_like(v)) v else translate_text(v, tmap)
+    }, character(1), USE.NAMES = FALSE)
+  })
+  out <- as.data.frame(result, stringsAsFactors = FALSE)
+  colnames(out) <- colnames(df)
+  out
+}
+
+# ── Apply formatting rules (regex-based transformations) ────────────────────
+# Applies a list of regex-based formatting rules to numeric and numeric-like values
+# Only processes cells that are numeric-like to avoid breaking text
+apply_formatting_rules <- function(df, rules) {
+  if (is.null(rules) || length(rules) == 0L) return(df)
+
+  result <- lapply(seq_len(ncol(df)), function(j) {
+    vapply(df[[j]], function(v) {
+      if (!nzchar(v) || !is_numeric_like(v)) return(v)
+      # Apply each enabled rule in sequence
+      result_val <- v
+      for (rule in rules) {
+        if (isTRUE(rule$enabled)) {
+          tryCatch({
+            result_val <- gsub(rule$pattern, rule$replacement, result_val, perl = TRUE)
+          }, error = function(e) {
+            # Silently skip malformed regex patterns
+            warning(sprintf("Regex error in rule '%s': %s", rule$name, e$message))
+            return(result_val)
+          })
+        }
+      }
+      result_val
     }, character(1), USE.NAMES = FALSE)
   })
   out <- as.data.frame(result, stringsAsFactors = FALSE)
@@ -363,7 +582,7 @@ STYLES <- c(
 # 4 · BUILD FLEXTABLE
 # ══════════════════════════════════════════════════════════════════════════════
 
-build_flextable <- function(tbl, style_id, lang = "EN", tmap = NULL) {
+build_flextable <- function(tbl, style_id, lang = "EN", tmap = NULL, fmt_rules = NULL) {
 
   # Apply translation
   if (lang == "DE" && !is.null(tmap)) {
@@ -372,6 +591,11 @@ build_flextable <- function(tbl, style_id, lang = "EN", tmap = NULL) {
     tbl$extra_hdrs <- lapply(tbl$extra_hdrs, translate_vec, tmap = tmap)
     tbl$data       <- translate_df(tbl$data, tmap)
     tbl$footnotes  <- translate_vec(tbl$footnotes, tmap)
+    
+    # Apply formatting rules (e.g., decimal separator, percentage formatting)
+    if (!is.null(fmt_rules)) {
+      tbl$data <- apply_formatting_rules(tbl$data, fmt_rules)
+    }
   }
 
   df <- tbl$data
@@ -567,8 +791,11 @@ ui <- fluidPage(
         tabPanel(
           "Übersetzungen",
           br(),
-          fluidRow(
-            column(12,
+          tabsetPanel(
+            # ── Subtab 2.1: Character translations ──────────────────────────
+            tabPanel(
+              "Character",
+              br(),
               div(style = "margin-bottom:10px;",
                 actionButton("btn_save_trans",  "Speichern",
                              icon = icon("floppy-disk"),
@@ -591,11 +818,84 @@ ui <- fluidPage(
                        "Änderungen wirken sofort auf Vorschau und Download. ",
                        "\"Speichern\" schreibt in translations_custom.csv."),
               DTOutput("trans_tbl")
+            ),
+            
+            # ── Subtab 2.2: Numeric formatting rules ────────────────────────
+            tabPanel(
+              "Numeric",
+              br(),
+              div(style = "margin-bottom:10px;",
+                actionButton("btn_save_fmt_rules",  "Speichern",
+                             icon = icon("floppy-disk"),
+                             class = "btn-success btn-sm"),
+                actionButton("btn_reset_fmt_rules", "Zurücksetzen",
+                             icon = icon("rotate-left"),
+                             class = "btn-warning btn-sm",
+                             style = "margin-left:6px;"),
+                actionButton("btn_add_fmt_rule",    "Regel hinzufügen",
+                             icon = icon("plus"),
+                             class = "btn-info btn-sm",
+                             style = "margin-left:6px;"),
+                actionButton("btn_del_fmt_rules",   "Auswahl löschen",
+                             icon = icon("trash"),
+                             class = "btn-danger btn-sm",
+                             style = "margin-left:6px;")
+              ),
+              helpText(style = "font-size:11px; color:#666;",
+                       "Doppelklick auf eine Zelle zum Bearbeiten. ",
+                       "Pattern: Regex für die Suche (z.B. '\\\\.') | ",
+                       "Replacement: Ersetzungstext (z.B. ',') | ",
+                       "Enabled: Aktiviert/Deaktiviert die Regel | ",
+                       "\"Speichern\" schreibt in formatting_rules_de.csv."),
+              DTOutput("fmt_rules_tbl")
             )
           )
         ),
 
-        # ── Tab 3: Batch-Export ────────────────────────────────────────────
+        # ── Tab 3: Muster (Pattern Templates) ──────────────────────────────
+        tabPanel(
+          "Muster",
+          br(),
+          fluidRow(
+            column(6,
+              wellPanel(
+                div(class = "section-lbl", "Muster speichern"),
+                textInput("pattern_save_name", "Muster Name:",
+                          placeholder = "z.B. 'Klinische Studie 2024'"),
+                actionButton("btn_save_pattern", "Muster speichern",
+                             icon = icon("floppy-disk"),
+                             class = "btn-success"),
+                helpText(style = "font-size:11px; color:#666; margin-top:6px;",
+                         "Speichert Übersetzungen, Formatierungsregeln und ",
+                         "Tabellenstil als Muster für später Verwendung."),
+                hr(),
+                div(class = "section-lbl", "Verfügbare Muster laden"),
+                uiOutput("pattern_list_ui"),
+                div(style = "margin-top:8px;",
+                  actionButton("btn_load_pattern", "Muster laden",
+                               icon = icon("download"),
+                               class = "btn-primary btn-sm"),
+                  actionButton("btn_delete_pattern", "Muster löschen",
+                               icon = icon("trash"),
+                               class = "btn-danger btn-sm",
+                               style = "margin-left:4px;")
+                ),
+                helpText(style = "font-size:11px; color:#666; margin-top:6px;",
+                         "Muster werden im Ordner 'muster' gespeichert.")
+              )
+            ),
+            column(6,
+              wellPanel(
+                div(class = "section-lbl", "Muster Informationen"),
+                div(class = "info-box",
+                    verbatimTextOutput("pattern_info_text")
+                )
+              )
+            )
+          )
+        ),
+
+        # ── Tab 4: Batch-Export ────────────────────────────────────────────
         tabPanel(
           "Batch-Export",
           br(),
@@ -640,6 +940,9 @@ ui <- fluidPage(
 # ══════════════════════════════════════════════════════════════════════════════
 
 server <- function(input, output, session) {
+
+  # Initialize patterns directory
+  init_patterns_dir()
 
   # ── File list ─────────────────────────────────────────────────────────────
   file_df <- reactive({ get_file_list() })
@@ -720,6 +1023,209 @@ server <- function(input, output, session) {
 
   tmap_rv <- reactive({ make_trans_map(trans_rv()) })
 
+  # ── Formatting Rules (Numeric) ────────────────────────────────────────────
+  fmt_rules_rv <- reactiveVal(rules_to_df(load_fmt_rules()))
+
+  output$fmt_rules_tbl <- renderDT({
+    datatable(
+      fmt_rules_rv(),
+      editable  = "cell",
+      rownames  = FALSE,
+      selection = "multiple",
+      options   = list(pageLength = 15, scrollX = TRUE),
+      colnames  = c("Name", "Pattern (Regex)", "Replacement", "Description", "Enabled"),
+      class     = "compact stripe"
+    )
+  })
+
+  observeEvent(input$fmt_rules_tbl_cell_edit, {
+    info <- input$fmt_rules_tbl_cell_edit
+    df   <- fmt_rules_rv()
+    value <- info$value
+    # Convert "on"/"off" strings to TRUE/FALSE for the enabled column
+    if (info$col + 1L == 5L) {
+      value <- tolower(value) %in% c("true", "1", "on", "yes")
+    }
+    df[info$row, info$col + 1L] <- value
+    fmt_rules_rv(df)
+  })
+
+  observeEvent(input$btn_save_fmt_rules, {
+    save_fmt_rules(fmt_rules_rv())
+    showNotification("Formatierungsregeln in formatting_rules_de.csv gespeichert.",
+                     type = "message", duration = 3)
+  })
+
+  observeEvent(input$btn_reset_fmt_rules, {
+    fmt_rules_rv(rules_to_df(FORMATTING_RULES_DE))
+    showNotification("Standard-Formatierungsregeln wiederhergestellt.",
+                     type = "warning", duration = 3)
+  })
+
+  observeEvent(input$btn_add_fmt_rule, {
+    df <- fmt_rules_rv()
+    df <- rbind(df, data.frame(
+      name = "New Rule",
+      pattern = "pattern",
+      replacement = "replacement",
+      description = "Description",
+      enabled = TRUE,
+      stringsAsFactors = FALSE
+    ))
+    fmt_rules_rv(df)
+  })
+
+  observeEvent(input$btn_del_fmt_rules, {
+    sel <- input$fmt_rules_tbl_rows_selected
+    if (!is.null(sel) && length(sel) > 0L) {
+      df <- fmt_rules_rv()
+      fmt_rules_rv(df[-sel, , drop = FALSE])
+    }
+  })
+
+  # Convert formatting rules dataframe back to list format for use in build_flextable
+  fmt_rules_list_rv <- reactive({ df_to_rules(fmt_rules_rv()) })
+
+  # ── Pattern (Muster) Management ───────────────────────────────────────────
+  patterns_invalidate <- reactiveVal(0)  # Trigger for pattern list refresh
+  patterns_list_rv <- reactive({
+    patterns_invalidate()  # Dependency for reactivity
+    list_patterns()
+  })
+
+  output$pattern_list_ui <- renderUI({
+    patterns <- patterns_list_rv()
+    if (length(patterns) == 0L) {
+      return(div(style = "color:#999; padding:10px; background:#f5f5f5; border-radius:4px;",
+                 "Noch keine Muster vorhanden"))
+    }
+    selectInput("pattern_select", label = NULL,
+                choices = setNames(patterns, patterns))
+  })
+
+  observeEvent(input$btn_save_pattern, {
+    name <- trimws(input$pattern_save_name)
+    if (!nzchar(name)) {
+      showNotification("Bitte einen Namen für das Muster eingeben.",
+                       type = "warning", duration = 3)
+      return()
+    }
+    
+    tryCatch({
+      save_pattern(name, trans_rv(), fmt_rules_rv(), input$style_id)
+      showNotification(sprintf("Muster '%s' gespeichert.", name),
+                       type = "message", duration = 3)
+      updateTextInput(session, "pattern_save_name", value = "")
+      patterns_invalidate(patterns_invalidate() + 1)  # Trigger refresh
+    }, error = function(e) {
+      showNotification(sprintf("Fehler beim Speichern: %s", e$message),
+                       type = "error", duration = 4)
+    })
+  })
+
+  observeEvent(input$btn_load_pattern, {
+    selected <- input$pattern_select
+    if (is.null(selected) || !nzchar(selected)) {
+      showNotification("Bitte ein Muster auswählen.",
+                       type = "warning", duration = 3)
+      return()
+    }
+    
+    tryCatch({
+      pattern_data <- load_pattern(selected)
+      if (is.null(pattern_data)) {
+        showNotification("Muster konnte nicht geladen werden.",
+                         type = "error", duration = 3)
+        return()
+      }
+      
+      # Load style
+      if (!is.null(pattern_data$style)) {
+        updateSelectInput(session, "style_id", selected = pattern_data$style)
+      }
+      
+      # Load translations
+      if (!is.null(pattern_data$translations)) {
+        trans_rv(pattern_data$translations)
+      }
+      
+      # Load formatting rules
+      if (!is.null(pattern_data$fmt_rules)) {
+        fmt_rules_rv(pattern_data$fmt_rules)
+      }
+      
+      showNotification(sprintf("Muster '%s' geladen.", selected),
+                       type = "message", duration = 3)
+    }, error = function(e) {
+      showNotification(sprintf("Fehler beim Laden: %s", e$message),
+                       type = "error", duration = 4)
+    })
+  })
+
+  observeEvent(input$btn_delete_pattern, {
+    selected <- input$pattern_select
+    if (is.null(selected) || !nzchar(selected)) {
+      showNotification("Bitte ein Muster auswählen.",
+                       type = "warning", duration = 3)
+      return()
+    }
+    
+    showModal(modalDialog(
+      title = "Muster löschen",
+      sprintf("Wirklich Muster '%s' löschen?", selected),
+      footer = tagList(
+        actionButton("confirm_delete_pattern", "Ja, löschen",
+                     class = "btn-danger"),
+        modalButton("Abbrechen", class = "btn-secondary")
+      )
+    ))
+  })
+
+  observeEvent(input$confirm_delete_pattern, {
+    selected <- input$pattern_select
+    tryCatch({
+      if (delete_pattern(selected)) {
+        showNotification(sprintf("Muster '%s' gelöscht.", selected),
+                         type = "message", duration = 3)
+        removeModal()
+        patterns_invalidate(patterns_invalidate() + 1)  # Trigger refresh
+        # Clear the selection after deleting
+        updateSelectInput(session, "pattern_select", selected = "")
+      } else {
+        showNotification("Muster konnte nicht gelöscht werden.",
+                         type = "error", duration = 3)
+      }
+    }, error = function(e) {
+      showNotification(sprintf("Fehler beim Löschen: %s", e$message),
+                       type = "error", duration = 4)
+    })
+  })
+
+  output$pattern_info_text <- renderText({
+    patterns <- patterns_list_rv()
+    selected <- input$pattern_select
+    
+    if (length(patterns) == 0L) {
+      return("Keine Muster vorhanden.\nErstelle dein erstes Muster mit\ndem Namen und klicke 'Muster speichern'.")
+    }
+    
+    if (is.null(selected) || !nzchar(selected)) {
+      sprintf("Gespeicherte Muster: %d\n\nWähle ein Muster oben aus\num Details zu sehen.",
+              length(patterns))
+    } else {
+      pattern_path <- file.path(PATTERNS_DIR, selected)
+      file_info <- file.info(pattern_path)
+      mod_time <- if (!is.na(file_info$mtime)) {
+        format(file_info$mtime, "%d.%m.%Y %H:%M")
+      } else {
+        "Unbekannt"
+      }
+      
+      sprintf("Muster: %s\n\nGeändert: %s\nPfad: %s",
+              selected, mod_time, pattern_path)
+    }
+  })
+
   # ── Current table (read on demand) ───────────────────────────────────────
   current_tbl <- reactive({
     fp <- selected_path()
@@ -746,8 +1252,9 @@ server <- function(input, output, session) {
                  icon("table"), " Bitte eine Tabelle aus der Liste oben auswählen."))
     }
     tbl <- current_tbl()
+    fmt_rules <- if (input$language == "DE") fmt_rules_list_rv() else NULL
     ft  <- tryCatch(
-      build_flextable(tbl, input$style_id, input$language, tmap_rv()),
+      build_flextable(tbl, input$style_id, input$language, tmap_rv(), fmt_rules),
       error = function(e) {
         return(div(class = "alert alert-danger",
                    paste("Fehler beim Aufbau der Tabelle:", e$message)))
@@ -767,7 +1274,8 @@ server <- function(input, output, session) {
     },
     content = function(file) {
       tbl <- current_tbl()
-      ft  <- build_flextable(tbl, input$style_id, input$language, tmap_rv())
+      fmt_rules <- if (input$language == "DE") fmt_rules_list_rv() else NULL
+      ft  <- build_flextable(tbl, input$style_id, input$language, tmap_rv(), fmt_rules)
       save_as_rtf(ft, path = file)
     }
   )
@@ -827,13 +1335,14 @@ server <- function(input, output, session) {
       n_total <- length(rows)
       errors  <- character(0)
 
+      fmt_rules <- if (bln == "DE") fmt_rules_list_rv() else NULL
       withProgress(message = "Erzeuge RTF-Dateien …", value = 0, {
         for (idx in seq_along(rows)) {
           r  <- rows[idx]
           fp <- file.path(EXCEL_DIR, df$Datei[r])
           tryCatch({
             tbl <- read_excel_table(fp)
-            ft  <- build_flextable(tbl, bst, bln, tmap)
+            ft  <- build_flextable(tbl, bst, bln, tmap, fmt_rules)
             out <- file.path(tmp_dir,
                              paste0(tools::file_path_sans_ext(df$Datei[r]),
                                     "_", bst, ".rtf"))
@@ -960,8 +1469,9 @@ server <- function(input, output, session) {
     fp <- selected_path()
     if (is.null(fp)) return(NULL)
     tbl <- current_tbl()
+    fmt_rules <- if (input$language == "DE") fmt_rules_list_rv() else NULL
     ft  <- tryCatch(
-      build_flextable(tbl, input$style_id, input$language, tmap_rv()),
+      build_flextable(tbl, input$style_id, input$language, tmap_rv(), fmt_rules),
       error = function(e) NULL
     )
     if (is.null(ft))
