@@ -342,7 +342,6 @@ init_patterns_dir <- function() {
 }
 
 save_pattern <- function(pattern_name, trans_df, fmt_rules_df, style_id, custom_styles_df = NULL) {
-save_pattern <- function(pattern_name, trans_df, fmt_rules_df, style_id, custom_styles_df = NULL) {
   init_patterns_dir()
   pattern_path <- file.path(PATTERNS_DIR, pattern_name)
   
@@ -361,11 +360,6 @@ save_pattern <- function(pattern_name, trans_df, fmt_rules_df, style_id, custom_
   # Save formatting rules
   write.csv(fmt_rules_df[, c("name", "pattern", "replacement", "description", "enabled")],
             file.path(pattern_path, "formatting_rules.csv"), row.names = FALSE)
-  
-  # Save custom styles if provided
-  if (!is.null(custom_styles_df) && nrow(custom_styles_df) > 0L) {
-    write.csv(custom_styles_df, file.path(pattern_path, "custom_styles.csv"), row.names = FALSE)
-  }
   
   # Save custom styles if provided
   if (!is.null(custom_styles_df) && nrow(custom_styles_df) > 0L) {
@@ -806,57 +800,10 @@ get_custom_style_props <- function(style_name, custom_styles_df) {
 
 # Apply font / colour / alignment / padding – NO borders
 .style_props <- function(ft, style_id, custom_styles_df = NULL) {
-.style_props <- function(ft, style_id, custom_styles_df = NULL) {
   nc     <- length(ft$col_keys)
   data_j <- if (nc >= 2L) seq(2L, nc) else integer(0)
   nr_b   <- nrow_part(ft, "body")
 
-  # Check if this is a custom style
-  if (!is.null(custom_styles_df) && grepl("^custom_", style_id)) {
-    custom_idx <- as.integer(sub("^custom_", "", style_id))
-    if (custom_idx > 0L && custom_idx <= nrow(custom_styles_df)) {
-      style_row <- custom_styles_df[custom_idx, ]
-      
-      font_nm <- style_row$font_name
-      font_sz <- style_row$font_size
-      pad     <- style_row$padding
-      pad_lr  <- pad + 1L
-      
-      ft <- font(ft, fontname = font_nm, part = "all")
-      ft <- fontsize(ft, size = font_sz, part = "all")
-      ft <- align(ft, align = "left", part = "all")
-      ft <- padding(ft, padding.top = pad, padding.bottom = pad,
-                    padding.left = pad_lr, padding.right = pad_lr, part = "all")
-      ft <- border_remove(ft)
-      
-      if (length(data_j) > 0) {
-        ft <- align(ft, j = data_j, align = "right", part = "body")
-        ft <- align(ft, j = data_j, align = "center", part = "header")
-      }
-      
-      # Header styling
-      if (isTRUE(style_row$header_bold)) {
-        ft <- bold(ft, bold = TRUE, part = "header")
-      }
-      ft <- color(ft, color = style_row$header_color, part = "header")
-      ft <- bg(ft, bg = style_row$header_bg, part = "header")
-      
-      # Body styling
-      ft <- bg(ft, bg = style_row$body_bg, part = "body")
-      
-      # Alternating rows
-      if (isTRUE(style_row$alternating_rows) && nr_b > 0L) {
-        odd  <- seq(1L, nr_b, 2L)
-        even <- seq(2L, nr_b, 2L)
-        if (length(odd))  ft <- bg(ft, i = odd, bg = style_row$alternating_bg, part = "body")
-        if (length(even)) ft <- bg(ft, i = even, bg = style_row$body_bg, part = "body")
-      }
-      
-      return(ft)
-    }
-  }
-
-  # Built-in styles
   # Check if this is a custom style
   if (!is.null(custom_styles_df) && grepl("^custom_", style_id)) {
     custom_idx <- as.integer(sub("^custom_", "", style_id))
@@ -1123,17 +1070,6 @@ get_file_list <- function(dir = EXCEL_DIR) {
 # ══════════════════════════════════════════════════════════════════════════════
 
 ui <- fluidPage(
-  tags$head(
-    tags$script(HTML("
-      Shiny.addCustomMessageHandler('refresh_file_list', function(message) {
-        // Trigger DataTable refresh by clicking on the tab
-        var mainTabs = document.querySelector('[data-value=\"Tabellen & Vorschau\"]');
-        if (mainTabs) {
-          Shiny.setInputValue('main_tabs', 'Tabellen & Vorschau', {priority: 'event'});
-        }
-      });
-    ")),
-    tags$style(HTML("
   tags$head(
     tags$script(HTML("
       Shiny.addCustomMessageHandler('refresh_file_list', function(message) {
@@ -3228,7 +3164,6 @@ server <- function(input, output, session) {
 
       fluidRow(
         column(7,
-        column(7,
           div(class = "section-lbl", "Original PDF"),
           if (has_idx) {
             div(style = "font-size:11px; color:#777; margin-bottom:6px;",
@@ -3248,9 +3183,7 @@ server <- function(input, output, session) {
           },
           div(class = "cmp-panel",
               imageOutput("cmp_pdf_img", height = "100%", width = "100%"))
-              imageOutput("cmp_pdf_img", height = "100%", width = "100%"))
         ),
-        column(5,
         column(5,
           div(class = "section-lbl", "RTF-Vorschau"),
           div(class = "preview-box cmp-panel",
