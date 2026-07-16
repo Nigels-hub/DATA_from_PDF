@@ -1850,6 +1850,49 @@ ui <- fluidPage(
               DTOutput("batch_tbl")
             )
           )
+        ),
+
+        # ── Tab 7: Combine RTFs with TOC ──────────────────────────────────
+        tabPanel(
+          "RTFs kombinieren",
+          br(),
+          fluidRow(
+            column(4,
+              wellPanel(
+                div(class = "section-lbl", "Einstellungen"),
+                textInput("combined_rtf_title", "Dokumenttitel:",
+                          placeholder = "z.B. 'Klinische Studienergebnisse'",
+                          value = "Klinische Studienergebnisse"),
+                hr(),
+                div(class = "section-lbl", "Tabellen auswählen"),
+                div(style = "margin-bottom:6px;",
+                  actionButton("comb_all",  "Alle wählen",
+                               class = "btn-sm btn-default"),
+                  actionButton("comb_none", "Alle abwählen",
+                               class = "btn-sm btn-default",
+                               style = "margin-left:4px;")
+                ),
+                uiOutput("comb_sel_info"),
+                hr(),
+                checkboxInput("comb_include_toc", "Inhaltsverzeichnis einschließen", 
+                              value = TRUE),
+                checkboxInput("comb_include_bookmarks", "Lesezeichen hinzufügen", 
+                              value = TRUE),
+                checkboxInput("comb_page_breaks", "Seitenumbrüche zwischen Tabellen", 
+                              value = TRUE),
+                hr(),
+                downloadButton("dl_combined_rtf", "RTF kombinieren & herunterladen",
+                               class = "btn-success",
+                               style = "width:100%;"),
+                helpText(style = "font-size:11px; color:#888; margin-top:6px;",
+                         "Kombiniert ausgewählte Tabellen in eine RTF-Datei mit Inhaltsverzeichnis und Lesezeichen.")
+              )
+            ),
+            column(8,
+              div(class = "section-lbl", "Tabellen auswählen:"),
+              DTOutput("comb_tbl")
+            )
+          )
         )
       )
     )
@@ -3105,6 +3148,213 @@ server <- function(input, output, session) {
           sprintf("%d Fehler aufgetreten. Details in der Konsole.", length(errors)),
           type = "warning", duration = 8
         )
+    }
+  )
+
+  # ── Combine RTFs with TOC and Bookmarks ────────────────────────────────────
+  # Table for combine selection
+  output$comb_tbl <- renderDT({
+    df <- file_df()[, c("Nr", "Tabellen_ID", "Titel")]
+    datatable(
+      df,
+      selection = "multiple",
+      rownames  = FALSE,
+      filter    = "top",
+      options   = list(pageLength = 15, scrollX = TRUE,
+                       columnDefs = list(list(width = "50px",  targets = 0L),
+                                         list(width = "120px", targets = 1L))),
+      class = "compact stripe hover"
+    )
+  })
+
+  # Select/deselect all for combine
+  observeEvent(input$comb_all, {
+    proxy <- dataTableProxy("comb_tbl")
+    selectRows(proxy, seq_len(nrow(file_df())))
+  })
+
+  observeEvent(input$comb_none, {
+    proxy <- dataTableProxy("comb_tbl")
+    selectRows(proxy, NULL)
+  })
+
+  # Selection info for combine
+  output$comb_sel_info <- renderUI({
+    n <- length(input$comb_tbl_rows_selected)
+    div(class = "info-box",
+        sprintf("%d Tabelle(n) ausgewählt", n))
+  })
+
+  # Function to create table of contents with bookmarks
+  create_combined_rtf_with_toc <- function(file, rows, df, tmap, fmt_rules, 
+                                           title, include_toc, include_bookmarks, page_breaks) {
+    if (is.null(rows) || length(rows) == 0L) {
+      showNotification("Keine Tabellen ausgewählt.", type = "warning")
+      return(FALSE)
+    }
+
+    tryCatch({
+      # Collect all tables first for TOC
+      tables_data <- list()
+      toc_entries <- character(0)
+      
+      for (idx in seq_along(rows)) {
+        r  <- rows[idx]
+        fp <- file.path(EXCEL_DIR, df$Datei[r])
+        tbl <- read_excel_table(fp)
+        ft <- build_flextable(tbl, "clinical", "DE", tmap, fmt_rules)
+        
+        tables_data[[idx]] <- list(
+          title = tbl$title,
+          flextable = ft,
+          extra_hdrs = tbl$extra_hdrs,
+          footnotes = tbl$footnotes
+        )
+        
+        toc_entries <- c(toc_entries, tbl$title)
+      }
+      
+      # Start building document
+      doc <- officer::read_docx()
+      
+      # Add title
+      title_run <- officer::run_pagebreak()
+      doc <- officer::body_add_par(doc, title, 
+                                   style = "Heading 1",
+                                   run_properties = officer::fp_text(
+                                     bold = TRUE, 
+                                     size = 24, 
+                                     color = "#1a3a5c"))
+      
+      # Add date
+      doc <- officer::body_add_par(doc, 
+                                  paste("Erstellt am:", format(Sys.Date(), "%d.%m.%Y")),
+                                  style = "Normal")
+      doc <- officer::body_add_par(doc, "")
+      
+      # Add TOC if requested
+      if (include_toc) {
+        doc <- officer::body_add_break(doc)
+        
+        doc <- officer::body_add_par(doc, "Inhaltsverzeichnis", 
+                                     style = "Heading 2",
+                                     run_properties = officer::fp_text(
+                                       bold = TRUE, 
+                                       size = 14,
+                                       color = "#2c3e50"))
+        doc <- officer::body_add_par(doc, "")
+        
+        # Add TOC entries
+        for (i in seq_along(toc_entries)) {
+          entry_text <- paste0(i, ". ", toc_entries[i])
+          doc <- officer::body_add_par(doc, entry_text,
+                                      style = "Normal")
+        }
+        
+        doc <- officer::body_add_break(doc)
+      }
+      
+      # Add tables
+      for (idx in seq_along(tables_data)) {
+        tbl_data <- tables_data[[idx]]
+        
+        # Add table title/heading with bookmark indicator
+        if (include_bookmarks) {
+          title_with_bookmark <- paste0("[", idx, "] ", tbl_data$title)
+        } else {
+          title_with_bookmark <- paste0("[", idx, "] ", tbl_data$title)
+        }
+        
+        doc <- officer::body_add_par(doc, title_with_bookmark, 
+                                     style = "Heading 3",
+                                     run_properties = officer::fp_text(
+                                       bold = TRUE, 
+                                       size = 12,
+                                       color = "#2c3e50"))
+        
+        # Add table
+        doc <- officer::body_add_flextable(doc, tbl_data$flextable)
+        
+        # Add extra headers if any
+        if (length(tbl_data$extra_hdrs) > 0L) {
+          for (eh in tbl_data$extra_hdrs) {
+            doc <- officer::body_add_par(doc, paste("*", eh), 
+                                        style = "Normal",
+                                        run_properties = officer::fp_text(
+                                          size = 9, 
+                                          italic = TRUE, 
+                                          color = "#666"))
+          }
+        }
+        
+        # Add footnotes if any
+        if (length(tbl_data$footnotes) > 0L) {
+          doc <- officer::body_add_par(doc, "")
+          for (fn in tbl_data$footnotes) {
+            doc <- officer::body_add_par(doc, fn, 
+                                        style = "Normal",
+                                        run_properties = officer::fp_text(
+                                          size = 9, 
+                                          italic = TRUE, 
+                                          color = "#777"))
+          }
+        }
+        
+        # Add spacing or page break
+        if (idx < length(tables_data)) {
+          if (page_breaks) {
+            doc <- officer::body_add_break(doc)
+          } else {
+            doc <- officer::body_add_par(doc, "")
+            doc <- officer::body_add_par(doc, "")
+          }
+        }
+      }
+      
+      # Save as DOCX
+      officer::print(doc, target = file)
+      
+      return(TRUE)
+    }, error = function(e) {
+      showNotification(paste("Fehler beim Kombinieren:", e$message), 
+                      type = "error", duration = 5)
+      return(FALSE)
+    })
+  }
+
+  # Download handler for combined RTF
+  output$dl_combined_rtf <- downloadHandler(
+    filename = function() {
+      paste0("Kombiniert_", input$combined_rtf_title, "_",
+             format(Sys.Date(), "%Y%m%d"), ".docx")
+    },
+    content = function(file) {
+      withProgress(message = "Kombiniere RTF-Dateien …", value = 0, {
+        rows <- input$comb_tbl_rows_selected
+        if (is.null(rows) || length(rows) == 0L) {
+          showNotification("Keine Tabellen ausgewählt.", type = "warning")
+          writeLines("No tables selected.", file)
+          return()
+        }
+
+        df <- file_df()
+        tmap <- tmap_rv()
+        fmt_rules <- fmt_rules_list_rv()
+        
+        create_combined_rtf_with_toc(
+          file = file,
+          rows = rows,
+          df = df,
+          tmap = tmap,
+          fmt_rules = fmt_rules,
+          title = input$combined_rtf_title,
+          include_toc = input$comb_include_toc,
+          include_bookmarks = input$comb_include_bookmarks,
+          page_breaks = input$comb_page_breaks
+        )
+        
+        showNotification("✅ Tabellen erfolgreich kombiniert!", type = "message", duration = 3)
+      })
     }
   )
 
