@@ -3,21 +3,117 @@
 #
 # Liest extrahierte Excel-Tabellen aus extracted_tables/
 # Erzeugt stilisierte RTF-Tabellen mit optionaler EN→DE-Übersetzung
+# Speichert Tabellenstile und Konfigurationen als Muster
 #
-# Requires: flextable >= 0.9.1, officer, readxl, DT, zip, shiny, dplyr, stringr
+# Requires: flextable >= 0.9.1, officer, readxl, DT, zip, shiny, dplyr, stringr, colourpicker
 #
 # Start:
 #   Rscript -e "shiny::runApp('rtf_tables_app.R')"
 # ─────────────────────────────────────────────────────────────────────────────
 
-if (!requireNamespace("pacman", quietly = TRUE)) install.packages("pacman")
-pacman::p_load(shiny, readxl, flextable, officer, dplyr, stringr, DT, tools, htmltools, zip)
+# ── Dependency Management ────────────────────────────────────────────────────
+
+# Install pacman for package management
+if (!requireNamespace("pacman", quietly = TRUE)) {
+  install.packages("pacman", repos = "https://cloud.r-project.org/")
+}
+
+# Define required R packages
+REQUIRED_R_PACKAGES <- c(
+  "shiny", "readxl", "flextable", "officer", "dplyr", "stringr",
+  "DT", "tools", "htmltools", "zip", "colourpicker"
+)
+
+# Function to check and install R packages
+check_and_install_r_packages <- function(packages = REQUIRED_R_PACKAGES) {
+  missing <- packages[!sapply(packages, requireNamespace, quietly = TRUE)]
+  if (length(missing) > 0L) {
+    message("Installing missing R packages: ", paste(missing, collapse = ", "))
+    pacman::p_load(char = missing)
+  }
+  invisible(TRUE)
+}
+
+# Function to check Python and required Python packages
+check_python_environment <- function() {
+  # Check if Python is available
+  python_check <- tryCatch({
+    result <- system2("python3", "--version", stdout = TRUE, stderr = TRUE)
+    list(available = TRUE, version = paste(result, collapse = " "))
+  }, error = function(e) {
+    list(available = FALSE, version = NA_character_)
+  })
+  
+  if (!python_check$available) {
+    python_check <- tryCatch({
+      result <- system2("python", "--version", stdout = TRUE, stderr = TRUE)
+      list(available = TRUE, version = paste(result, collapse = " "))
+    }, error = function(e) {
+      list(available = FALSE, version = NA_character_)
+    })
+  }
+  
+  if (!python_check$available) {
+    return(list(
+      python_available = FALSE,
+      packages = list(),
+      error = "Python 3 not found. Please install Python 3."
+    ))
+  }
+  
+  # Check required Python packages
+  required_packages <- c("pdfplumber", "openpyxl")
+  missing_packages <- character(0)
+  
+  for (pkg in required_packages) {
+    check_cmd <- sprintf('import %s; print("OK")', pkg)
+    result <- tryCatch({
+      system2("python3", c("-c", check_cmd), stdout = TRUE, stderr = TRUE)
+    }, error = function(e) {
+      character(0)
+    })
+    
+    if (length(result) == 0L || !any(grepl("OK", result))) {
+      missing_packages <- c(missing_packages, pkg)
+    }
+  }
+  
+  list(
+    python_available = TRUE,
+    python_version = python_check$version,
+    required_packages = required_packages,
+    missing_packages = missing_packages,
+    all_packages_available = length(missing_packages) == 0L
+  )
+}
+
+# Function to install missing Python packages
+install_python_packages <- function(packages) {
+  if (length(packages) == 0L) return(TRUE)
+  
+  for (pkg in packages) {
+    message("Installing Python package: ", pkg)
+    result <- system2("pip3", c("install", pkg), stdout = TRUE, stderr = TRUE)
+    if (!any(grepl("Successfully installed", result))) {
+      # Try with pip as fallback
+      result <- system2("pip", c("install", pkg), stdout = TRUE, stderr = TRUE)
+    }
+  }
+  invisible(TRUE)
+}
+
+# Run checks on startup
+check_and_install_r_packages()
+python_env_status <- check_python_environment()
 
 # Optional: PDF page rendering for the PDF vs RTF comparison view.
 # Requires the 'poppler' system library:  brew install poppler
 # Then install R packages:               install.packages(c('pdftools', 'png'))
 HAS_PDFTOOLS <- requireNamespace("pdftools", quietly = TRUE) &&
                 requireNamespace("png",      quietly = TRUE)
+
+# Load all required packages
+pacman::p_load(shiny, readxl, flextable, officer, dplyr, stringr, DT, tools, htmltools, zip, colourpicker)
 
 EXCEL_DIR  <- "extracted_tables"
 TRANS_FILE <- "translations_custom.csv"
@@ -239,7 +335,7 @@ init_patterns_dir <- function() {
   }
 }
 
-save_pattern <- function(pattern_name, trans_df, fmt_rules_df, style_id) {
+save_pattern <- function(pattern_name, trans_df, fmt_rules_df, style_id, custom_styles_df = NULL) {
   init_patterns_dir()
   pattern_path <- file.path(PATTERNS_DIR, pattern_name)
   
@@ -258,6 +354,11 @@ save_pattern <- function(pattern_name, trans_df, fmt_rules_df, style_id) {
   # Save formatting rules
   write.csv(fmt_rules_df[, c("name", "pattern", "replacement", "description", "enabled")],
             file.path(pattern_path, "formatting_rules.csv"), row.names = FALSE)
+  
+  # Save custom styles if provided
+  if (!is.null(custom_styles_df) && nrow(custom_styles_df) > 0L) {
+    write.csv(custom_styles_df, file.path(pattern_path, "custom_styles.csv"), row.names = FALSE)
+  }
 }
 
 load_pattern <- function(pattern_name) {
@@ -302,6 +403,27 @@ load_pattern <- function(pattern_name) {
     pattern_data$fmt_rules <<- NULL
   })
   
+  # Load custom styles
+  tryCatch({
+    custom_styles <- read.csv(file.path(pattern_path, "custom_styles.csv"), stringsAsFactors = FALSE)
+    # Convert to proper types
+    if ("header_bold" %in% names(custom_styles)) {
+      custom_styles$header_bold <- as.logical(custom_styles$header_bold)
+    }
+    if ("alternating_rows" %in% names(custom_styles)) {
+      custom_styles$alternating_rows <- as.logical(custom_styles$alternating_rows)
+    }
+    if ("font_size" %in% names(custom_styles)) {
+      custom_styles$font_size <- as.numeric(custom_styles$font_size)
+    }
+    if ("padding" %in% names(custom_styles)) {
+      custom_styles$padding <- as.numeric(custom_styles$padding)
+    }
+    pattern_data$custom_styles <- custom_styles
+  }, error = function(e) {
+    pattern_data$custom_styles <<- NULL
+  })
+  
   pattern_data
 }
 
@@ -318,6 +440,71 @@ list_patterns <- function() {
   init_patterns_dir()
   patterns <- list.dirs(PATTERNS_DIR, full.names = FALSE, recursive = FALSE)
   patterns[patterns != ""]  # Remove empty strings
+}
+
+# ── Custom Styles Management ─────────────────────────────────────────────────
+# Store custom table styles that users can define and save
+
+# Default empty custom styles dataframe
+get_empty_custom_styles_df <- function() {
+  data.frame(
+    name = character(0),
+    font_name = character(0),
+    font_size = numeric(0),
+    header_bold = logical(0),
+    header_color = character(0),
+    header_bg = character(0),
+    body_bg = character(0),
+    alternating_rows = logical(0),
+    alternating_bg = character(0),
+    padding = numeric(0),
+    stringsAsFactors = FALSE
+  )
+}
+
+load_custom_styles <- function() {
+  custom_styles_file <- file.path(PATTERNS_DIR, ".custom_styles.csv")
+  if (file.exists(custom_styles_file)) {
+    tryCatch({
+      df <- read.csv(custom_styles_file, stringsAsFactors = FALSE)
+      # Convert logical strings back to logical
+      if ("header_bold" %in% names(df)) {
+        df$header_bold <- as.logical(df$header_bold)
+      }
+      if ("alternating_rows" %in% names(df)) {
+        df$alternating_rows <- as.logical(df$alternating_rows)
+      }
+      if ("font_size" %in% names(df)) {
+        df$font_size <- as.numeric(df$font_size)
+      }
+      if ("padding" %in% names(df)) {
+        df$padding <- as.numeric(df$padding)
+      }
+      df
+    }, error = function(e) {
+      get_empty_custom_styles_df()
+    })
+  } else {
+    get_empty_custom_styles_df()
+  }
+}
+
+save_custom_styles <- function(df) {
+  init_patterns_dir()
+  custom_styles_file <- file.path(PATTERNS_DIR, ".custom_styles.csv")
+  if (nrow(df) > 0L) {
+    write.csv(df, custom_styles_file, row.names = FALSE)
+  }
+}
+
+delete_custom_style <- function(style_name) {
+  df <- load_custom_styles()
+  if (style_name %in% df$name) {
+    df <- df[df$name != style_name, , drop = FALSE]
+    save_custom_styles(df)
+    return(TRUE)
+  }
+  FALSE
 }
 
 make_trans_map <- function(df) setNames(df$german, df$english)
@@ -470,7 +657,7 @@ read_excel_table <- function(path) {
 }
 
 # ══════════════════════════════════════════════════════════════════════════════
-# 3 · TABLE STYLES  (4 styles)
+# 3 · TABLE STYLES  (4 styles + custom)
 # ══════════════════════════════════════════════════════════════════════════════
 # Each style applies non-border properties; borders are applied separately
 # so that the title header row (prepended last) does not interfere.
@@ -482,12 +669,76 @@ STYLES <- c(
   "Formales Raster"    = "grid"
 )
 
+# Get available styles including custom styles
+get_available_styles <- function() {
+  custom_df <- load_custom_styles()
+  if (nrow(custom_df) > 0L) {
+    custom_styles <- setNames(paste0("custom_", seq_len(nrow(custom_df))), custom_df$name)
+    c(STYLES, custom_styles)
+  } else {
+    STYLES
+  }
+}
+
+# Get style properties from custom styles dataframe
+get_custom_style_props <- function(style_name, custom_styles_df) {
+  idx <- which(custom_styles_df$name == style_name)
+  if (length(idx) == 0L) return(NULL)
+  as.list(custom_styles_df[idx[1L], , drop = FALSE])
+}
+
 # Apply font / colour / alignment / padding – NO borders
-.style_props <- function(ft, style_id) {
+.style_props <- function(ft, style_id, custom_styles_df = NULL) {
   nc     <- length(ft$col_keys)
   data_j <- if (nc >= 2L) seq(2L, nc) else integer(0)
   nr_b   <- nrow_part(ft, "body")
 
+  # Check if this is a custom style
+  if (!is.null(custom_styles_df) && grepl("^custom_", style_id)) {
+    custom_idx <- as.integer(sub("^custom_", "", style_id))
+    if (custom_idx > 0L && custom_idx <= nrow(custom_styles_df)) {
+      style_row <- custom_styles_df[custom_idx, ]
+      
+      font_nm <- style_row$font_name
+      font_sz <- style_row$font_size
+      pad     <- style_row$padding
+      pad_lr  <- pad + 1L
+      
+      ft <- font(ft, fontname = font_nm, part = "all")
+      ft <- fontsize(ft, size = font_sz, part = "all")
+      ft <- align(ft, align = "left", part = "all")
+      ft <- padding(ft, padding.top = pad, padding.bottom = pad,
+                    padding.left = pad_lr, padding.right = pad_lr, part = "all")
+      ft <- border_remove(ft)
+      
+      if (length(data_j) > 0) {
+        ft <- align(ft, j = data_j, align = "right", part = "body")
+        ft <- align(ft, j = data_j, align = "center", part = "header")
+      }
+      
+      # Header styling
+      if (isTRUE(style_row$header_bold)) {
+        ft <- bold(ft, bold = TRUE, part = "header")
+      }
+      ft <- color(ft, color = style_row$header_color, part = "header")
+      ft <- bg(ft, bg = style_row$header_bg, part = "header")
+      
+      # Body styling
+      ft <- bg(ft, bg = style_row$body_bg, part = "body")
+      
+      # Alternating rows
+      if (isTRUE(style_row$alternating_rows) && nr_b > 0L) {
+        odd  <- seq(1L, nr_b, 2L)
+        even <- seq(2L, nr_b, 2L)
+        if (length(odd))  ft <- bg(ft, i = odd, bg = style_row$alternating_bg, part = "body")
+        if (length(even)) ft <- bg(ft, i = even, bg = style_row$body_bg, part = "body")
+      }
+      
+      return(ft)
+    }
+  }
+
+  # Built-in styles
   font_nm   <- if (style_id == "apa") "Times New Roman" else "Arial"
   font_sz   <- if (style_id == "compact") 8 else if (style_id == "apa") 10 else 9
   pad       <- if (style_id == "compact") 2 else 3
@@ -623,7 +874,8 @@ build_flextable <- function(tbl, style_id, lang = "EN", tmap = NULL, fmt_rules =
   }
 
   # ── Apply non-border style ───────────────────────────────────────────────
-  ft <- .style_props(ft, style_id)
+  custom_styles_df <- load_custom_styles()
+  ft <- .style_props(ft, style_id, custom_styles_df)
 
   # ── Apply indentation to first column based on leading spaces ─────────────
   # Detects "  Label" (2 spaces per indent level) and applies left padding
@@ -705,7 +957,17 @@ get_file_list <- function(dir = EXCEL_DIR) {
 # ══════════════════════════════════════════════════════════════════════════════
 
 ui <- fluidPage(
-  tags$head(tags$style(HTML("
+  tags$head(
+    tags$script(HTML("
+      Shiny.addCustomMessageHandler('refresh_file_list', function(message) {
+        // Trigger DataTable refresh by clicking on the tab
+        var mainTabs = document.querySelector('[data-value=\"Tabellen & Vorschau\"]');
+        if (mainTabs) {
+          Shiny.setInputValue('main_tabs', 'Tabellen & Vorschau', {priority: 'event'});
+        }
+      });
+    ")),
+    tags$style(HTML("
     body          { font-family:'Segoe UI',Arial,sans-serif; background:#f4f6f9; }
     .well         { background:white; border:1px solid #dee2e6; border-radius:6px; }
     .section-lbl  { font-weight:600; color:#2c3e50; font-size:13px;
@@ -718,11 +980,30 @@ ui <- fluidPage(
     table.dataTable { font-size:12px; }
     .tab-content  { padding-top:10px; }
     /* PDF vs RTF comparison modal */
-    .modal-xl .modal-dialog { max-width:1380px; width:95vw; }
-    .cmp-panel  { overflow-y:auto; max-height:74vh; }
+    .modal-xl { width: 100vw !important; }
+    .modal-xl .modal-dialog { max-width: 98vw; width: 98vw; max-height: 95vh; }
+    .modal-xl .modal-content { max-height: 90vh; overflow-y: auto; }
+    .cmp-panel  { overflow-y:auto; max-height:85vh; }
     .cmp-no-pdf { color:#c0392b; font-size:12px; padding:20px;
                   text-align:center; background:#fff5f5; border-radius:4px; }
-  "))),
+    /* Progress bar styling */
+    .shiny-progress-container { position: fixed; bottom: 20px; right: 20px; 
+                                width: 350px; background: white; border-radius: 8px;
+                                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                                padding: 0; z-index: 9999; }
+    .shiny-progress { border-radius: 8px; }
+    .progress { background-color: #e8e8e8; border-radius: 6px; height: 24px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin: 12px; }
+    .progress-bar { background: linear-gradient(90deg, #27ae60 0%, #2ecc71 100%);
+                    height: 100%; border-radius: 6px; font-size: 12px; 
+                    color: white; font-weight: 600; display: flex;
+                    align-items: center; justify-content: center;
+                    transition: width 0.3s ease; }
+    .shiny-progress-detail { padding: 0 12px 8px 12px; font-size: 12px;
+                             color: #555; text-align: center; font-weight: 500; }
+    .shiny-progress-message { padding: 12px 12px 4px 12px; font-size: 13px;
+                              font-weight: 600; color: #2c3e50; }
+  "))
 
   titlePanel(
     div(style = "color:#2c3e50;",
@@ -738,8 +1019,7 @@ ui <- fluidPage(
       width = 3,
 
       div(class = "section-lbl", "Tabellenstil"),
-      selectInput("style_id", label = NULL,
-                  choices = STYLES, selected = "clinical"),
+      uiOutput("style_selector_ui"),
 
       div(class = "section-lbl", "Sprache / Language"),
       radioButtons("language", label = NULL,
@@ -775,7 +1055,187 @@ ui <- fluidPage(
       tabsetPanel(
         id = "main_tabs",
 
-        # ── Tab 1: Browser + Vorschau ──────────────────────────────────────
+        # ── Tab 0: Help ────────────────────────────────────────────────────
+        tabPanel(
+          "Hilfe",
+          br(),
+          div(style = "max-width:900px; line-height:1.8; color:#333;",
+            h3("RTF Tabellen-Generator – Benutzerhandbuch", style = "color:#2c3e50;"),
+            
+            h4("📋 Übersicht"),
+            p("Diese Anwendung vereinfacht die Konvertierung von PDF-Tabellen zu RTF-Format mit ",
+              "optionalen Übersetzungs-, Formatierungs- und Stilierungsoptionen. Sie können mehrere PDFs ",
+              "verarbeiten, Einstellungen als wiederverwendbare Muster speichern und Batch-Exporte durchführen."),
+            
+            h4("🚀 Schnelleinstieg"),
+            tags$ol(
+              tags$li(
+                strong("PDFs laden:"), " Gehen Sie zur Registerkarte 'PDFs laden' und laden Sie eine oder mehrere PDF-Dateien hoch. ",
+                "Die App extrahiert automatisch alle Tabellen und speichert sie als Excel-Dateien in den Ordner ",
+                code("extracted_tables/"), "."
+              ),
+              tags$li(
+                strong("Tabelle auswählen:"), " Wählen Sie eine Tabelle aus der Liste in der Registerkarte 'Tabellen & Vorschau' aus."
+              ),
+              tags$li(
+                strong("Sprache und Stil:"), " Wählen Sie einen Tabellenstil (links in der Seitenleiste) und die Sprache (EN oder DE)."
+              ),
+              tags$li(
+                strong("Download:"), " Klicken Sie auf 'Aktive Tabelle (RTF)' zum Herunterladen einer einzelnen Tabelle ",
+                "oder verwenden Sie die Registerkarte 'Batch-Export' für mehrere Tabellen."
+              )
+            ),
+            
+            hr(),
+            h4("📂 Registerkarten Erklärung"),
+            
+            tags$div(style = "background:#f8f9fa; padding:12px; border-radius:4px; margin:10px 0;",
+              tags$strong("PDFs laden"),
+              p("Laden Sie eine oder mehrere PDF-Dateien hoch. Der System führt das Python-Skript ",
+                code("extract_tables.py"), " aus, um alle Tabellen automatisch zu extrahieren.")
+            ),
+            
+            tags$div(style = "background:#f8f9fa; padding:12px; border-radius:4px; margin:10px 0;",
+              tags$strong("Tabellen & Vorschau"),
+              p("Durchsuchen und wählen Sie Tabellen aus der extrahierten Liste aus. ",
+                "Eine Live-Vorschau zeigt die formatierte Tabelle mit den aktuellen Einstellungen.")
+            ),
+            
+            tags$div(style = "background:#f8f9fa; padding:12px; border-radius:4px; margin:10px 0;",
+              tags$strong("Übersetzungen"),
+              p("Zwei Unterkarten: 'Character' für Wort- und Phrasübersetzungen (Englisch → Deutsch) ",
+                "und 'Numeric' für reguläre Ausdrücke bei Zahlenformatierung (z. B. Dezimaltrennzeichen).")
+            ),
+            
+            tags$div(style = "background:#f8f9fa; padding:12px; border-radius:4px; margin:10px 0;",
+              tags$strong("Muster (Vorlagen)"),
+              p("Speichern Sie Ihre aktuellen Einstellungen (Übersetzungen, Formatierungsregeln, Stil) als ",
+                "wiederverwendbare Vorlagen für zukünftige Projekte.")
+            ),
+            
+            tags$div(style = "background:#f8f9fa; padding:12px; border-radius:4px; margin:10px 0;",
+              tags$strong("Tabellenstile"),
+              p("Erstellen Sie benutzerdefinierte Tabellenstile mit Schrift-, Farb- und Abstands-Optionen. ",
+                "Speichern Sie Stile global oder speichern Sie sie als Teil eines Musters.")
+            ),
+            
+            tags$div(style = "background:#f8f9fa; padding:12px; border-radius:4px; margin:10px 0;",
+              tags$strong("Batch-Export"),
+              p("Exportieren Sie mehrere Tabellen auf einmal als ZIP-Datei mit konsistenter Formatierung.")
+            ),
+            
+            hr(),
+            h4("⚙️ Abhängigkeiten"),
+            
+            tags$div(style = "background:#fff3cd; padding:12px; border-radius:4px; margin:10px 0;",
+              p(
+                tags$strong("Python-Pakete:"), br(),
+                "Diese App benötigt Python 3 mit den Paketen ", 
+                code("pdfplumber"), " und ", code("openpyxl"), ". ",
+                "Sie werden automatisch beim Start überprüft und installiert. "
+              )
+            ),
+            
+            tags$div(style = "background:#fff3cd; padding:12px; border-radius:4px; margin:10px 0;",
+              p(
+                tags$strong("Optional für PDF-Vergleich:"), br(),
+                "Um die Registerkarte 'PDF vs RTF' verwenden zu können, benötigen Sie:", br(),
+                code("brew install poppler"), br(),
+                "und dann in R:", br(),
+                code("install.packages(c('pdftools', 'png'))")
+              )
+            ),
+            
+            hr(),
+            h4("💡 Tipps & Tricks"),
+            tags$ul(
+              tags$li("Nutzen Sie die Suchfunktion in der Tabellenliste, um schnell Tabellen zu finden."),
+              tags$li("Speichern Sie häufig verwendete Einstellungen als Muster für wiederverwendbaren Zugriff."),
+              tags$li("Sie können Übersetzungen und Formatierungsregeln direkt in den Tabellen bearbeiten."),
+              tags$li("Der Batch-Export erzeugt eine ZIP-Datei mit allen ausgewählten Tabellen."),
+              tags$li("Muster werden im Ordner 'muster/' gespeichert und können projektübergreifend verwendet werden.")
+            ),
+            
+            hr(),
+            h4("❓ Häufig gestellte Fragen"),
+            
+            tags$div(style = "background:#e7f3ff; padding:12px; border-radius:4px; margin:10px 0;",
+              tags$strong("F: Wie lade ich eine neue PDF-Datei?"),
+              p("A: Gehen Sie zur Registerkarte 'PDFs laden', klicken Sie auf 'Datei auswählen' und wählen Sie ",
+                "eine oder mehrere PDF-Dateien. Die App extrahiert alle Tabellen automatisch.")
+            ),
+            
+            tags$div(style = "background:#e7f3ff; padding:12px; border-radius:4px; margin:10px 0;",
+              tags$strong("F: Kann ich mehrere PDFs gleichzeitig verarbeiten?"),
+              p("A: Ja! Wählen Sie einfach mehrere PDFs in der Dateiauswahl und laden Sie sie gleichzeitig hoch.")
+            ),
+            
+            tags$div(style = "background:#e7f3ff; padding:12px; border-radius:4px; margin:10px 0;",
+              tags$strong("F: Wie speichere ich meine Einstellungen?"),
+              p("A: Verwenden Sie die Registerkarte 'Muster' zur Speicherung. Klicken Sie auf 'Muster speichern' und geben Sie einen Namen ein.")
+            ),
+            
+            tags$div(style = "background:#e7f3ff; padding:12px; border-radius:4px; margin:10px 0;",
+              tags$strong("F: Was ist der Unterschied zwischen 'Aktive Tabelle' und 'Batch-Export'?"),
+              p("A: 'Aktive Tabelle' exportiert nur eine Tabelle als RTF. 'Batch-Export' erlaubt die Auswahl mehrerer ",
+                "Tabellen und erzeugt eine ZIP-Datei mit allen ausgewählten Tabellen.")
+            )
+          )
+        ),
+
+        # ── Tab 1: PDFs laden ──────────────────────────────────────────────
+        tabPanel(
+          "PDFs laden",
+          br(),
+          fluidRow(
+            column(8,
+              wellPanel(
+                div(class = "section-lbl", "PDF-Dateien hochladen"),
+                fileInput("pdf_upload", "Wählen Sie eine oder mehrere PDF-Dateien:",
+                          accept = c(".pdf"),
+                          multiple = TRUE,
+                          width = "100%"),
+                helpText(style = "font-size:11px; color:#666; margin-top:6px;",
+                         "Sie können mehrere PDFs gleichzeitig hochladen. Die Verarbeitung kann bei großen PDFs einige Zeit dauern."),
+                div(style = "margin-top:12px;",
+                  actionButton("btn_extract", "Tabellen extrahieren",
+                               icon = icon("play"),
+                               class = "btn-primary",
+                               style = "width:100%;")
+                )
+              )
+            ),
+            column(4,
+              wellPanel(
+                div(class = "section-lbl", "Verarbeitungsstatus"),
+                div(class = "info-box",
+                    verbatimTextOutput("extract_status"))
+              )
+            )
+          ),
+          br(),
+          fluidRow(
+            column(12,
+              wellPanel(
+                div(class = "section-lbl", "Extrahierte Tabellen"),
+                div(class = "info-box",
+                    verbatimTextOutput("extraction_summary"))
+              )
+            )
+          ),
+          br(),
+          fluidRow(
+            column(12,
+              wellPanel(
+                div(class = "section-lbl", "Abhängigkeitsprüfung"),
+                div(class = "info-box",
+                    htmlOutput("dependency_status"))
+              )
+            )
+          )
+        ),
+
+        # ── Tab 2: Browser + Vorschau ──────────────────────────────────────
         tabPanel(
           "Tabellen & Vorschau",
           br(),
@@ -787,7 +1247,7 @@ ui <- fluidPage(
           div(class = "preview-box", uiOutput("ft_preview"))
         ),
 
-        # ── Tab 2: Übersetzungen ───────────────────────────────────────────
+        # ── Tab 3: Übersetzungen ───────────────────────────────────────────
         tabPanel(
           "Übersetzungen",
           br(),
@@ -852,7 +1312,7 @@ ui <- fluidPage(
           )
         ),
 
-        # ── Tab 3: Muster (Pattern Templates) ──────────────────────────────
+        # ── Tab 4: Muster (Pattern Templates) ──────────────────────────────
         tabPanel(
           "Muster",
           br(),
@@ -895,7 +1355,86 @@ ui <- fluidPage(
           )
         ),
 
-        # ── Tab 4: Batch-Export ────────────────────────────────────────────
+        # ── Tab 5: Tabellenstile (Custom Styles) ──────────────────────────
+        tabPanel(
+          "Tabellenstile",
+          br(),
+          fluidRow(
+            column(12,
+              wellPanel(
+                div(class = "section-lbl", "Neuer Tabellenstil"),
+                textInput("custom_style_name", "Stilname:",
+                          placeholder = "z.B. 'Mein blauer Stil'"),
+                div(style = "margin-top:12px;",
+                  column(3,
+                    div(class = "section-lbl", "Schrift"),
+                    selectInput("cs_font_name", "Schriftart:",
+                                choices = c("Arial", "Times New Roman", "Courier", "Verdana"),
+                                selected = "Arial", width = "100%"),
+                    numericInput("cs_font_size", "Größe:", value = 9, min = 6, max = 16, step = 1, width = "100%")
+                  ),
+                  column(3,
+                    div(class = "section-lbl", "Kopfzeile"),
+                    checkboxInput("cs_header_bold", "Fett", value = TRUE),
+                    colourpicker::colourInput("cs_header_color", "Textfarbe:", value = "#ffffff", 
+                                              palette = "limited", width = "100%"),
+                    colourpicker::colourInput("cs_header_bg", "Hintergrund:", value = "#1a3a5c",
+                                              palette = "limited", width = "100%")
+                  ),
+                  column(3,
+                    div(class = "section-lbl", "Datenzellen"),
+                    colourpicker::colourInput("cs_body_bg", "Hintergrund:", value = "#ffffff",
+                                              palette = "limited", width = "100%"),
+                    checkboxInput("cs_alternating", "Wechselnde Zeilen", value = FALSE),
+                    conditionalPanel(
+                      condition = "input.cs_alternating",
+                      colourpicker::colourInput("cs_alternating_bg", "Alt. Hintergrund:", 
+                                                value = "#f0f5fb", palette = "limited", width = "100%")
+                    )
+                  ),
+                  column(3,
+                    div(class = "section-lbl", "Abstände"),
+                    numericInput("cs_padding", "Padding (pt):", value = 3, min = 1, max = 10, step = 1, width = "100%")
+                  )
+                ),
+                div(style = "margin-top:12px;",
+                  actionButton("btn_preview_custom_style", "Vorschau",
+                               icon = icon("eye"),
+                               class = "btn-info btn-sm"),
+                  actionButton("btn_save_custom_style", "Stil speichern",
+                               icon = icon("floppy-disk"),
+                               class = "btn-success btn-sm",
+                               style = "margin-left:6px;"),
+                  actionButton("btn_delete_custom_style", "Stil löschen",
+                               icon = icon("trash"),
+                               class = "btn-danger btn-sm",
+                               style = "margin-left:6px;")
+                )
+              )
+            )
+          ),
+          br(),
+          fluidRow(
+            column(12,
+              wellPanel(
+                div(class = "section-lbl", "Gespeicherte Tabellenstile"),
+                DTOutput("custom_styles_tbl")
+              )
+            )
+          ),
+          br(),
+          fluidRow(
+            column(12,
+              wellPanel(
+                div(class = "section-lbl", "Vorschau"),
+                div(class = "preview-box",
+                    uiOutput("custom_style_preview"))
+              )
+            )
+          )
+        ),
+
+        # ── Tab 6: Batch-Export ────────────────────────────────────────────
         tabPanel(
           "Batch-Export",
           br(),
@@ -903,7 +1442,7 @@ ui <- fluidPage(
             column(4,
               wellPanel(
                 div(class = "section-lbl", "Batch-Optionen"),
-                selectInput("b_style", "Stil", choices = STYLES, selected = "clinical"),
+                uiOutput("batch_style_selector_ui"),
                 radioButtons("b_lang", "Sprache",
                              choices = c("EN" = "EN", "DE" = "DE"),
                              selected = "EN", inline = TRUE),
@@ -943,6 +1482,209 @@ server <- function(input, output, session) {
 
   # Initialize patterns directory
   init_patterns_dir()
+
+  # ── Dependency Status ──────────────────────────────────────────────────────
+  output$dependency_status <- renderUI({
+    py_status <- python_env_status
+    
+    # Check R packages
+    r_check <- all(sapply(REQUIRED_R_PACKAGES, requireNamespace, quietly = TRUE))
+    
+    html_content <- ""
+    
+    # R Packages Status
+    html_content <- paste0(html_content,
+      "<strong style='color:#2c3e50;'>R-Pakete:</strong><br/>",
+      if (r_check) {
+        "<span style='color:#27ae60;'>✓ Alle erforderlich Pakete installiert</span>"
+      } else {
+        "<span style='color:#e74c3c;'>✗ Einige R-Pakete fehlen</span>"
+      }, "<br/><br/>"
+    )
+    
+    # Python Status
+    if (py_status$python_available) {
+      html_content <- paste0(html_content,
+        "<strong style='color:#2c3e50;'>Python:</strong><br/>",
+        "<span style='color:#27ae60;'>✓ Python verfügbar: ", py_status$python_version, "</span><br/>"
+      )
+      
+      if (py_status$all_packages_available) {
+        html_content <- paste0(html_content,
+          "<span style='color:#27ae60;'>✓ Alle Python-Pakete installiert:</span><br/>",
+          "   • pdfplumber<br/>",
+          "   • openpyxl<br/>"
+        )
+      } else {
+        html_content <- paste0(html_content,
+          "<span style='color:#f39c12;'>⚠ Einige Python-Pakete fehlen:</span><br/>",
+          paste0("   • ", py_status$missing_packages, "<br/>", collapse = "")
+        )
+      }
+    } else {
+      html_content <- paste0(html_content,
+        "<strong style='color:#2c3e50;'>Python:</strong><br/>",
+        "<span style='color:#e74c3c;'>✗ Python 3 nicht gefunden. Bitte installieren Sie Python 3.</span><br/>"
+      )
+    }
+    
+    # Optional pdftools
+    html_content <- paste0(html_content,
+      "<br/><strong style='color:#2c3e50;'>Optional (PDF-Vergleich):</strong><br/>",
+      if (HAS_PDFTOOLS) {
+        "<span style='color:#27ae60;'>✓ pdftools und png installiert</span>"
+      } else {
+        "<span style='color:#f39c12;'>⚠ pdftools/png nicht installiert (PDF-Vergleich deaktiviert)</span>"
+      }
+    )
+    
+    HTML(html_content)
+  })
+
+  # ── PDF Upload and Extraction ──────────────────────────────────────────────
+  extract_status_msg <- reactiveVal("Bereit für PDF-Upload")
+  extraction_summary_msg <- reactiveVal("Keine Extraktion durchgeführt")
+  
+  output$extract_status <- renderText({
+    extract_status_msg()
+  })
+  
+  output$extraction_summary <- renderText({
+    extraction_summary_msg()
+  })
+  
+  observeEvent(input$btn_extract, {
+    req(input$pdf_upload)
+    
+    # Check Python availability
+    if (!python_env_status$python_available) {
+      extract_status_msg("Fehler: Python 3 nicht verfügbar")
+      return()
+    }
+    
+    # Install missing Python packages if needed
+    if (!python_env_status$all_packages_available) {
+      extract_status_msg("Installiere fehlende Python-Pakete...")
+      tryCatch({
+        install_python_packages(python_env_status$missing_packages)
+        extract_status_msg("Python-Pakete installiert. Starte Extraktion...")
+      }, error = function(e) {
+        extract_status_msg(paste("Fehler beim Installieren von Python-Paketen:", e$message))
+        return()
+      })
+    }
+    
+    # Create temp directory for uploads
+    upload_dir <- tempfile(pattern = "pdf_upload_")
+    dir.create(upload_dir, recursive = TRUE)
+    
+    # Copy uploaded files to temp directory
+    pdf_files <- character(0)
+    for (i in seq_len(nrow(input$pdf_upload))) {
+      src <- input$pdf_upload$datapath[i]
+      dst <- file.path(upload_dir, input$pdf_upload$name[i])
+      file.copy(src, dst)
+      pdf_files <- c(pdf_files, dst)
+    }
+    
+    # Extract tables from each PDF with progress bar
+    total_tables <- 0
+    errors <- character(0)
+    n_pdfs <- length(pdf_files)
+    
+    # Use withProgress for visual feedback
+    withProgress(
+      message = "📊 Tabellen extrahieren",
+      detail = sprintf("0 / %d PDFs verarbeitet", n_pdfs),
+      value = 0,
+      {
+        for (idx in seq_along(pdf_files)) {
+          pdf_file <- pdf_files[idx]
+          pdf_name <- basename(pdf_file)
+          
+          # Update progress message
+          incProgress(
+            amount = 0,
+            detail = sprintf(
+              "(%d / %d) Datei: %s",
+              idx,
+              n_pdfs,
+              pdf_name
+            )
+          )
+          
+          # Run Python extraction script
+          tryCatch({
+            cmd_output <- system2(
+              "python3",
+              c("extract_tables.py", pdf_file, "extracted_tables"),
+              stdout = TRUE,
+              stderr = TRUE,
+              cwd = getwd()
+            )
+            
+            # Count extracted tables from output
+            table_lines <- grep("→", cmd_output, value = TRUE)
+            num_tables <- length(table_lines)
+            total_tables <- total_tables + num_tables
+            
+            # Update status message with extraction details
+            extract_status_msg(
+              sprintf(
+                "✓ %s\n  Tabellen: %d | Gesamt: %d",
+                pdf_name,
+                num_tables,
+                total_tables
+              )
+            )
+            
+          }, error = function(e) {
+            errors <<- c(errors, sprintf("%s: %s", pdf_name, e$message))
+            extract_status_msg(
+              sprintf(
+                "✗ %s\n  Fehler: %s",
+                pdf_name,
+                e$message
+              )
+            )
+          })
+          
+          # Increment progress bar
+          incProgress(
+            amount = 1 / n_pdfs,
+            detail = sprintf(
+              "(%d / %d) %d Tabelle(n) gefunden",
+              idx,
+              n_pdfs,
+              total_tables
+            )
+          )
+        }
+      }
+    )
+    
+    # Update UI with final results
+    if (length(errors) > 0L) {
+      summary_text <- sprintf(
+        "⚠️ Extraktion abgeschlossen mit Fehlern.\n\nInsgesamt %d Tabelle(n) extrahiert.\n\n🔴 Fehler:\n%s",
+        total_tables,
+        paste(errors, collapse = "\n")
+      )
+      extract_status_msg(sprintf("⚠️ %d Tabelle(n) extrahiert mit %d Fehler(n)", 
+                                 total_tables, length(errors)))
+    } else {
+      summary_text <- sprintf(
+        "✅ Extraktion erfolgreich abgeschlossen!\n\n🎉 Insgesamt %d Tabelle(n) extrahiert.\n\n📁 Ort: extracted_tables/\n\n→ Jetzt zur 'Tabellen & Vorschau' Tab wechseln um die Tabellen zu verarbeiten.",
+        total_tables
+      )
+      extract_status_msg(sprintf("✅ %d Tabelle(n) erfolgreich extrahiert", total_tables))
+    }
+    
+    extraction_summary_msg(summary_text)
+    
+    # Refresh file list
+    session$sendCustomMessage(type = 'refresh_file_list', message = list())
+  })
 
   # ── File list ─────────────────────────────────────────────────────────────
   file_df <- reactive({ get_file_list() })
@@ -1086,6 +1828,202 @@ server <- function(input, output, session) {
   # Convert formatting rules dataframe back to list format for use in build_flextable
   fmt_rules_list_rv <- reactive({ df_to_rules(fmt_rules_rv()) })
 
+  # ── Custom Styles Management ──────────────────────────────────────────────
+  custom_styles_rv <- reactiveVal(load_custom_styles())
+  custom_styles_invalidate <- reactiveVal(0)
+
+  # Dynamic style selector for main panel
+  output$style_selector_ui <- renderUI({
+    styles <- get_available_styles()
+    selectInput("style_id", label = NULL, choices = styles, selected = "clinical")
+  })
+
+  # Dynamic style selector for batch export
+  output$batch_style_selector_ui <- renderUI({
+    styles <- get_available_styles()
+    selectInput("b_style", label = NULL, choices = styles, selected = "clinical")
+  })
+
+  # Display custom styles table
+  output$custom_styles_tbl <- renderDT({
+    custom_styles_invalidate()  # Add dependency
+    df <- custom_styles_rv()
+    if (nrow(df) == 0L) {
+      return(datatable(
+        get_empty_custom_styles_df(),
+        options = list(dom = "t"),
+        colnames = c("Name", "Schriftart", "Größe", "Kopf. Fett", "Kopf. Farbe", 
+                     "Kopf. Hintergrund", "Datenzellen Hintergrund", "Wechselnde", "Alternativ", "Padding"),
+        class = "compact stripe"
+      ))
+    }
+    datatable(
+      df,
+      selection = "single",
+      rownames = FALSE,
+      options = list(pageLength = 10, scrollX = TRUE),
+      colnames = c("Name", "Schriftart", "Größe", "Kopf. Fett", "Kopf. Farbe", 
+                   "Kopf. Hintergrund", "Datenzellen Hintergrund", "Wechselnde", "Alternativ", "Padding"),
+      class = "compact stripe"
+    )
+  })
+
+  # Load selected style for editing
+  observeEvent(input$custom_styles_tbl_rows_selected, {
+    sel <- input$custom_styles_tbl_rows_selected
+    if (is.null(sel) || length(sel) == 0L) return()
+    
+    df <- custom_styles_rv()
+    if (sel > nrow(df)) return()
+    
+    row <- df[sel, ]
+    updateTextInput(session, "custom_style_name", value = row$name)
+    updateSelectInput(session, "cs_font_name", selected = row$font_name)
+    updateNumericInput(session, "cs_font_size", value = row$font_size)
+    updateCheckboxInput(session, "cs_header_bold", value = row$header_bold)
+    colourpicker::updateColourInput(session, "cs_header_color", value = row$header_color)
+    colourpicker::updateColourInput(session, "cs_header_bg", value = row$header_bg)
+    colourpicker::updateColourInput(session, "cs_body_bg", value = row$body_bg)
+    updateCheckboxInput(session, "cs_alternating", value = row$alternating_rows)
+    colourpicker::updateColourInput(session, "cs_alternating_bg", value = row$alternating_bg)
+    updateNumericInput(session, "cs_padding", value = row$padding)
+  })
+
+  # Save custom style
+  observeEvent(input$btn_save_custom_style, {
+    name <- trimws(input$custom_style_name)
+    if (!nzchar(name)) {
+      showNotification("Bitte einen Stilnamen eingeben.", type = "warning", duration = 3)
+      return()
+    }
+    
+    new_style <- data.frame(
+      name = name,
+      font_name = input$cs_font_name,
+      font_size = input$cs_font_size,
+      header_bold = input$cs_header_bold,
+      header_color = input$cs_header_color,
+      header_bg = input$cs_header_bg,
+      body_bg = input$cs_body_bg,
+      alternating_rows = input$cs_alternating,
+      alternating_bg = input$cs_alternating_bg,
+      padding = input$cs_padding,
+      stringsAsFactors = FALSE
+    )
+    
+    df <- custom_styles_rv()
+    # Check if updating existing style
+    existing_idx <- which(df$name == name)
+    if (length(existing_idx) > 0L) {
+      df[existing_idx[1L], ] <- new_style
+    } else {
+      df <- rbind(df, new_style)
+    }
+    
+    tryCatch({
+      save_custom_styles(df)
+      custom_styles_rv(df)
+      custom_styles_invalidate(custom_styles_invalidate() + 1)
+      showNotification(sprintf("Stil '%s' gespeichert.", name), type = "message", duration = 3)
+    }, error = function(e) {
+      showNotification(sprintf("Fehler beim Speichern: %s", e$message), type = "error", duration = 4)
+    })
+  })
+
+  # Delete custom style
+  observeEvent(input$btn_delete_custom_style, {
+    sel <- input$custom_styles_tbl_rows_selected
+    if (is.null(sel) || length(sel) == 0L) {
+      showNotification("Bitte einen Stil auswählen.", type = "warning", duration = 3)
+      return()
+    }
+    
+    df <- custom_styles_rv()
+    style_name <- df$name[sel]
+    
+    tryCatch({
+      if (delete_custom_style(style_name)) {
+        df <- load_custom_styles()
+        custom_styles_rv(df)
+        custom_styles_invalidate(custom_styles_invalidate() + 1)
+        showNotification(sprintf("Stil '%s' gelöscht.", style_name), type = "message", duration = 3)
+      }
+    }, error = function(e) {
+      showNotification(sprintf("Fehler beim Löschen: %s", e$message), type = "error", duration = 4)
+    })
+  })
+
+  # Preview custom style
+  output$custom_style_preview <- renderUI({
+    # Create a minimal preview table
+    preview_df <- data.frame(
+      Parameter = c("Wert 1", "Wert 2", "Wert 3"),
+      Ergebnis = c("12.5%", "25.3%", "40.8%"),
+      check.names = FALSE
+    )
+    
+    ft <- flextable::flextable(preview_df)
+    
+    # Apply custom style preview properties
+    font_nm <- if (is.null(input$cs_font_name)) "Arial" else input$cs_font_name
+    font_sz <- if (is.null(input$cs_font_size)) 9 else input$cs_font_size
+    pad     <- if (is.null(input$cs_padding)) 3 else input$cs_padding
+    pad_lr  <- pad + 1L
+    
+    ft <- flextable::font(ft, fontname = font_nm, part = "all")
+    ft <- flextable::fontsize(ft, size = font_sz, part = "all")
+    ft <- flextable::align(ft, align = "left", part = "all")
+    ft <- flextable::padding(ft, padding.top = pad, padding.bottom = pad,
+                             padding.left = pad_lr, padding.right = pad_lr, part = "all")
+    ft <- flextable::border_remove(ft)
+    
+    nc <- length(ft$col_keys)
+    if (nc >= 2L) {
+      data_j <- seq(2L, nc)
+      ft <- flextable::align(ft, j = data_j, align = "right", part = "body")
+      ft <- flextable::align(ft, j = data_j, align = "center", part = "header")
+    }
+    
+    # Header styling
+    header_bold <- if (is.null(input$cs_header_bold)) TRUE else input$cs_header_bold
+    header_color <- if (is.null(input$cs_header_color)) "#ffffff" else input$cs_header_color
+    header_bg <- if (is.null(input$cs_header_bg)) "#1a3a5c" else input$cs_header_bg
+    body_bg <- if (is.null(input$cs_body_bg)) "#ffffff" else input$cs_body_bg
+    alternating <- if (is.null(input$cs_alternating)) FALSE else input$cs_alternating
+    alternating_bg <- if (is.null(input$cs_alternating_bg)) "#f0f5fb" else input$cs_alternating_bg
+    
+    if (header_bold) {
+      ft <- flextable::bold(ft, bold = TRUE, part = "header")
+    }
+    ft <- flextable::color(ft, color = header_color, part = "header")
+    ft <- flextable::bg(ft, bg = header_bg, part = "header")
+    
+    # Body styling
+    ft <- flextable::bg(ft, bg = body_bg, part = "body")
+    
+    # Alternating rows
+    if (alternating) {
+      nr_b <- flextable::nrow_part(ft, "body")
+      if (nr_b > 0L) {
+        odd  <- seq(1L, nr_b, 2L)
+        even <- seq(2L, nr_b, 2L)
+        if (length(odd))  ft <- flextable::bg(ft, i = odd, bg = alternating_bg, part = "body")
+        if (length(even)) ft <- flextable::bg(ft, i = even, bg = body_bg, part = "body")
+      }
+    }
+    
+    ft <- flextable::set_table_properties(ft, layout = "autofit", width = 1)
+    
+    # Apply borders
+    b_thick <- fp_border(color = "#111111", width = 1.5)
+    ft <- flextable::border_remove(ft)
+    ft <- flextable::hline_top(ft, border = b_thick, part = "header")
+    ft <- flextable::hline_bottom(ft, border = b_thick, part = "header")
+    ft <- flextable::hline_bottom(ft, border = b_thick, part = "body")
+    
+    htmltools_value(ft)
+  })
+
   # ── Pattern (Muster) Management ───────────────────────────────────────────
   patterns_invalidate <- reactiveVal(0)  # Trigger for pattern list refresh
   patterns_list_rv <- reactive({
@@ -1112,7 +2050,7 @@ server <- function(input, output, session) {
     }
     
     tryCatch({
-      save_pattern(name, trans_rv(), fmt_rules_rv(), input$style_id)
+      save_pattern(name, trans_rv(), fmt_rules_rv(), input$style_id, custom_styles_rv())
       showNotification(sprintf("Muster '%s' gespeichert.", name),
                        type = "message", duration = 3)
       updateTextInput(session, "pattern_save_name", value = "")
@@ -1152,6 +2090,12 @@ server <- function(input, output, session) {
       # Load formatting rules
       if (!is.null(pattern_data$fmt_rules)) {
         fmt_rules_rv(pattern_data$fmt_rules)
+      }
+      
+      # Load custom styles
+      if (!is.null(pattern_data$custom_styles)) {
+        custom_styles_rv(pattern_data$custom_styles)
+        custom_styles_invalidate(custom_styles_invalidate() + 1)
       }
       
       showNotification(sprintf("Muster '%s' geladen.", selected),
@@ -1430,7 +2374,7 @@ server <- function(input, output, session) {
       footer    = modalButton("Schlie\u00dfen"),
 
       fluidRow(
-        column(6,
+        column(7,
           div(class = "section-lbl", "Original PDF"),
           if (has_idx) {
             div(style = "font-size:11px; color:#777; margin-bottom:6px;",
@@ -1449,9 +2393,9 @@ server <- function(input, output, session) {
             )
           },
           div(class = "cmp-panel",
-              imageOutput("cmp_pdf_img", height = "auto", width = "100%"))
+              imageOutput("cmp_pdf_img", height = "100%", width = "100%"))
         ),
-        column(6,
+        column(5,
           div(class = "section-lbl", "RTF-Vorschau"),
           div(class = "preview-box cmp-panel",
               uiOutput("cmp_rtf_preview"))
