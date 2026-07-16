@@ -1784,8 +1784,7 @@ server <- function(input, output, session) {
               "python3",
               c("extract_tables.py", pdf_file, "extracted_tables"),
               stdout = TRUE,
-              stderr = TRUE,
-              cwd = getwd()
+              stderr = TRUE
             )
             
             # Count extracted tables from output
