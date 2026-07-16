@@ -2823,13 +2823,7 @@ server <- function(input, output, session) {
       doc <- officer::read_docx()
       
       # Add title
-      title_run <- officer::run_pagebreak()
-      doc <- officer::body_add_par(doc, title, 
-                                   style = "Heading 1",
-                                   run_properties = officer::fp_text(
-                                     bold = TRUE, 
-                                     size = 24, 
-                                     color = "#1a3a5c"))
+      doc <- officer::body_add_par(doc, title, style = "Heading 1")
       
       # Add date
       doc <- officer::body_add_par(doc, 
@@ -2840,20 +2834,13 @@ server <- function(input, output, session) {
       # Add TOC if requested
       if (include_toc) {
         doc <- officer::body_add_break(doc)
-        
-        doc <- officer::body_add_par(doc, "Inhaltsverzeichnis", 
-                                     style = "Heading 2",
-                                     run_properties = officer::fp_text(
-                                       bold = TRUE, 
-                                       size = 14,
-                                       color = "#2c3e50"))
+        doc <- officer::body_add_par(doc, "Inhaltsverzeichnis", style = "Heading 2")
         doc <- officer::body_add_par(doc, "")
         
         # Add TOC entries
         for (i in seq_along(toc_entries)) {
           entry_text <- paste0(i, ". ", toc_entries[i])
-          doc <- officer::body_add_par(doc, entry_text,
-                                      style = "Normal")
+          doc <- officer::body_add_par(doc, entry_text, style = "Normal")
         }
         
         doc <- officer::body_add_break(doc)
@@ -2864,31 +2851,16 @@ server <- function(input, output, session) {
         tbl_data <- tables_data[[idx]]
         
         # Add table title/heading with bookmark indicator
-        if (include_bookmarks) {
-          title_with_bookmark <- paste0("[", idx, "] ", tbl_data$title)
-        } else {
-          title_with_bookmark <- paste0("[", idx, "] ", tbl_data$title)
-        }
-        
-        doc <- officer::body_add_par(doc, title_with_bookmark, 
-                                     style = "Heading 3",
-                                     run_properties = officer::fp_text(
-                                       bold = TRUE, 
-                                       size = 12,
-                                       color = "#2c3e50"))
+        title_with_bookmark <- paste0("[", idx, "] ", tbl_data$title)
+        doc <- officer::body_add_par(doc, title_with_bookmark, style = "Heading 3")
         
         # Add table
-        doc <- officer::body_add_flextable(doc, tbl_data$flextable)
+        doc <- flextable::body_add_flextable(doc, tbl_data$flextable)
         
         # Add extra headers if any
         if (length(tbl_data$extra_hdrs) > 0L) {
           for (eh in tbl_data$extra_hdrs) {
-            doc <- officer::body_add_par(doc, paste("*", eh), 
-                                        style = "Normal",
-                                        run_properties = officer::fp_text(
-                                          size = 9, 
-                                          italic = TRUE, 
-                                          color = "#666"))
+            doc <- officer::body_add_par(doc, paste("*", eh), style = "Normal")
           }
         }
         
@@ -2896,12 +2868,7 @@ server <- function(input, output, session) {
         if (length(tbl_data$footnotes) > 0L) {
           doc <- officer::body_add_par(doc, "")
           for (fn in tbl_data$footnotes) {
-            doc <- officer::body_add_par(doc, fn, 
-                                        style = "Normal",
-                                        run_properties = officer::fp_text(
-                                          size = 9, 
-                                          italic = TRUE, 
-                                          color = "#777"))
+            doc <- officer::body_add_par(doc, fn, style = "Normal")
           }
         }
         
